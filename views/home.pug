@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	.container
+		.col-sm-10.offset-sm-1.col-lg-6.offset-lg-3
+			.home_login_box.box.text-center
+				h1.display-2 vDispatch
+				ul.formList
+					li
+						lable Email Address
+						input(type="email", id="email").form-control
+					li
+						lable Password
+						input(type="password", id="password").form-control
+					li
+						button#loginBtn.btn.btn-default Submit
+
+	include partials/_message
+
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/login.js")

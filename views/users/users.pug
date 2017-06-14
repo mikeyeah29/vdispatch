@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-createuser
+		.container
+			h1 Users
+			.row
+				.col-xs-10.col-sm-4
+					input(type="text")
+				.col-xs-2.col-sm-2
+					.btn.btn-default Search
+						span.glyphicon.glyphicon-search
+				.col-sm-2.offset-sm-4
+					a(href="/users/create-user").btn.add#add-btn Add
+
+			table.table-striped.table.table-condensed
+				tr
+					th Staff
+					th Phone
+					th Email
+					th User Active
+				each user in users
+					tr
+						td #{user.first_name} #{user.last_name}
+						td #{user.phone}
+						td #{user.email}
+						td.actions
+							a(href=`/users/edit/${user._id}`).btn.btn-warning.edit
+							label.switch
+								if user.status
+									input(type="checkbox", data-userid=`${user._id}` checked)
+								else
+									input(type="checkbox", data-userid=`${user._id}`)
+								.slider
+							.spin
+
+	script(src="/js/functions.js")
+	script(src="/js/users/users.js")

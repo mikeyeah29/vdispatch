@@ -1,0 +1,115 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-updateuser
+		.container
+			h1 Users
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/users") Users
+				li.breadcrumb-item.active Edit User
+
+			h2 Edit User
+			.row
+				.col-sm-6.col-lg-4
+					h3 User Details
+					ul.form
+						li
+							label First Name
+							input(type="text", id="q_firstname", value=`${user.first_name}`)
+						li
+							label Last Name
+							input(type="text", id="q_lastname", value=`${user.last_name}`)
+						li
+							label(for="change_pw_toggle") Change Password?
+							input(type="checkbox", id="change_pw_toggle")
+						li.change_pw_li
+							label New Password
+							input(type="password", id="q_password")
+						li.change_pw_li
+							label Confirm New Password
+							input(type="password", id="q_password_confirm")
+						li
+							label Email
+							input(type="email", id="q_email", value=`${user.email}`)
+						li
+							label Phone
+							input(type="text", id="q_phone", value=`${user.phone}`)
+						li
+							label Address 1
+							input(type="text", id="q_address_1", value=`${user.address[0].line1}`)
+						li
+							label Address 2
+							input(type="text", id="q_address_2", value=`${user.address[0].line2}`)
+						li
+							label Suburb
+							input(type="text", id="q_suburb", value=`${user.address[0].suburb}`)
+						li
+							label Post Code
+							input(type="text", id="q_postcode", value=`${user.address[0].postcode}`)
+				.col-sm-6.col-lg-4
+					h3 Pay Details
+					ul.form
+						li
+							label Bank Name
+							input(type="text", id="q_bankname", value=`${user.payment_details[0].bank_name}`)
+						li
+							label Account Number
+							input(type="text", id="q_accountnumber", value=`${user.payment_details[0].account}`)
+						li
+							label BSB
+							input(type="text", , id="q_bsb", value=`${user.payment_details[0].bsb}`)
+						li
+							h3 Access Permissions
+							ul.checkbox_list
+								li
+									if user.permissions[0].administrator
+										input(type="checkbox", id="q_perm_administrator" checked)
+									else
+										input(type="checkbox", id="q_perm_administrator")
+									label Admin
+								li
+									if user.permissions[0].management
+										input(type="checkbox", id="q_perm_management" checked)
+									else
+										input(type="checkbox", id="q_perm_management")
+									label Management
+								li
+									if user.permissions[0].reservations
+										input(type="checkbox", id="q_perm_reservations" checked)
+									else
+										input(type="checkbox", id="q_perm_reservations")
+									label Reservations
+								li
+									if user.permissions[0].operations
+										input(type="checkbox", id="q_perm_operations" checked)
+									else
+										input(type="checkbox", id="q_perm_operations")
+									label Operations
+								li
+									if user.permissions[0].accounts
+										input(type="checkbox", id="q_perm_accounts" checked)
+									else
+										input(type="checkbox", id="q_perm_accounts")
+									label Accounts
+								li
+									if user.permissions[0].reports
+										input(type="checkbox", id="q_perm_reports" checked)
+									else
+										input(type="checkbox", id="q_perm_reports")
+									label Reports
+						li
+							h3 User Active
+							if user.status
+								input(type="checkbox" id="q_useractive" checked)
+							else
+								input(type="checkbox" id="q_useractive")
+						li
+							a.btn.btn-default#cancel-btn(href="/users") Cancel
+							.btn.btn-default#update-btn(data-userid=`${user._id}`) Save
+
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/users/update_user.js")

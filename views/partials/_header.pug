@@ -1,0 +1,60 @@
+header.color-2-bg.clearfix
+	.container
+		a(href="/").white-txt.brand vDispatch
+		ul.nav
+			if user.permissions[0].administrator
+				li 
+					.dropdown
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Admin
+						.dropdown-menu(aria-labelledby="dropdownMenuLink")
+							a(href="/users").dropdown-item Users
+							a(href="").dropdown-item Flights
+							a(href="").dropdown-item Pricing Variables
+
+			if user.permissions[0].management
+				li 
+					.dropdown
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Managment
+						.dropdown-menu(aria-labelledby="dropdownMenuLink")
+							a(href="").dropdown-item Accounts
+							a(href="").dropdown-item Drivers
+							a(href="").dropdown-item Vehicles
+							a(href="").dropdown-item SIC Runs
+							a(href="").dropdown-item Pricing
+			
+			if user.permissions[0].reservations
+				li 
+					.dropdown
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Reservations
+						.dropdown-menu(aria-labelledby="dropdownMenuLink")
+							a(href="").dropdown-item Quote
+							a(href="").dropdown-item Booking
+							a(href="").dropdown-item Search
+							a(href="").dropdown-item Checking
+			
+			if user.permissions[0].operations
+				li 
+					.dropdown
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Operations
+						.dropdown-menu(aria-labelledby="dropdownMenuLink")
+							a(href="").dropdown-item Dispatch
+							a(href="").dropdown-item Allocations
+							a(href="").dropdown-item Flight Times
+							a(href="").dropdown-item Runsheets
+			
+			if user.permissions[0].accounts
+				li 
+					.dropdown
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Accounts
+						.dropdown-menu(aria-labelledby="dropdownMenuLink")
+							a(href="").dropdown-item Invoicing
+							a(href="").dropdown-item Export
+			if user.permissions[0].reports
+				li 
+					a(href="").white-txt Reports
+			li 
+				a(href="").white-txt Contacts
+			li 
+				a(href="/logout").white-txt Log Out
+.container
+	p Hello, #{user.first_name} #{user.last_name}

@@ -1,0 +1,91 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-createuser
+		.container
+			h1 Users
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/users") Users
+				li.breadcrumb-item.active Create User
+
+			h2 Create User
+			.row
+				.col-sm-6.col-lg-4
+					h3 User Details
+					ul.form
+						li
+							label First Name
+							input(type="text", id="q_firstname")
+						li
+							label Last Name
+							input(type="text", id="q_lastname")
+						li
+							label Password
+							input(type="password", id="q_password")
+						li
+							label Confirm Password
+							input(type="password", id="q_password_confirm")
+						li
+							label Email
+							input(type="email", id="q_email")
+						li
+							label Phone
+							input(type="text", id="q_phone")
+						li
+							label Address 1
+							input(type="text", id="q_address_1")
+						li
+							label Address 2
+							input(type="text", id="q_address_2")
+						li
+							label Suburb
+							input(type="text", id="q_suburb")
+						li
+							label Post Code
+							input(type="text", id="q_postcode")
+				.col-sm-6.col-lg-4
+					h3 Pay Details
+					ul.form
+						li
+							label Bank Name
+							input(type="text", id="q_bankname")
+						li
+							label Account Number
+							input(type="text", id="q_accountnumber")
+						li
+							label BSB
+							input(type="text", , id="q_bsb")
+						li
+							h3 Access Permissions
+							ul.checkbox_list
+								li
+									input(type="checkbox", id="q_perm_administrator")
+									label Admin
+								li
+									input(type="checkbox", id="q_perm_management")
+									label Management
+								li
+									input(type="checkbox", id="q_perm_reservations")
+									label Reservations
+								li
+									input(type="checkbox", id="q_perm_operations")
+									label Operations
+								li
+									input(type="checkbox", id="q_perm_accounts")
+									label Accounts
+								li
+									input(type="checkbox", id="q_perm_reports")
+									label Reports
+						li
+							h3 User Active
+							input(type="checkbox" id="q_useractive")
+						li
+							.btn.btn-default#cancel-btn Cancel
+							.btn.btn-default#save-btn Save
+
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/users/create_user.js")

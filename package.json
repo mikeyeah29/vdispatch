@@ -1,0 +1,36 @@
+{
+  "name": "vdispatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyeah29/vdispatch.git"
+  },
+  "author": "Mike Rockett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyeah29/vdispatch/issues"
+  },
+  "homepage": "https://github.com/mikeyeah29/vdispatch#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "connect-mongo": "^1.3.2",
+    "express": "^4.15.2",
+    "express-session": "^1.15.3",
+    "mongoose": "^4.10.1",
+    "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "morgan": "^1.8.1"
+  }
+}

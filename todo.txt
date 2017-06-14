@@ -1,0 +1,25 @@
+
+/***************************/
+
+	ADMIN
+
+/***************************/
+
+USERS
+	- change user active status on users page
+
+FLIGHTS
+    - set up routes
+    - front end layout
+    - restrict access
+
+PRICING VARIABLES
+    - set up routes
+    - front end layout
+    - restrict access
+
+/***************************/
+
+	MANAGMENT
+
+/***************************/
