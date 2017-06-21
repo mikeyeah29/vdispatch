@@ -237,6 +237,17 @@ input.invalid {
     border: solid 1px #da1a1a;
 }
 
+/* General Form Elements */
+
+.input-group {
+
+}
+
+.tbl_list input[type="number"] {
+  width: 80px;
+  text-align: center;
+}
+
 /* Message Box */
 
 #message_box {

@@ -63,7 +63,7 @@
 			validation: ''	
 		},
 		{
-			id: 'q_perm_admin',
+			id: 'q_perm_administrator',
 			validation: 'none'	
 		},
 		{

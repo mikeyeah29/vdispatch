@@ -6,14 +6,9 @@
 /***************************/
 
 USERS
-	- change user active status on users page
+	DONE - change user active status on users page
 
 FLIGHTS
-    - set up routes
-    - front end layout
-    - restrict access
-
-PRICING VARIABLES
     - set up routes
     - front end layout
     - restrict access
@@ -23,3 +18,39 @@ PRICING VARIABLES
 	MANAGMENT
 
 /***************************/
+
+ACCOUNTS
+    - restrict access#
+    - setup routes
+    - create model
+    - pug templates
+    - api (crud)
+
+DRIVERS
+    - restrict access#
+    - setup routes
+    - create model
+    - pug templates
+    - api (crud)
+
+/***************************/
+
+    RESERVATIONS
+
+/***************************/
+
+BOOKINGS
+    - restrict access#
+    - setup routes
+    - create model
+    - pug templates
+    - api (crud)
+
+///////////////////////////////////////////////////////////
+	
+	consider later....
+
+///////////////////////////////////////////////////////////
+
+- Flights
+- SIC Runs

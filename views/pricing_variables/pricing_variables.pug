@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-pricingvariables
+		.container
+			h1 Pricing Variables
+			ol.breadcrumb
+				li.breadcrumb-item.active Pricing Variables
+			table.table-striped.table.table-condensed.tbl_list
+				tr
+					th VARIABLE
+					th CURRENT PRICE
+					th UPDATE PRICE
+					th
+				each pvar in pvars
+					tr
+						td #{pvar.name}
+						td $#{pvar.price} / #{pvar.unit}
+						td 
+							.input-group
+								span.input-group-addon $
+								input(type="number", min="0")
+						td
+							.btn.btn-warning.btnUpdate Update
+							.spin
+
+		script(src="/js/functions.js")
+		script(src="/js/pvars.js")

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.js').User;
 const helper = require('../helpers/main.js');
 
-const expect = require('chai').expect;
+// const expect = require('chai').expect;
 
 const routePermission = 'administrator';
 
@@ -58,6 +58,7 @@ users.post('/create-user', function(req, res, next){
 	response.success = 0;
 
 	if(req.session.permissions[0][routePermission] == false){
+		response.error = 'Invalid Permissions';
 		return res.send(response);
 	}
 
@@ -170,6 +171,9 @@ users.post('/create-user', function(req, res, next){
 	}
 
 	// otherwise all is good so create user...
+
+	// console.log('ADMIN: ', req.body.q_perm_administrator);
+	// console.log('MANAG: ', req.body.q_perm_management);
 
 	const userData = {
 		created_at: new Date(),

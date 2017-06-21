@@ -12,6 +12,8 @@ const mid = require('./middlewares/index');
 
 const userRoutes = require('./controllers/users.js');
 const homeRoutes = require('./controllers/home.js');
+const pricingVariableRoutes = require('./controllers/pricing_variables.js');
+const accountsRoutes = require('./controllers/accounts.js');
 
 // const mid = require('./middlewares/index');
 // const pricingVariableRoutes = require('./controllers/pricing_variables.js');
@@ -42,7 +44,10 @@ db.once("open", function(){
 app.use(session({
 	secret: 'things and stuff',
 	resave: true,
-	saveUninitialized: false
+	saveUninitialized: false,
+	store: new MongoStore({
+		mongooseConnection: db
+	})
 }));
 
 app.use(function(req, res, next){
@@ -55,7 +60,8 @@ app.use(function(req, res, next){
 app.use('/', homeRoutes);
 
 app.use('/users', mid.requiresLogin, userRoutes);
-// app.use('/pricing_variables', pricingVariableRoutes);
+app.use('/pricing_variables', mid.requiresLogin, pricingVariableRoutes);
+app.use('/accounts', mid.requiresLogin, accountsRoutes);
 
 
 
