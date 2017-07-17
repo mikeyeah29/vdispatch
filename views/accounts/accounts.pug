@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accounts
+		.container
+			h1 Accounts
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/accounts/overview") Accounts Overview
+				li.breadcrumb-item.active View All Accounts
+			ul.actions_bar
+				li
+					.search_group
+						input(type="text", id="q_search")
+						.btn.btn-search Search
+				li
+					.input-group
+						label Categories
+						select#q_categories
+							option(value="") All
+							each cat in accountCats
+								option(value=`${cat.name}`) #{cat.name}
+				li
+					.input-group
+						label Rates
+						select#q_rates
+							option(value="") All
+							each rs in ratesheets
+								option(value=`${rs.name}`) #{rs.name}
+				li.right
+					a(href="/accounts/create-account").btn.btn-default Add New Account
+			table.table-striped.table.table-condensed
+				tr
+					th Look-up
+					th Phone
+					th Email
+					th Parent AC
+					th Rate
+					th
+				each account in accounts
+					tr
+						td #{account.lookup}
+						td #{account.contact_details[0].primary_phone}
+						td #{account.contact_details[0].primary_email}
+						td #{account.parent_account}
+						td #{account.pricing[0].current_ratesheet}
+						td.actions
+							a(href=`/accounts/edit/${account._id}`).btn.btn-warning.edit
+							label.switch
+								if account.status
+									input(type="checkbox", data-itemid=`${account._id}` checked)
+								else
+									input(type="checkbox", data-itemid=`${account._id}`)
+								.slider
+							.spin
+
+	script(src="/js/functions.js")
+	script(src="/js/accounts/accounts.js")

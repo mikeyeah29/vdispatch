@@ -1,0 +1,82 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-ratesheets(data-error=`${error}`, data-success=`${success}`)
+		.container
+			h1 #{rate.name}
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/ratesheets") All Rate Sheets
+				li.breadcrumb-item.active #{rate.name}
+			form(action="/ratesheets/update", method="POST", encType="multipart/form-data")
+				ul.actions_bar
+					li.right
+						label(for="new_rate_sheet") Upload New Rate Sheet
+						input(type="hidden", name="ratesheetid" value=`${rate._id}`)
+						input(type="file", name="ratesheet")#new_rate_sheet
+						button.btn.add(disabled) Update Rates for #{rate.name}
+			.ratesheet
+				h2 from / to Cairns APT or CBD
+				table.table-striped.table.table-condensed
+					tr
+						th Zone
+						th Suburb
+						th Sedan
+						th People Mover
+						th Minibus
+						th Coaster
+						th Stretch
+					each item in rate.C1
+						tr
+							td #{item.Zone}
+							td #{item.Suburb}
+							td #{item.Sedan}
+							td #{item.PeopleMover}
+							td #{item.Minibus}
+							td #{item.Coaster}
+							td #{item.Stretch}
+
+				h2 from / to Palm Cove
+				table.table-striped.table.table-condensed
+					tr
+						th Zone
+						th Suburb
+						th Sedan
+						th People Mover
+						th Minibus
+						th Coaster
+						th Stretch
+					each item in rate.N4
+						tr
+							td #{item.Zone}
+							td #{item.Suburb}
+							td #{item.Sedan}
+							td #{item.PeopleMover}
+							td #{item.Minibus}
+							td #{item.Coaster}
+							td #{item.Stretch}
+
+				h2 from / to Palm Cove
+				table.table-striped.table.table-condensed
+					tr
+						th Zone
+						th Suburb
+						th Sedan
+						th People Mover
+						th Minibus
+						th Coaster
+						th Stretch
+					each item in rate.N5
+						tr
+							td #{item.Zone}
+							td #{item.Suburb}
+							td #{item.Sedan}
+							td #{item.PeopleMover}
+							td #{item.Minibus}
+							td #{item.Coaster}
+							td #{item.Stretch}
+
+	script(src="/js/functions.js")
+	script(src="/js/ratesheets/ratesheets.js")

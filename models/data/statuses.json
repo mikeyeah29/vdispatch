@@ -1,0 +1,44 @@
+[
+ {
+   "status": "Rejected",
+   "dispatch_code": "REJ",
+   "colour": "ed9a9a",
+   "description": "Needs Actioning"
+ },
+ {
+   "status": "Confirmed",
+   "dispatch_code": "CNF",
+   "colour": "ffffff",
+   "description": "Unallocated Bookings"
+ },
+ {
+   "status": "Allocated",
+   "dispatch_code": "ALL",
+   "colour": "8fcaf7",
+   "description": "Allocated Bookings"
+ },
+ {
+   "status": "Completed",
+   "dispatch_code": "COM",
+   "colour": "c5e0a6",
+   "description": "Completed Bookings"
+ },
+ {
+   "status": "Cancelled",
+   "dispatch_code": "XXL",
+   "colour": "b0b0b0",
+   "description": "Cancelled Bookings"
+ },
+ {
+   "status": "Invoiced",
+   "dispatch_code": "INV",
+   "colour": "dea6e0",
+   "description": "Invoiced Bookings"
+ },
+ {
+   "status": "Exported",
+   "dispatch_code": "EXP",
+   "colour": "dea6e0",
+   "description": "Bookings Exported to MYOB"
+ }
+]

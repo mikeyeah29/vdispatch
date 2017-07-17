@@ -1,6 +1,6 @@
 header.color-2-bg.clearfix
 	.container
-		a(href="/").white-txt.brand vDispatch
+		a(href="/").brand vDispatch
 		ul.nav
 			if user.permissions[0].administrator
 				li 
@@ -8,29 +8,27 @@ header.color-2-bg.clearfix
 						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Admin
 						.dropdown-menu(aria-labelledby="dropdownMenuLink")
 							a(href="/users").dropdown-item Users
-							a(href="").dropdown-item Flights
+							a(href="/flights").dropdown-item Flights
 							a(href="/pricing_variables").dropdown-item Pricing Variables
+							a(href="/ratesheets").dropdown-item Rate Sheets
 
 			if user.permissions[0].management
 				li 
 					.dropdown
-						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Managment
+						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle Managment
 						.dropdown-menu(aria-labelledby="dropdownMenuLink")
-							a(href="").dropdown-item Accounts
-							a(href="").dropdown-item Drivers
-							a(href="").dropdown-item Vehicles
+							a(href="/accounts/overview").dropdown-item Accounts
+							a(href="/drivers").dropdown-item Drivers
+							a(href="/vehicles").dropdown-item Vehicles
 							a(href="").dropdown-item SIC Runs
-							a(href="").dropdown-item Pricing
 			
 			if user.permissions[0].reservations
 				li 
 					.dropdown
 						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Reservations
 						.dropdown-menu(aria-labelledby="dropdownMenuLink")
-							a(href="").dropdown-item Quote
 							a(href="").dropdown-item Booking
 							a(href="").dropdown-item Search
-							a(href="").dropdown-item Checking
 			
 			if user.permissions[0].operations
 				li 

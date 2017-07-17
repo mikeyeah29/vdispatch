@@ -1,4 +1,18 @@
 
+/***************************
+
+    GENERAL
+
+****************************/
+
+- relevent data json (30 mins)
+    - zones + locations
+    - zone transfers
+- search ability on all item list pages    (1 hour)
+- load more results (limit to 30 per page) (30 mins)
+- DESIGN (20 mins)
+    - icons (search etc) 20 mins
+
 /***************************/
 
 	ADMIN
@@ -6,7 +20,8 @@
 /***************************/
 
 USERS
-	DONE - change user active status on users page
+
+RATESHEETS
 
 FLIGHTS
     - set up routes
@@ -20,18 +35,21 @@ FLIGHTS
 /***************************/
 
 ACCOUNTS
-    - restrict access#
-    - setup routes
-    - create model
-    - pug templates
-    - api (crud)
+
+    - overview
+        - populate overview table
 
 DRIVERS
-    - restrict access#
-    - setup routes
-    - create model
-    - pug templates
-    - api (crud)
+    - all drivers
+    - create driver
+    - update driver
+    - calander (use populate to get driver info) https://jaketrent.com/post/mongoose-population/
+        - add absence
+        - update absence
+        - remove absence
+
+VEHICLES
+
 
 /***************************/
 
@@ -45,6 +63,15 @@ BOOKINGS
     - create model
     - pug templates
     - api (crud)
+
+POST MAN TESTING WHEN THE FOLLOWING IS COMPLETE....
+    - Users
+    - Pricing varables
+    - Accounts
+    - Bookings
+    - Drivers
+    - Vechicles
+    - Ratesheets
 
 ///////////////////////////////////////////////////////////
 	

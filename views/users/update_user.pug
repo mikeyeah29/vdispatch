@@ -18,10 +18,10 @@ block content
 					ul.form
 						li
 							label First Name
-							input(type="text", id="q_firstname", value=`${user.first_name}`)
+							input(type="text", id="q_firstname", value=`${user_edit.first_name}`)
 						li
 							label Last Name
-							input(type="text", id="q_lastname", value=`${user.last_name}`)
+							input(type="text", id="q_lastname", value=`${user_edit.last_name}`)
 						li
 							label(for="change_pw_toggle") Change Password?
 							input(type="checkbox", id="change_pw_toggle")
@@ -33,82 +33,81 @@ block content
 							input(type="password", id="q_password_confirm")
 						li
 							label Email
-							input(type="email", id="q_email", value=`${user.email}`)
+							input(type="email", id="q_email", value=`${user_edit.email}`)
 						li
 							label Phone
-							input(type="text", id="q_phone", value=`${user.phone}`)
+							input(type="text", id="q_phone", value=`${user_edit.phone}`)
 						li
 							label Address 1
-							input(type="text", id="q_address_1", value=`${user.address[0].line1}`)
+							input(type="text", id="q_address_1", value=`${user_edit.address[0].line1}`)
 						li
 							label Address 2
-							input(type="text", id="q_address_2", value=`${user.address[0].line2}`)
+							input(type="text", id="q_address_2", value=`${user_edit.address[0].line2}`)
 						li
 							label Suburb
-							input(type="text", id="q_suburb", value=`${user.address[0].suburb}`)
+							input(type="text", id="q_suburb", value=`${user_edit.address[0].suburb}`)
 						li
 							label Post Code
-							input(type="text", id="q_postcode", value=`${user.address[0].postcode}`)
+							input(type="text", id="q_postcode", value=`${user_edit.address[0].postcode}`)
 				.col-sm-6.col-lg-4
 					h3 Pay Details
 					ul.form
 						li
 							label Bank Name
-							input(type="text", id="q_bankname", value=`${user.payment_details[0].bank_name}`)
+							input(type="text", id="q_bankname", value=`${user_edit.payment_details[0].bank_name}`)
 						li
 							label Account Number
-							input(type="text", id="q_accountnumber", value=`${user.payment_details[0].account}`)
+							input(type="text", id="q_accountnumber", value=`${user_edit.payment_details[0].account}`)
 						li
 							label BSB
-							input(type="text", , id="q_bsb", value=`${user.payment_details[0].bsb}`)
+							input(type="text", , id="q_bsb", value=`${user_edit.payment_details[0].bsb}`)
 						li
 							h3 Access Permissions
 							ul.checkbox_list
 								li
-									if user.permissions[0].administrator
+									if user_edit.permissions[0].administrator
 										input(type="checkbox", id="q_perm_administrator" checked)
 									else
 										input(type="checkbox", id="q_perm_administrator")
 									label Admin
 								li
-									if user.permissions[0].management
+									if user_edit.permissions[0].management
 										input(type="checkbox", id="q_perm_management" checked)
 									else
 										input(type="checkbox", id="q_perm_management")
 									label Management
 								li
-									if user.permissions[0].reservations
+									if user_edit.permissions[0].reservations
 										input(type="checkbox", id="q_perm_reservations" checked)
 									else
 										input(type="checkbox", id="q_perm_reservations")
 									label Reservations
 								li
-									if user.permissions[0].operations
+									if user_edit.permissions[0].operations
 										input(type="checkbox", id="q_perm_operations" checked)
 									else
 										input(type="checkbox", id="q_perm_operations")
 									label Operations
 								li
-									if user.permissions[0].accounts
+									if user_edit.permissions[0].accounts
 										input(type="checkbox", id="q_perm_accounts" checked)
 									else
 										input(type="checkbox", id="q_perm_accounts")
 									label Accounts
 								li
-									if user.permissions[0].reports
+									if user_edit.permissions[0].reports
 										input(type="checkbox", id="q_perm_reports" checked)
 									else
 										input(type="checkbox", id="q_perm_reports")
 									label Reports
 						li
 							h3 User Active
-							if user.status
+							if user_edit.status
 								input(type="checkbox" id="q_useractive" checked)
 							else
 								input(type="checkbox" id="q_useractive")
 						li
-							a.btn.btn-default#cancel-btn(href="/users") Cancel
-							.btn.btn-default#update-btn(data-userid=`${user._id}`) Save
+							.btn.btn-default#update-btn(data-userid=`${user_edit._id}`) Save
 
 	script(src="/js/functions.js")
 	script(src="/js/form.js")

@@ -7,17 +7,22 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const config = require('./config.json');
 const MongoStore = require('connect-mongo')(session);
+const fileUpload = require('express-fileupload');
 
 const mid = require('./middlewares/index');
 
 const userRoutes = require('./controllers/users.js');
 const homeRoutes = require('./controllers/home.js');
+const apiRoutes = require('./controllers/api.js');
 const pricingVariableRoutes = require('./controllers/pricing_variables.js');
+const rateSheetRoutes = require('./controllers/ratesheets.js');
 const accountsRoutes = require('./controllers/accounts.js');
+const driverRoutes = require('./controllers/drivers.js');
 
 // const mid = require('./middlewares/index');
 // const pricingVariableRoutes = require('./controllers/pricing_variables.js');
 
+app.use(fileUpload());
 app.use(logger("dev"));
 // app.use(jsonParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -58,12 +63,14 @@ app.use(function(req, res, next){
 // routes / controllers
 
 app.use('/', homeRoutes);
+app.use('/api', apiRoutes);
 
 app.use('/users', mid.requiresLogin, userRoutes);
 app.use('/pricing_variables', mid.requiresLogin, pricingVariableRoutes);
+app.use('/ratesheets', mid.requiresLogin, rateSheetRoutes);
+
 app.use('/accounts', mid.requiresLogin, accountsRoutes);
-
-
+app.use('/drivers', mid.requiresLogin, driverRoutes);
 
 // catch 404 error and forward to handler
 app.use(function(req, res, next){
@@ -82,6 +89,9 @@ app.use(function(err, req, res, next){
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, function(){
+var server = app.listen(port, function(){
 	console.log('listening on port ', port);
+	// done();
 });
+
+module.exports = server;

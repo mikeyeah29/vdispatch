@@ -18,7 +18,7 @@ users.get('/', function(req, res, next){
 
 	User.findById(req.session.userId).exec(function(err, user){
 
-		User.find({}).sort({created_at: -1}).exec(function(err, users){
+		User.find({}).limit(30).sort({created_at: -1}).exec(function(err, users){
 		
 			if(err){
 				return next(err);
@@ -227,17 +227,26 @@ users.get('/edit/:userId', function(req, res, next){
 
 	const userId = req.params.userId;
 
-	User.findById(userId).exec(function(err, user){
-		
+	User.findById(req.session.userId).exec(function(err, user){
+
 		if(err){
 			return next(err);
 		}
 
-		res.render('users/update_user', {
-			title: 'Edit User',
-			user: user
+		User.findById(userId).exec(function(err, user_edit){
+		
+			if(err){
+				return next(err);
+			}
+
+			res.render('users/update_user', {
+				title: 'Edit User',
+				user: user,
+				user_edit: user_edit 
+			});
+		
 		});
-	
+		
 	});
 
 });
@@ -376,12 +385,17 @@ users.post('/update_user_status', function(req, res, next){
             	status: req.body.status
             }
         },
-        function(err, affected, resp){
+        function(err, affected){
             if(err){
                 response.error = err;
                 res.send(response);
             }else{
                 
+            	if(affected.n < 1){
+            		response.error = 'User could not be updated';
+                	return res.send(response);
+            	}
+
             	response.success = '1';
             	if(req.body.status == 'true'){
             		response.successMsg = 'User Activated';

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accountsoverview
+		.container
+			h1 Accounts
+			ul.actions_bar
+				li
+					.search_group
+						input(type="text", id="q_search")
+						.btn.btn-search Search
+				li
+					a(href="/accounts").btn.btn-blue View All Accounts
+				li.right
+					a(href="/accounts/create-account").btn.add.btn-default Add New Account
+			.row
+				.col-sm-6
+					.panel
+						.panel-heading 
+							h3 Accounts Activity
+						.panel-body
+							table
+								tr
+									th Account
+									th Private
+									th Shuttle
+									th TOTAL		

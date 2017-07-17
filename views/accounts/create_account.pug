@@ -1,0 +1,117 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accountsoverview
+		.container
+			h1 Accounts
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/accounts/overview") Accounts Overview
+				li.breadcrumb-item.active Create Account
+			.row
+				.col-sm-4
+					ul.list.form
+						li
+							label Full Company Name
+							input(type="text")#q_full_company_name
+						li
+							label Company ABN
+							input(type="text")#q_company_abn
+						li
+							label Look-up Name
+							input(type="text")#q_lookup_name
+						li
+							label Parent Account
+							select#q_parent_account
+								option(value="") - 
+								each pAccount in parantAccounts
+									option(value=`${pAccount.lookup}`) #{pAccount.lookup}
+						li
+							label Account Category
+							select#q_account_category
+								each cat in accountCats
+									option(value=`${cat.name}`) #{cat.name}
+						li
+							label Address 1
+							input(type="text")#q_address_1
+						li
+							label Address 2
+							input(type="text")#q_address_2
+						li
+							label Suburb
+							input(type="text")#q_suburb
+						li
+							label Postcode
+							input(type="text")#q_postcode
+				.col-sm-4
+					ul.list.form
+						li
+							label Primary Phone
+							input(type="text")#q_primary_phone
+						li
+							label Primary Email
+							input(type="text")#q_primary_email
+						li
+							label Confirmation Phone
+							input(type="text")#q_confirmation_phone
+						li
+							label Confirmation Email
+							input(type="text")#q_confirmation_email
+						li
+							label Accounts Phone
+							input(type="text")#q_accounts_phone
+						li
+							label Accounts Email
+							input(type="text")#q_accounts_email
+				.col-sm-4
+					ul.list.form
+						li
+							label.break Booking Note
+							textarea#q_booking_note
+						li
+							label.break Office Note
+							textarea#q_office_note
+						li
+							label.break Driver Note
+							textarea#q_driver_note
+						li
+							label Ratesheet
+							select#q_current_ratesheet
+								option(value="") - 
+								each rs in ratesheets
+									option(value=`${rs.name}`) #{rs.name}
+							li
+								label.break Cancellation Period
+								input(type="number")#q_cancellation_period
+						li
+							label.switch
+								input(type="checkbox")#q_after_hours
+								.slider
+							label.switch_label After Hours
+						li
+							label.switch
+								input(type="checkbox")#q_airport_fee
+								.slider
+							label.switch_label Airport Fee
+						li
+							label.break Invoice Cycle
+							input(type="number")#q_invoice_cycle
+						li
+							label.switch
+								input(type="checkbox")#q_stop_credit
+								.slider
+							label.switch_label Stop Credit
+						li
+							label.switch
+								input(type="checkbox")#q_status
+								.slider
+							label.switch_label Active
+						li
+							.btn.btn-default#save-btn Submit
+
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/accounts/create_account.js")

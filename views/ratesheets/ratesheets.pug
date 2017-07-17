@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-ratesheets(data-error=`${error}`, data-success=`${success}`)
+		.container
+			h1 Rate Sheets
+			form(action="/ratesheets", method="POST", encType="multipart/form-data")
+				ul.actions_bar
+					li
+						.search_group
+							input(type="text", id="q_search")
+							.btn.btn-search Search
+					li.right
+						label(for="new_rate_sheet") Upload New Rate Sheet
+						input(type="file", name="ratesheet")#new_rate_sheet
+						button.btn.add(disabled) Add Rate Sheet
+
+			table.table-striped.table.table-condensed
+				tr
+					th Name
+					th Code
+					th Dicount
+					th
+				each rate in rates
+					tr
+						td #{rate.name}
+						td #{rate.ratecode}
+						td #{rate.discount_percent}%
+						td.actions.right
+							a(href=`/ratesheets/update/${rate._id}`).btn.btn-update View Rate Sheet
+			//- if rs
+			//- 	each rate in rs
+			//- 		ul
+			//- 			li #{rate.Zone} | #{rate.Suburb} | #{rate.Sedan} | #{rate.PeopleMover} | #{rate.Minibus} | #{rate.Coaster} | #{rate.Stretch}
+
+	script(src="/js/functions.js")
+	script(src="/js/ratesheets/ratesheets.js")

@@ -1,6 +1,6 @@
 
-var expect = require('chai').expect;
+// var expect = require('chai').expect;
 
-describe('hasPermission', function(){
+// describe('hasPermission', function(){
 	
-}
+// }

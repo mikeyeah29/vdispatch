@@ -29,8 +29,6 @@ PricingVariables.find({}).exec(function(err, pvars){
                 console.log('Err ', err);
             });
 
-    }else{
-        console.log('pvars ', pvars);
     }
 
 });

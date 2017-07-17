@@ -1,10 +1,13 @@
 'use strict';
 
 const express = require('express');
-const booking = express.Router();
+const bookings = express.Router();
 const User = require('../models/user.js').User;
+const Booking = require('../models/booking.js').Booking;
 const helper = require('../helpers/main.js');
 
 const routePermission = 'reservations';
 
-module.exports = booking;
+
+
+module.exports = bookings;

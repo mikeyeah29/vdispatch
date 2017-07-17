@@ -1,16 +1,22 @@
+// CSV
 
-// function hasPermission(userId, permission){
+// function createZoneObjs(objArray){
 
-// 	if(user == '' || user == undefined){
-// 		return false;
-// 	}
+// 	var newObjArray = [];
 
-// 	if(user.permissions[permission] == true){
-// 		return true;
-// 	}
+// 	for(i=0; i<objArray.length; i++){
 
-// 	return false;
+//         var obj = objArray[i];
+//         var newObj = {};
 
-// } 
+        
 
-// exports.hasPermission = hasPermission;
+//         newObjArray.push(newObj);
+        
+//     }
+
+//     return newObjArray;
+
+// }
+
+// module.exports.createZoneObjs = createZoneObjs;

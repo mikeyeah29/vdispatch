@@ -1,0 +1,138 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accountsoverview
+		.container
+			h1 Accounts
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/accounts/overview") Accounts Overview
+				li.breadcrumb-item.active Edit Account
+			.row
+				.col-sm-4
+					ul.list.form
+						li
+							label Full Company Name
+							input(type="text", value=`${account.name}`)#q_full_company_name
+						li
+							label Company ABN
+							input(type="text", value=`${account.abn}`)#q_company_abn
+						li
+							label Look-up Name
+							input(type="text", value=`${account.lookup}`)#q_lookup_name
+						li
+							label Parent Account
+							select#q_parent_account
+								option(value="") - 
+								each pAccount in parantAccounts
+									if account.parent_account == pAccount.lookup
+										option(value=`${pAccount.lookup}`, selected) #{pAccount.lookup}
+									else
+										option(value=`${pAccount.lookup}`) #{pAccount.lookup}
+						li
+							label Account Category
+							select#q_account_category
+								each cat in accountCats
+									if cat.selected
+										option(value=`${cat.name}`, selected) #{cat.name}
+									else
+										option(value=`${cat.name}`) #{cat.name}
+						li
+							label Address 1
+							input(type="text", value=`${account.address[0].line1}`)#q_address_1
+						li
+							label Address 2
+							input(type="text", value=`${account.address[0].line2}`)#q_address_2
+						li
+							label Suburb
+							input(type="text", value=`${account.address[0].suburb}`)#q_suburb
+						li
+							label Postcode
+							input(type="text", value=`${account.address[0].postcode}`)#q_postcode
+				.col-sm-4
+					ul.list.form
+						li
+							label Primary Phone
+							input(type="text", value=`${account.contact_details[0].primary_phone}`)#q_primary_phone
+						li
+							label Primary Email
+							input(type="text", value=`${account.contact_details[0].primary_email}`)#q_primary_email
+						li
+							label Confirmation Phone
+							input(type="text", value=`${account.contact_details[0].confirmation_phone}`)#q_confirmation_phone
+						li
+							label Confirmation Email
+							input(type="text", value=`${account.contact_details[0].confirmation_email}`)#q_confirmation_email
+						li
+							label Accounts Phone
+							input(type="text", value=`${account.contact_details[0].accounts_phone}`)#q_accounts_phone
+						li
+							label Accounts Email
+							input(type="text", value=`${account.contact_details[0].accounts_email}`)#q_accounts_email
+				.col-sm-4
+					ul.list.form
+						li
+							label.break Booking Note
+							textarea#q_booking_note #{account.default_notes[0].booking_note}
+						li
+							label.break Office Note
+							textarea#q_office_note #{account.default_notes[0].office_note}
+						li
+							label.break Driver Note
+							textarea#q_driver_note #{account.default_notes[0].driver_note}
+						li
+							label Ratesheet
+							select#q_current_ratesheet
+								option(value="") - 
+								each rs in ratesheets
+									if account.pricing[0].current_ratesheet == rs.name
+										option(value=`${rs.name}`, selected) #{rs.name}
+									else
+										option(value=`${rs.name}`) #{rs.name}
+						li
+							label.break Cancellation Period
+							input(type="number", value=`${account.pricing[0].cancellation_period}`)#q_cancellation_period
+						li
+							label.switch
+								if account.pricing[0].after_hours
+									input(type="checkbox", checked)#q_after_hours
+								else
+									input(type="checkbox")#q_after_hours
+								.slider
+							label.switch_label After Hours
+						li
+							label.switch
+								if account.pricing[0].airport_fee
+									input(type="checkbox", checked)#q_airport_fee
+								else
+									input(type="checkbox")#q_airport_fee
+								.slider
+							label.switch_label Airport Fee
+						li
+							label.break Invoice Cycle
+							input(type="number", value=`${account.invoicing[0].invoice_cycle}`)#q_invoice_cycle
+						li
+							label.switch
+								if account.invoicing[0].stop_credit
+									input(type="checkbox", checked)#q_stop_credit
+								else
+									input(type="checkbox")#q_stop_credit
+								.slider
+							label.switch_label Stop Credit
+						li
+							label.switch
+								if account.status
+									input(type="checkbox", checked)#q_status
+								else
+									input(type="checkbox")#q_status
+								.slider
+							label.switch_label Active
+						li
+							.btn.btn-default#update-btn(data-accountid=`${account._id}`) Submit
+
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/accounts/update_account.js")

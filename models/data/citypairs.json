@@ -1,0 +1,3698 @@
+[
+ {
+   "city": "Abingdon",
+   "icao": "YABI",
+   "iata": "ABG",
+   "name": "Abingdon Airport"
+ },
+ {
+   "city": "Adelaide",
+   "icao": "YPAD",
+   "iata": "ADL",
+   "name": "Adelaide Airport"
+ },
+ {
+   "city": "Adelaide / Parafield",
+   "icao": "YPPF",
+   "iata": "",
+   "name": "Parafield Airport"
+ },
+ {
+   "city": "Agnew",
+   "icao": "",
+   "iata": "AGW",
+   "name": "Agnew Airport"
+ },
+ {
+   "city": "Albany",
+   "icao": "YABA",
+   "iata": "ALH",
+   "name": "Albany Airport"
+ },
+ {
+   "city": "Albury",
+   "icao": "YMAY",
+   "iata": "ABX",
+   "name": "Albury Airport"
+ },
+ {
+   "city": "Alexandria Station",
+   "icao": "YALX",
+   "iata": "AXL",
+   "name": "Alexandria Station Airport"
+ },
+ {
+   "city": "Alice Springs",
+   "icao": "YBAS",
+   "iata": "ASP",
+   "name": "Alice Springs Airport"
+ },
+ {
+   "city": "Alpha",
+   "icao": "YAPH",
+   "iata": "ABH",
+   "name": "Alpha Airport"
+ },
+ {
+   "city": "Alroy Downs",
+   "icao": "",
+   "iata": "AYD",
+   "name": "Alroy Downs Airport"
+ },
+ {
+   "city": "Alton Downs",
+   "icao": "YADS",
+   "iata": "AWN",
+   "name": "Alton Downs Airport"
+ },
+ {
+   "city": "Amata",
+   "icao": "YAMT",
+   "iata": "AMT",
+   "name": "Amata Airport"
+ },
+ {
+   "city": "American River",
+   "icao": "",
+   "iata": "RCN",
+   "name": "American River Airport"
+ },
+ {
+   "city": "Ammaroo",
+   "icao": "YAMM",
+   "iata": "AMX",
+   "name": "Ammaroo Airport"
+ },
+ {
+   "city": "Andamooka",
+   "icao": "YAMK",
+   "iata": "ADO",
+   "name": "Andamooka Airport"
+ },
+ {
+   "city": "Andamooka",
+   "icao": "YAMK",
+   "iata": "ADO",
+   "name": "Andamooka Airport"
+ },
+ {
+   "city": "Angus Downs",
+   "icao": "",
+   "iata": "ANZ",
+   "name": "Angus Downs Airport"
+ },
+ {
+   "city": "Anthony Lagoon",
+   "icao": "YANL",
+   "iata": "AYL",
+   "name": "Anthony Lagoon Airport"
+ },
+ {
+   "city": "Aputula",
+   "icao": "YFNE",
+   "iata": "FIK",
+   "name": "Finke Airport"
+ },
+ {
+   "city": "Aramac",
+   "icao": "YAMC",
+   "iata": "AXC",
+   "name": "Aramac Airport"
+ },
+ {
+   "city": "Ararat",
+   "icao": "YARA",
+   "iata": "ARY",
+   "name": "Ararat Airport"
+ },
+ {
+   "city": "Argyle",
+   "icao": "YARG",
+   "iata": "GYL",
+   "name": "Argyle Airport"
+ },
+ {
+   "city": "Armidale",
+   "icao": "YARM",
+   "iata": "ARM",
+   "name": "Armidale Airport"
+ },
+ {
+   "city": "Arrabury",
+   "icao": "YARY",
+   "iata": "AAB",
+   "name": "Arrabury Airport"
+ },
+ {
+   "city": "Augustus Downs",
+   "icao": "YAGD",
+   "iata": "AUD",
+   "name": "Augustus Downs Airport"
+ },
+ {
+   "city": "Aurukun",
+   "icao": "YAUR",
+   "iata": "AUU",
+   "name": "Aurukun Airport"
+ },
+ {
+   "city": "Austral Downs",
+   "icao": "YAUS",
+   "iata": "AWP",
+   "name": "Austral Downs Airport"
+ },
+ {
+   "city": "Auvergne Station",
+   "icao": "YAUV",
+   "iata": "AVG",
+   "name": "Auvergne Station Airport"
+ },
+ {
+   "city": "Avalon",
+   "icao": "YMAV",
+   "iata": "AVV",
+   "name": "Avalon Airport"
+ },
+ {
+   "city": "Ayr",
+   "icao": "YAYR",
+   "iata": "AYR",
+   "name": "Ayr Airport"
+ },
+ {
+   "city": "Bacchus Marsh",
+   "icao": "YBSS",
+   "iata": "",
+   "name": "Bacchus Marsh Airfield"
+ },
+ {
+   "city": "Badu Island",
+   "icao": "YBAU",
+   "iata": "BDD",
+   "name": "Badu Island Airport"
+ },
+ {
+   "city": "Bairnsdale",
+   "icao": "YBNS",
+   "iata": "BSJ",
+   "name": "Bairnsdale Airport"
+ },
+ {
+   "city": "Balcanoona",
+   "icao": "YBLC",
+   "iata": "LCN",
+   "name": "Balcanoona Airport"
+ },
+ {
+   "city": "Balgo",
+   "icao": "YBGO",
+   "iata": "BQW",
+   "name": "Balgo Hill Airport"
+ },
+ {
+   "city": "Ballarat",
+   "icao": "YBLT",
+   "iata": "",
+   "name": "Ballarat Airport"
+ },
+ {
+   "city": "Ballera",
+   "icao": "YLLE",
+   "iata": "BBL",
+   "name": "Ballera Airport"
+ },
+ {
+   "city": "Ballina",
+   "icao": "YBNA",
+   "iata": "BNK",
+   "name": "Ballina Byron Gateway Airport"
+ },
+ {
+   "city": "Balranald",
+   "icao": "YBRN",
+   "iata": "BZD",
+   "name": "Balranald Airport"
+ },
+ {
+   "city": "Bamaga",
+   "icao": "YNPE",
+   "iata": "ABM",
+   "name": "Northern Peninsula Airport (Bamaga/Injinoo Airport)"
+ },
+ {
+   "city": "Baniyala",
+   "icao": "",
+   "iata": "BYX",
+   "name": "Baniyala Airport"
+ },
+ {
+   "city": "Bankstown",
+   "icao": "YSBK",
+   "iata": "BWU",
+   "name": "Bankstown Airport"
+ },
+ {
+   "city": "Barcaldine",
+   "icao": "YBAR",
+   "iata": "BCI",
+   "name": "Barcaldine Airport"
+ },
+ {
+   "city": "Barimunya",
+   "icao": "YBRY",
+   "iata": "BYP",
+   "name": "Barimunya Airport"
+ },
+ {
+   "city": "Barkly Downs",
+   "icao": "YBAW",
+   "iata": "BKP",
+   "name": "Barkly Downs Airport"
+ },
+ {
+   "city": "Barrow Island",
+   "icao": "YBWX",
+   "iata": "BWB",
+   "name": "Barrow Island Airport"
+ },
+ {
+   "city": "Barwon Heads",
+   "icao": "YBRS",
+   "iata": "",
+   "name": "Barwon Heads Airport"
+ },
+ {
+   "city": "Batavia Downs",
+   "icao": "",
+   "iata": "BVW",
+   "name": "Batavia Downs Airport"
+ },
+ {
+   "city": "Bathurst",
+   "icao": "YBTH",
+   "iata": "BHS",
+   "name": "Bathurst Airport"
+ },
+ {
+   "city": "Bathurst Island",
+   "icao": "YBTI",
+   "iata": "BRT",
+   "name": "Bathurst Island Airport"
+ },
+ {
+   "city": "Beagle Bay",
+   "icao": "",
+   "iata": "BEE",
+   "name": "Beagle Bay Airport"
+ },
+ {
+   "city": "Bedford Downs",
+   "icao": "YBDF",
+   "iata": "BDW",
+   "name": "Bedford Downs Airport"
+ },
+ {
+   "city": "Bedourie",
+   "icao": "YBIE",
+   "iata": "BEU",
+   "name": "Bedourie Airport"
+ },
+ {
+   "city": "Belyuen Shire",
+   "icao": "YDLV",
+   "iata": "DLV",
+   "name": "Delissaville Airport"
+ },
+ {
+   "city": "Benalla",
+   "icao": "YBLA",
+   "iata": "BLN",
+   "name": "Benalla Airport"
+ },
+ {
+   "city": "Bendigo",
+   "icao": "YBDG",
+   "iata": "BXG",
+   "name": "Bendigo Airport"
+ },
+ {
+   "city": "Betoota",
+   "icao": "YBEO",
+   "iata": "BTX",
+   "name": "Betoota Airport"
+ },
+ {
+   "city": "Beverley Springs",
+   "icao": "YBYS",
+   "iata": "BVZ",
+   "name": "Beverley Springs Airport"
+ },
+ {
+   "city": "Bickerton Island / Milyakburra",
+   "icao": "",
+   "iata": "BCZ",
+   "name": "Bickerton Island Airport / Milyakburra Airport"
+ },
+ {
+   "city": "Biloela",
+   "icao": "",
+   "iata": "ZBL",
+   "name": "Biloela Airport"
+ },
+ {
+   "city": "Birdsville",
+   "icao": "YBDV",
+   "iata": "BVI",
+   "name": "Birdsville Airport"
+ },
+ {
+   "city": "Bizant",
+   "icao": "",
+   "iata": "BZP",
+   "name": "Bizant Airport"
+ },
+ {
+   "city": "Blackall",
+   "icao": "YBCK",
+   "iata": "BKQ",
+   "name": "Blackall Airport"
+ },
+ {
+   "city": "Blackwater",
+   "icao": "YBTR",
+   "iata": "BLT",
+   "name": "Blackwater Airport"
+ },
+ {
+   "city": "Bloomfield River Mission / Wujal Wujal",
+   "icao": "",
+   "iata": "BFC",
+   "name": "Bloomfield River Airport"
+ },
+ {
+   "city": "Boigu Island",
+   "icao": "YBOI",
+   "iata": "GIC",
+   "name": "Boigu Island Airport"
+ },
+ {
+   "city": "Bollon",
+   "icao": "YBLL",
+   "iata": "BLS",
+   "name": "Bollon Airport"
+ },
+ {
+   "city": "Bolwarra",
+   "icao": "YBWR",
+   "iata": "BCK",
+   "name": "Bolwarra Airport"
+ },
+ {
+   "city": "Boolgeeda",
+   "icao": "YBGD",
+   "iata": "OCM",
+   "name": "Boolgeeda Airport"
+ },
+ {
+   "city": "Borroloola",
+   "icao": "YBRL",
+   "iata": "BOX",
+   "name": "Borroloola Airport"
+ },
+ {
+   "city": "Boulia",
+   "icao": "YBOU",
+   "iata": "BQL",
+   "name": "Boulia Airport"
+ },
+ {
+   "city": "Bourke",
+   "icao": "YBKE",
+   "iata": "BRK",
+   "name": "Bourke Airport"
+ },
+ {
+   "city": "Bowen",
+   "icao": "YBWN",
+   "iata": "ZBO",
+   "name": "Bowen Airport"
+ },
+ {
+   "city": "Brampton Island",
+   "icao": "YBPI",
+   "iata": "BMP",
+   "name": "Brampton Island Airport"
+ },
+ {
+   "city": "Brewarrina",
+   "icao": "YBRW",
+   "iata": "BWQ",
+   "name": "Brewarrina Airport"
+ },
+ {
+   "city": "Bright",
+   "icao": "",
+   "iata": "BRJ",
+   "name": "Bright Airport"
+ },
+ {
+   "city": "Brighton Downs",
+   "icao": "",
+   "iata": "BHT",
+   "name": "Brighton Downs Airport"
+ },
+ {
+   "city": "Brisbane",
+   "icao": "YBBN",
+   "iata": "BNE",
+   "name": "Brisbane Airport"
+ },
+ {
+   "city": "Brisbane / Archerfield",
+   "icao": "YBAF",
+   "iata": "",
+   "name": "Archerfield Airport"
+ },
+ {
+   "city": "Broken Hill",
+   "icao": "YBHI",
+   "iata": "BHQ",
+   "name": "Broken Hill Airport"
+ },
+ {
+   "city": "Broome",
+   "icao": "YBRM",
+   "iata": "BME",
+   "name": "Broome International Airport"
+ },
+ {
+   "city": "Brunette Downs",
+   "icao": "",
+   "iata": "BTD",
+   "name": "Brunette Downs Airport"
+ },
+ {
+   "city": "Bulimba",
+   "icao": "YBWM",
+   "iata": "BIP",
+   "name": "Bulimba Airport"
+ },
+ {
+   "city": "Bunbury",
+   "icao": "YBUN",
+   "iata": "BUY",
+   "name": "Bunbury Airport"
+ },
+ {
+   "city": "Bundaberg",
+   "icao": "YBUD",
+   "iata": "BDB",
+   "name": "Bundaberg Airport"
+ },
+ {
+   "city": "Burketown",
+   "icao": "YBKT",
+   "iata": "BUC",
+   "name": "Burketown Airport"
+ },
+ {
+   "city": "Busselton",
+   "icao": "YBLN",
+   "iata": "BQB",
+   "name": "Busselton Regional Airport"
+ },
+ {
+   "city": "Caiguna",
+   "icao": "YCAG",
+   "iata": "CGV",
+   "name": "Caiguna Airport"
+ },
+ {
+   "city": "Cairns",
+   "icao": "YBCS",
+   "iata": "CNS",
+   "name": "Cairns Airport"
+ },
+ {
+   "city": "Caloundra West / Sunshine Coast",
+   "icao": "YCDR",
+   "iata": "CUD",
+   "name": "Caloundra Airport"
+ },
+ {
+   "city": "Camden",
+   "icao": "YSCN",
+   "iata": "CDU",
+   "name": "Camden Airport"
+ },
+ {
+   "city": "Camfield Station",
+   "icao": "YCFD",
+   "iata": "CFI",
+   "name": "Camfield Station Airport"
+ },
+ {
+   "city": "Camooweal",
+   "icao": "YCMW",
+   "iata": "CML",
+   "name": "Camooweal Airport"
+ },
+ {
+   "city": "Canberra",
+   "icao": "YSCB",
+   "iata": "CBR",
+   "name": "Canberra International Airport"
+ },
+ {
+   "city": "Canobie",
+   "icao": "YCBE",
+   "iata": "CBY",
+   "name": "Canobie Airport"
+ },
+ {
+   "city": "Cape Barren Island",
+   "icao": "YCBN",
+   "iata": "CBI",
+   "name": "Cape Barren Island Airport"
+ },
+ {
+   "city": "Cape Flattery",
+   "icao": "",
+   "iata": "CQP",
+   "name": "Cape Flattery Airport"
+ },
+ {
+   "city": "Carlton Hill",
+   "icao": "",
+   "iata": "CRY",
+   "name": "Carlton Hill Airport"
+ },
+ {
+   "city": "Carnarvon",
+   "icao": "YCAR",
+   "iata": "CVQ",
+   "name": "Carnarvon Airport"
+ },
+ {
+   "city": "Carpentaria Downs",
+   "icao": "",
+   "iata": "CFP",
+   "name": "Carpentaria Downs Airport"
+ },
+ {
+   "city": "Casino",
+   "icao": "YCAS",
+   "iata": "CSI",
+   "name": "Casino Airport"
+ },
+ {
+   "city": "Cattle Creek",
+   "icao": "",
+   "iata": "CTR",
+   "name": "Cattle Creek Airport"
+ },
+ {
+   "city": "Ceduna",
+   "icao": "YCDU",
+   "iata": "CED",
+   "name": "Ceduna Airport"
+ },
+ {
+   "city": "Cessnock",
+   "icao": "YCNK",
+   "iata": "CES",
+   "name": "Cessnock Airport"
+ },
+ {
+   "city": "Charleville",
+   "icao": "YBCV",
+   "iata": "CTL",
+   "name": "Charleville Airport"
+ },
+ {
+   "city": "Charters Towers",
+   "icao": "YCHT",
+   "iata": "CXT",
+   "name": "Charters Towers Airport"
+ },
+ {
+   "city": "Cherrabah",
+   "icao": "",
+   "iata": "CRH",
+   "name": "Cherrabah Airport"
+ },
+ {
+   "city": "Cherrabun",
+   "icao": "",
+   "iata": "CBC",
+   "name": "Cherrabun Airport"
+ },
+ {
+   "city": "Chillagoe",
+   "icao": "YCGO",
+   "iata": "LLG",
+   "name": "Chillagoe Airport"
+ },
+ {
+   "city": "Chinchilla",
+   "icao": "YCCA",
+   "iata": "CCL",
+   "name": "Chinchilla Airport"
+ },
+ {
+   "city": "Christmas Creek mine",
+   "icao": "",
+   "iata": "CKW",
+   "name": "Christmas Creek mine Airport"
+ },
+ {
+   "city": "Christmas Creek Station",
+   "icao": "YCRK",
+   "iata": "CXQ",
+   "name": "Christmas Creek Airport"
+ },
+ {
+   "city": "City of Lake Macquarie",
+   "icao": "YPEC",
+   "iata": "BEO",
+   "name": "Lake Macquarie - Newcastle Airport"
+ },
+ {
+   "city": "Clermont",
+   "icao": "YCMT",
+   "iata": "CMQ",
+   "name": "Clermont Airport"
+ },
+ {
+   "city": "Cleve",
+   "icao": "YCEE",
+   "iata": "CVC",
+   "name": "Cleve Airport"
+ },
+ {
+   "city": "Clifton Hills",
+   "icao": "",
+   "iata": "CFH",
+   "name": "Clifton Hills Airport"
+ },
+ {
+   "city": "Cloncurry",
+   "icao": "YCCY",
+   "iata": "CNJ",
+   "name": "Cloncurry Airport"
+ },
+ {
+   "city": "Cloudbreak mine",
+   "icao": "YFDF",
+   "iata": "KFE",
+   "name": "Fortescue Dave Forrest Airport"
+ },
+ {
+   "city": "Cluny",
+   "icao": "YUNY",
+   "iata": "CZY",
+   "name": "Cluny Airport"
+ },
+ {
+   "city": "Cobar",
+   "icao": "YCBA",
+   "iata": "CAZ",
+   "name": "Cobar Airport"
+ },
+ {
+   "city": "Coconut Island",
+   "icao": "YCCT",
+   "iata": "CNC",
+   "name": "Coconut Island Airport"
+ },
+ {
+   "city": "Coen",
+   "icao": "YCOE",
+   "iata": "CUQ",
+   "name": "Coen Airport"
+ },
+ {
+   "city": "Coffs Harbour",
+   "icao": "YCFS",
+   "iata": "CFS",
+   "name": "Coffs Harbour Airport"
+ },
+ {
+   "city": "Colac",
+   "icao": "YOLA",
+   "iata": "XCO",
+   "name": "Colac Airport"
+ },
+ {
+   "city": "Collarenebri",
+   "icao": "YCBR",
+   "iata": "CRB",
+   "name": "Collarenebri Airport"
+ },
+ {
+   "city": "Collie",
+   "icao": "",
+   "iata": "CIE",
+   "name": "Collie Airport"
+ },
+ {
+   "city": "Collinsville",
+   "icao": "YCSV",
+   "iata": "KCE",
+   "name": "Collinsville Airport"
+ },
+ {
+   "city": "Condobolin",
+   "icao": "YCDO",
+   "iata": "CBX",
+   "name": "Condobolin Airport"
+ },
+ {
+   "city": "Coober Pedy",
+   "icao": "YCBP",
+   "iata": "CPD",
+   "name": "Coober Pedy Airport"
+ },
+ {
+   "city": "Cooinda",
+   "icao": "YCOO",
+   "iata": "CDA",
+   "name": "Cooinda Airport"
+ },
+ {
+   "city": "Cooktown",
+   "icao": "YCKN",
+   "iata": "CTN",
+   "name": "Cooktown Airport"
+ },
+ {
+   "city": "Coolah",
+   "icao": "YCAH",
+   "iata": "CLH",
+   "name": "Coolah Airport"
+ },
+ {
+   "city": "Coolawanyah Station",
+   "icao": "YCWY",
+   "iata": "COY",
+   "name": "Coolawanyah Station Airport"
+ },
+ {
+   "city": "Coolibah",
+   "icao": "",
+   "iata": "COB",
+   "name": "Coolibah Airport"
+ },
+ {
+   "city": "Cooma",
+   "icao": "YCOM",
+   "iata": "OOM",
+   "name": "Cooma – Snowy Mountains Airport"
+ },
+ {
+   "city": "Coonabarabran",
+   "icao": "YCBB",
+   "iata": "COJ",
+   "name": "Coonabarabran Airport"
+ },
+ {
+   "city": "Coonamble",
+   "icao": "YCNM",
+   "iata": "CNB",
+   "name": "Coonamble Airport"
+ },
+ {
+   "city": "Coondewanna",
+   "icao": "YCWA",
+   "iata": "CJF",
+   "name": "Coondewanna Airport"
+ },
+ {
+   "city": "Coorabie",
+   "icao": "",
+   "iata": "CRJ",
+   "name": "Coorabie Airport"
+ },
+ {
+   "city": "Cootamundra",
+   "icao": "YCTM",
+   "iata": "CMD",
+   "name": "Cootamundra Airport"
+ },
+ {
+   "city": "Cordillo Downs",
+   "icao": "",
+   "iata": "ODL",
+   "name": "Cordillo Downs Airport"
+ },
+ {
+   "city": "Corowa",
+   "icao": "YCOR",
+   "iata": "CWW",
+   "name": "Corowa Airport"
+ },
+ {
+   "city": "Corryong",
+   "icao": "YCRG",
+   "iata": "CYG",
+   "name": "Corryong Airport"
+ },
+ {
+   "city": "Cowarie",
+   "icao": "YCWI",
+   "iata": "CWR",
+   "name": "Cowarie Airport"
+ },
+ {
+   "city": "Cowell",
+   "icao": "YCWL",
+   "iata": "CCW",
+   "name": "Cowell Airport"
+ },
+ {
+   "city": "Cowra",
+   "icao": "YCWR",
+   "iata": "CWT",
+   "name": "Cowra Airport"
+ },
+ {
+   "city": "Cresswell Downs",
+   "icao": "",
+   "iata": "CSD",
+   "name": "Cresswell Downs Airport"
+ },
+ {
+   "city": "Croker Island",
+   "icao": "YCKI",
+   "iata": "CKI",
+   "name": "Croker Island Airport"
+ },
+ {
+   "city": "Croydon",
+   "icao": "YCRY",
+   "iata": "CDQ",
+   "name": "Croydon Airport"
+ },
+ {
+   "city": "Cudal",
+   "icao": "YCUA",
+   "iata": "CUG",
+   "name": "Cudal Airport"
+ },
+ {
+   "city": "Cue",
+   "icao": "YCUE",
+   "iata": "CUY",
+   "name": "Cue Airport"
+ },
+ {
+   "city": "Cunnamulla",
+   "icao": "YCMU",
+   "iata": "CMA",
+   "name": "Cunnamulla Airport"
+ },
+ {
+   "city": "Daguragu",
+   "icao": "YJAB",
+   "iata": "KFG",
+   "name": "Kalkgurung Airport"
+ },
+ {
+   "city": "Dalby",
+   "icao": "YDAY",
+   "iata": "DBY",
+   "name": "Dalby Airport"
+ },
+ {
+   "city": "Dalgaranga",
+   "icao": "YDGA",
+   "iata": "DGD",
+   "name": "Dalgaranga Airport"
+ },
+ {
+   "city": "Daly River",
+   "icao": "YDMN",
+   "iata": "DVR",
+   "name": "Daly River Airport"
+ },
+ {
+   "city": "Daly Waters",
+   "icao": "YDLW",
+   "iata": "DYW",
+   "name": "Daly Waters Airport"
+ },
+ {
+   "city": "Darnley Island",
+   "icao": "YDNI",
+   "iata": "NLF",
+   "name": "Darnley Island Airport"
+ },
+ {
+   "city": "Darwin",
+   "icao": "YPDN",
+   "iata": "DRW",
+   "name": "Darwin International Airport (RAAF Darwin)"
+ },
+ {
+   "city": "Davenport Downs",
+   "icao": "YDPD",
+   "iata": "DVP",
+   "name": "Davenport Downs Airport"
+ },
+ {
+   "city": "Delta Downs",
+   "icao": "YDLT",
+   "iata": "DDN",
+   "name": "Delta Downs Airport"
+ },
+ {
+   "city": "Denham",
+   "icao": "",
+   "iata": "DNM",
+   "name": "Denham Airport"
+ },
+ {
+   "city": "Deniliquin",
+   "icao": "YDLQ",
+   "iata": "DNQ",
+   "name": "Deniliquin Airport"
+ },
+ {
+   "city": "Derby",
+   "icao": "YCIN",
+   "iata": "DCN",
+   "name": "Curtin Airport / RAAF Curtin"
+ },
+ {
+   "city": "Derby",
+   "icao": "YDBY",
+   "iata": "DRB",
+   "name": "Derby Airport"
+ },
+ {
+   "city": "Devonport",
+   "icao": "YDPO",
+   "iata": "DPO",
+   "name": "Devonport Airport"
+ },
+ {
+   "city": "Diamantina Lakes",
+   "icao": "",
+   "iata": "DYM",
+   "name": "Diamantina Lakes Airport"
+ },
+ {
+   "city": "Dirranbandi",
+   "icao": "YDBI",
+   "iata": "DRN",
+   "name": "Dirranbandi Airport"
+ },
+ {
+   "city": "Dixie",
+   "icao": "YDIX",
+   "iata": "DXD",
+   "name": "Dixie Airport"
+ },
+ {
+   "city": "Dongara",
+   "icao": "YDRA",
+   "iata": "DOX",
+   "name": "Dongara Airport"
+ },
+ {
+   "city": "Doomadgee",
+   "icao": "YDMG",
+   "iata": "DMD",
+   "name": "Doomadgee Airport"
+ },
+ {
+   "city": "Doongan",
+   "icao": "",
+   "iata": "DNG",
+   "name": "Doongan Airport"
+ },
+ {
+   "city": "Dorunda",
+   "icao": "YDOR",
+   "iata": "DRD",
+   "name": "Dorunda Airport"
+ },
+ {
+   "city": "Dorunda",
+   "icao": "YDOR",
+   "iata": "DRD",
+   "name": "Dorunda Airport"
+ },
+ {
+   "city": "Drumduff",
+   "icao": "YDDF",
+   "iata": "DFP",
+   "name": "Drumduff Airport"
+ },
+ {
+   "city": "Drysdale River Station",
+   "icao": "YDRD",
+   "iata": "DRY",
+   "name": "Drysdale River Airport"
+ },
+ {
+   "city": "Dubbo",
+   "icao": "YSDU",
+   "iata": "DBO",
+   "name": "Dubbo City Airport"
+ },
+ {
+   "city": "Dulkaninna",
+   "icao": "YDLK",
+   "iata": "DLK",
+   "name": "Dulkaninna Airport"
+ },
+ {
+   "city": "Dunbar",
+   "icao": "YDBR",
+   "iata": "DNB",
+   "name": "Dunbar Airport"
+ },
+ {
+   "city": "Dunk Island",
+   "icao": "YDKI",
+   "iata": "DKI",
+   "name": "Dunk Island Airport"
+ },
+ {
+   "city": "Dunwich",
+   "icao": "",
+   "iata": "SRR",
+   "name": "Dunwich Airport"
+ },
+ {
+   "city": "Durham Downs",
+   "icao": "YDRH",
+   "iata": "DHD",
+   "name": "Durham Downs Airport"
+ },
+ {
+   "city": "Durrie",
+   "icao": "YDRI",
+   "iata": "DRR",
+   "name": "Durrie Airport"
+ },
+ {
+   "city": "Dysart",
+   "icao": "YDYS",
+   "iata": "DYA",
+   "name": "Dysart Airport"
+ },
+ {
+   "city": "Echuca",
+   "icao": "YECH",
+   "iata": "ECH",
+   "name": "Echuca Airport"
+ },
+ {
+   "city": "Einasleigh",
+   "icao": "YEIN",
+   "iata": "EIH",
+   "name": "Einasleigh Airport"
+ },
+ {
+   "city": "Elcho Island",
+   "icao": "YELD",
+   "iata": "ELC",
+   "name": "Elcho Island Airport"
+ },
+ {
+   "city": "Elkedra",
+   "icao": "",
+   "iata": "EKD",
+   "name": "Elkedra Airport"
+ },
+ {
+   "city": "Eloise Copper",
+   "icao": "YESE",
+   "iata": "ERQ",
+   "name": "Elrose Mine Airport"
+ },
+ {
+   "city": "Emerald",
+   "icao": "YEML",
+   "iata": "EMD",
+   "name": "Emerald Airport"
+ },
+ {
+   "city": "Eneabba",
+   "icao": "YEEB",
+   "iata": "ENB",
+   "name": "Eneabba Airport"
+ },
+ {
+   "city": "Erldunda",
+   "icao": "",
+   "iata": "EDD",
+   "name": "Erldunda Airport"
+ },
+ {
+   "city": "Esperance",
+   "icao": "YESP",
+   "iata": "EPR",
+   "name": "Esperance Airport"
+ },
+ {
+   "city": "Etadunna",
+   "icao": "YEDA",
+   "iata": "ETD",
+   "name": "Etadunna Airport"
+ },
+ {
+   "city": "Eucla",
+   "icao": "YECL",
+   "iata": "EUC",
+   "name": "Eucla Airport"
+ },
+ {
+   "city": "Eva Downs",
+   "icao": "YEVA",
+   "iata": "EVD",
+   "name": "Eva Downs Airport"
+ },
+ {
+   "city": "Evans Head",
+   "icao": "YEVD",
+   "iata": "EVH",
+   "name": "Evans Head Memorial Aerodrome"
+ },
+ {
+   "city": "Exmouth",
+   "icao": "YEXM",
+   "iata": "EXM",
+   "name": "Exmouth Airport"
+ },
+ {
+   "city": "Exmouth",
+   "icao": "YPLM",
+   "iata": "LEA",
+   "name": "Learmonth Airport / RAAF Learmonth"
+ },
+ {
+   "city": "Finley",
+   "icao": "YFIL",
+   "iata": "FLY",
+   "name": "Finley Airport"
+ },
+ {
+   "city": "Fitzroy Crossing",
+   "icao": "YFTZ",
+   "iata": "FIZ",
+   "name": "Fitzroy Crossing Airport"
+ },
+ {
+   "city": "Flinders Island (Whitemark)",
+   "icao": "YFLI",
+   "iata": "FLS",
+   "name": "Flinders Island Airport"
+ },
+ {
+   "city": "Flora Valley",
+   "icao": "YFLO",
+   "iata": "FVL",
+   "name": "Flora Valley Airport"
+ },
+ {
+   "city": "Forbes",
+   "icao": "YFBS",
+   "iata": "FRB",
+   "name": "Forbes Airport"
+ },
+ {
+   "city": "Forrest",
+   "icao": "YFRT",
+   "iata": "FOS",
+   "name": "Forrest Airport"
+ },
+ {
+   "city": "Forrest River Mission / Oombulgurri",
+   "icao": "",
+   "iata": "FVR",
+   "name": "Forrest River Airport"
+ },
+ {
+   "city": "Forster / Wallis Island",
+   "icao": "YFST",
+   "iata": "FOT",
+   "name": "Forster - Wallis Island Airport"
+ },
+ {
+   "city": "Fossil Downs",
+   "icao": "",
+   "iata": "FSL",
+   "name": "Fossil Downs Airport"
+ },
+ {
+   "city": "Fraser Island",
+   "icao": "YORC",
+   "iata": "OKB",
+   "name": "Orchid Beach Airport"
+ },
+ {
+   "city": "Gamboola",
+   "icao": "YGAM",
+   "iata": "GBP",
+   "name": "Gamboola Airport"
+ },
+ {
+   "city": "Gapuwiyak (Lake Evella)",
+   "icao": "YLEV",
+   "iata": "LEL",
+   "name": "Lake Evella Airport"
+ },
+ {
+   "city": "Gascoyne Junction",
+   "icao": "YGSC",
+   "iata": "GSC",
+   "name": "Gascoyne Junction Airport"
+ },
+ {
+   "city": "Gayndah",
+   "icao": "YGAY",
+   "iata": "GAH",
+   "name": "Gayndah Airport"
+ },
+ {
+   "city": "Geelong",
+   "icao": "YGLG",
+   "iata": "GEX",
+   "name": "Geelong Airport"
+ },
+ {
+   "city": "George Town",
+   "icao": "YGTO",
+   "iata": "GEE",
+   "name": "George Town Aerodrome"
+ },
+ {
+   "city": "Georgetown",
+   "icao": "YGTN",
+   "iata": "GTT",
+   "name": "Georgetown Airport"
+ },
+ {
+   "city": "Geraldton",
+   "icao": "YGEL",
+   "iata": "GET",
+   "name": "Geraldton Airport"
+ },
+ {
+   "city": "Gibb",
+   "icao": "YGIB",
+   "iata": "GBV",
+   "name": "Gibb River Airport"
+ },
+ {
+   "city": "Ginbata",
+   "icao": "YGIA",
+   "iata": "GBW",
+   "name": "Ginbata Airport"
+ },
+ {
+   "city": "Gladstone",
+   "icao": "YGLA",
+   "iata": "GLT",
+   "name": "Gladstone Airport"
+ },
+ {
+   "city": "Glen Innes",
+   "icao": "YGLI",
+   "iata": "GLI",
+   "name": "Glen Innes Airport"
+ },
+ {
+   "city": "Glengyle",
+   "icao": "YGLE",
+   "iata": "GLG",
+   "name": "Glengyle Airport"
+ },
+ {
+   "city": "Glenormiston",
+   "icao": "YGLO",
+   "iata": "GLM",
+   "name": "Glenormiston Airport"
+ },
+ {
+   "city": "Gold Coast / Coolangatta",
+   "icao": "YBCG",
+   "iata": "OOL",
+   "name": "Gold Coast Airport"
+ },
+ {
+   "city": "Goldsworthy",
+   "icao": "",
+   "iata": "GLY",
+   "name": "Goldsworthy Airport"
+ },
+ {
+   "city": "Goondiwindi",
+   "icao": "YGDI",
+   "iata": "GOO",
+   "name": "Goondiwindi Airport"
+ },
+ {
+   "city": "Gordon Downs",
+   "icao": "YGDN",
+   "iata": "GDD",
+   "name": "Gordon Downs Airport"
+ },
+ {
+   "city": "Gosford",
+   "icao": "",
+   "iata": "GOS",
+   "name": "Gosford Airport"
+ },
+ {
+   "city": "Goulburn",
+   "icao": "YGLB",
+   "iata": "GUL",
+   "name": "Goulburn Airport"
+ },
+ {
+   "city": "Goulburn Islands",
+   "icao": "YGBI",
+   "iata": "GBL",
+   "name": "South Goulburn Island Airport"
+ },
+ {
+   "city": "Grafton",
+   "icao": "YGFN",
+   "iata": "GFN",
+   "name": "Clarence Valley Regional Airport"
+ },
+ {
+   "city": "Great Keppel Island",
+   "icao": "YGKL",
+   "iata": "GKL",
+   "name": "Great Keppel Island Airport"
+ },
+ {
+   "city": "Greenvale",
+   "icao": "YGNV",
+   "iata": "GVP",
+   "name": "Greenvale Airport"
+ },
+ {
+   "city": "Gregory",
+   "icao": "YGDS",
+   "iata": "GGD",
+   "name": "Gregory Downs Airport"
+ },
+ {
+   "city": "Grenfell",
+   "icao": "",
+   "iata": "GFE",
+   "name": "Grenfell Airport"
+ },
+ {
+   "city": "Griffith",
+   "icao": "YGTH",
+   "iata": "GFF",
+   "name": "Griffith Airport"
+ },
+ {
+   "city": "Groote Eylandt (Alyangula)",
+   "icao": "YGTE",
+   "iata": "GTE",
+   "name": "Groote Eylandt Airport"
+ },
+ {
+   "city": "Gunbalanya (Oenpelli)",
+   "icao": "YOEN",
+   "iata": "OPI",
+   "name": "Oenpelli Airport"
+ },
+ {
+   "city": "Gunnedah",
+   "icao": "YGDH",
+   "iata": "GUH",
+   "name": "Gunnedah Airport"
+ },
+ {
+   "city": "Gympie",
+   "icao": "YGYM",
+   "iata": "GYP",
+   "name": "Gympie Airport"
+ },
+ {
+   "city": "Halls Creek",
+   "icao": "YHLC",
+   "iata": "HCQ",
+   "name": "Halls Creek Airport"
+ },
+ {
+   "city": "Hamilton",
+   "icao": "YHML",
+   "iata": "HLT",
+   "name": "Hamilton Airport"
+ },
+ {
+   "city": "Hamilton Island",
+   "icao": "YBHM",
+   "iata": "HTI",
+   "name": "Great Barrier Reef Airport (Hamilton Island Airport)"
+ },
+ {
+   "city": "Hawker",
+   "icao": "YHAW",
+   "iata": "HWK",
+   "name": "Hawker Airport"
+ },
+ {
+   "city": "Hay",
+   "icao": "YHAY",
+   "iata": "HXX",
+   "name": "Hay Airport"
+ },
+ {
+   "city": "Headingly",
+   "icao": "YHDY",
+   "iata": "HIP",
+   "name": "Headingly Airport"
+ },
+ {
+   "city": "Heathlands",
+   "icao": "YHTL",
+   "iata": "HAT",
+   "name": "Heathlands Airport"
+ },
+ {
+   "city": "Helensvale",
+   "icao": "",
+   "iata": "HLV",
+   "name": "Helensvale Airport"
+ },
+ {
+   "city": "Henbury",
+   "icao": "YHBY",
+   "iata": "HRY",
+   "name": "Henbury Airport"
+ },
+ {
+   "city": "Hermannsburg",
+   "icao": "YHMB",
+   "iata": "HMG",
+   "name": "Hermannsburg Airport"
+ },
+ {
+   "city": "Hervey Bay",
+   "icao": "YHBA",
+   "iata": "HVB",
+   "name": "Hervey Bay Airport"
+ },
+ {
+   "city": "Highbury",
+   "icao": "YHHY",
+   "iata": "HIG",
+   "name": "Highbury Airport"
+ },
+ {
+   "city": "Hillside",
+   "icao": "YHIL",
+   "iata": "HLL",
+   "name": "Hillside Airport"
+ },
+ {
+   "city": "Hobart",
+   "icao": "YMHB",
+   "iata": "HBA",
+   "name": "Hobart International Airport"
+ },
+ {
+   "city": "Hobart / Cambridge",
+   "icao": "YCBG",
+   "iata": "",
+   "name": "Cambridge Aerodrome"
+ },
+ {
+   "city": "Hopetoun",
+   "icao": "YHPN",
+   "iata": "HTU",
+   "name": "Hopetoun Airport"
+ },
+ {
+   "city": "Hopevale",
+   "icao": "",
+   "iata": "HPE",
+   "name": "Hopevale Airport"
+ },
+ {
+   "city": "Horn Island",
+   "icao": "YHID",
+   "iata": "HID",
+   "name": "Horn Island Airport"
+ },
+ {
+   "city": "Horsham",
+   "icao": "YHSM",
+   "iata": "HSM",
+   "name": "Horsham Airport"
+ },
+ {
+   "city": "Hughenden",
+   "icao": "YHUG",
+   "iata": "HGD",
+   "name": "Hughenden Airport"
+ },
+ {
+   "city": "Humbert River",
+   "icao": "YHBR",
+   "iata": "HUB",
+   "name": "Humbert River Airport"
+ },
+ {
+   "city": "Iffley",
+   "icao": "YIFY",
+   "iata": "IFF",
+   "name": "Iffley Airport"
+ },
+ {
+   "city": "Indulkana",
+   "icao": "YIDK",
+   "iata": "IDK",
+   "name": "Indulkana Airport"
+ },
+ {
+   "city": "Ingham",
+   "icao": "YIGM",
+   "iata": "IGH",
+   "name": "Ingham Airport"
+ },
+ {
+   "city": "Injune",
+   "icao": "YINJ",
+   "iata": "INJ",
+   "name": "Injune Airport"
+ },
+ {
+   "city": "Inkerman",
+   "icao": "YIKM",
+   "iata": "IKP",
+   "name": "Inkerman Airport"
+ },
+ {
+   "city": "Innamincka",
+   "icao": "YINN",
+   "iata": "INM",
+   "name": "Innamincka Airport"
+ },
+ {
+   "city": "Innisfail",
+   "icao": "YIFL",
+   "iata": "IFL",
+   "name": "Innisfail Airport"
+ },
+ {
+   "city": "Inverell",
+   "icao": "YIVL",
+   "iata": "IVR",
+   "name": "Inverell Airport"
+ },
+ {
+   "city": "Inverway",
+   "icao": "YINW",
+   "iata": "IVW",
+   "name": "Inverway Airport"
+ },
+ {
+   "city": "Isisford",
+   "icao": "YISF",
+   "iata": "ISI",
+   "name": "Isisford Airport"
+ },
+ {
+   "city": "Jabiru",
+   "icao": "YGTE",
+   "iata": "JAB",
+   "name": "Jabiru Airport"
+ },
+ {
+   "city": "Jandakot",
+   "icao": "YPJT",
+   "iata": "JAD",
+   "name": "Jandakot Airport"
+ },
+ {
+   "city": "Julia Creek",
+   "icao": "YJLC",
+   "iata": "JCK",
+   "name": "Julia Creek Airport"
+ },
+ {
+   "city": "Jundah",
+   "icao": "YJDA",
+   "iata": "JUN",
+   "name": "Jundah Airport"
+ },
+ {
+   "city": "Jurien Bay",
+   "icao": "YJNB",
+   "iata": "JUR",
+   "name": "Jurien Bay Airport"
+ },
+ {
+   "city": "Kalbarri",
+   "icao": "YKBR",
+   "iata": "KAX",
+   "name": "Kalbarri Airport"
+ },
+ {
+   "city": "Kalgoorlie",
+   "icao": "YPKG",
+   "iata": "KGI",
+   "name": "Kalgoorlie-Boulder Airport"
+ },
+ {
+   "city": "Kalkarindji",
+   "icao": "YWAV",
+   "iata": "WAV",
+   "name": "Wave Hill Airport"
+ },
+ {
+   "city": "Kalpowar",
+   "icao": "YKPR",
+   "iata": "KPP",
+   "name": "Kalpowar Airport"
+ },
+ {
+   "city": "Kaltukatjara",
+   "icao": "YDVR",
+   "iata": "DKV",
+   "name": "Docker River Airport"
+ },
+ {
+   "city": "Kalumburu",
+   "icao": "YKAL",
+   "iata": "UBU",
+   "name": "Kalumburu Airport"
+ },
+ {
+   "city": "Kamaran Downs",
+   "icao": "",
+   "iata": "KDS",
+   "name": "Kamaran Downs Airport"
+ },
+ {
+   "city": "Kambalda",
+   "icao": "YKBL",
+   "iata": "KDB",
+   "name": "Kambalda Airport"
+ },
+ {
+   "city": "Kamileroi",
+   "icao": "YKML",
+   "iata": "KML",
+   "name": "Kamileroi Airport"
+ },
+ {
+   "city": "Karara",
+   "icao": "YKAR",
+   "iata": "KQR",
+   "name": "Karara Airport"
+ },
+ {
+   "city": "Karijini National Park",
+   "icao": "YSOL",
+   "iata": "SLJ",
+   "name": "Solomon Airport"
+ },
+ {
+   "city": "Karratha",
+   "icao": "YPKA",
+   "iata": "KTA",
+   "name": "Karratha Airport"
+ },
+ {
+   "city": "Karumba",
+   "icao": "YKMB",
+   "iata": "KRB",
+   "name": "Karumba Airport"
+ },
+ {
+   "city": "Katanning",
+   "icao": "YKNG",
+   "iata": "KNI",
+   "name": "Katanning Airport"
+ },
+ {
+   "city": "Kempsey",
+   "icao": "YKMP",
+   "iata": "KPS",
+   "name": "Kempsey Airport"
+ },
+ {
+   "city": "Kerang",
+   "icao": "YKER",
+   "iata": "KRA",
+   "name": "Kerang Airport"
+ },
+ {
+   "city": "Kimba",
+   "icao": "YIMB",
+   "iata": "",
+   "name": "Kimba Airport"
+ },
+ {
+   "city": "Kimberley Downs",
+   "icao": "",
+   "iata": "KBD",
+   "name": "Kimberley Downs Airport"
+ },
+ {
+   "city": "King Island (Currie)",
+   "icao": "YKII",
+   "iata": "KNS",
+   "name": "King Island Airport"
+ },
+ {
+   "city": "Kingaroy",
+   "icao": "YKRY",
+   "iata": "KGY",
+   "name": "Kingaroy Airport"
+ },
+ {
+   "city": "Kings Canyon",
+   "icao": "YKCA",
+   "iata": "KBJ",
+   "name": "Kings Canyon Airport"
+ },
+ {
+   "city": "Kings Creek",
+   "icao": "YKCS",
+   "iata": "KCS",
+   "name": "Kings Creek Station Airport"
+ },
+ {
+   "city": "Kingscote, Kangaroo Island",
+   "icao": "YKSC",
+   "iata": "KGC",
+   "name": "Kingscote Airport"
+ },
+ {
+   "city": "Kirkimbie",
+   "icao": "",
+   "iata": "KBB",
+   "name": "Kirkimbie Airport"
+ },
+ {
+   "city": "Koolatah",
+   "icao": "YKLA",
+   "iata": "KOH",
+   "name": "Koolatah Airport"
+ },
+ {
+   "city": "Koolburra",
+   "icao": "YKLB",
+   "iata": "KKP",
+   "name": "Koolburra Airport"
+ },
+ {
+   "city": "Kowanyama",
+   "icao": "YKOW",
+   "iata": "KWM",
+   "name": "Kowanyama Airport"
+ },
+ {
+   "city": "Kubin (Moa Island)",
+   "icao": "YKUB",
+   "iata": "KUG",
+   "name": "Kubin Airport"
+ },
+ {
+   "city": "Kulgera",
+   "icao": "",
+   "iata": "KGR",
+   "name": "Kulgera Airport"
+ },
+ {
+   "city": "Kununurra",
+   "icao": "YPKU",
+   "iata": "KNX",
+   "name": "Kununurra Airport"
+ },
+ {
+   "city": "Kurundi",
+   "icao": "",
+   "iata": "KRD",
+   "name": "Kurundi Airport"
+ },
+ {
+   "city": "Lady Elliot Island",
+   "icao": "",
+   "iata": "LYT",
+   "name": "Lady Elliot Island Airport"
+ },
+ {
+   "city": "Lajamanu",
+   "icao": "YHOO",
+   "iata": "HOK",
+   "name": "Hooker Creek Airport"
+ },
+ {
+   "city": "Lake Gregory",
+   "icao": "",
+   "iata": "LGE",
+   "name": "Lake Gregory Airport"
+ },
+ {
+   "city": "Lake Nash",
+   "icao": "YLKN",
+   "iata": "LNH",
+   "name": "Lake Nash Airport"
+ },
+ {
+   "city": "Lakefield",
+   "icao": "YLFD",
+   "iata": "LFP",
+   "name": "Lakefield Airport / Rinyirru Airport"
+ },
+ {
+   "city": "Lakeland",
+   "icao": "YLND",
+   "iata": "LKD",
+   "name": "Lakeland Downs Airport"
+ },
+ {
+   "city": "Lansdowne",
+   "icao": "",
+   "iata": "LDW",
+   "name": "Lansdowne Airport"
+ },
+ {
+   "city": "Latrobe",
+   "icao": "",
+   "iata": "LTB",
+   "name": "Latrobe Airport"
+ },
+ {
+   "city": "Latrobe Valley / Morwell / Traralgon",
+   "icao": "YLTV",
+   "iata": "TGN",
+   "name": "Latrobe Regional Airport"
+ },
+ {
+   "city": "Launceston",
+   "icao": "YMLT",
+   "iata": "LST",
+   "name": "Launceston Airport"
+ },
+ {
+   "city": "Laura",
+   "icao": "YLRA",
+   "iata": "LUU",
+   "name": "Laura Airport"
+ },
+ {
+   "city": "Laverton",
+   "icao": "YLTN",
+   "iata": "LVO",
+   "name": "Laverton Airport"
+ },
+ {
+   "city": "Lawn Hill",
+   "icao": "YLAH",
+   "iata": "LWH",
+   "name": "Lawn Hill Airport"
+ },
+ {
+   "city": "Leigh Creek",
+   "icao": "YLEC",
+   "iata": "LGH",
+   "name": "Leigh Creek Airport"
+ },
+ {
+   "city": "Leinster",
+   "icao": "YLST",
+   "iata": "LER",
+   "name": "Leinster Airport"
+ },
+ {
+   "city": "Leongatha",
+   "icao": "YLEG",
+   "iata": "",
+   "name": "Leongatha Airport"
+ },
+ {
+   "city": "Leonora",
+   "icao": "YLEO",
+   "iata": "LNO",
+   "name": "Leonora Airport"
+ },
+ {
+   "city": "Lightning Ridge",
+   "icao": "YLRD",
+   "iata": "LHG",
+   "name": "Lightning Ridge Airport"
+ },
+ {
+   "city": "Limbunya",
+   "icao": "",
+   "iata": "LIB",
+   "name": "Limbunya Airport"
+ },
+ {
+   "city": "Linda Downs",
+   "icao": "",
+   "iata": "LLP",
+   "name": "Linda Downs Airport"
+ },
+ {
+   "city": "Lindeman Island",
+   "icao": "YLIN",
+   "iata": "LDC",
+   "name": "Lindeman Island Airport"
+ },
+ {
+   "city": "Lismore",
+   "icao": "YLIS",
+   "iata": "LSY",
+   "name": "Lismore Airport"
+ },
+ {
+   "city": "Lissadell",
+   "icao": "",
+   "iata": "LLL",
+   "name": "Lissadell Airport"
+ },
+ {
+   "city": "Lizard Island",
+   "icao": "YLZI",
+   "iata": "LZR",
+   "name": "Lizard Island Airport"
+ },
+ {
+   "city": "Lock",
+   "icao": "YLOK",
+   "iata": "LOC",
+   "name": "Lock Airport"
+ },
+ {
+   "city": "Lockhart River",
+   "icao": "YLHR",
+   "iata": "IRG",
+   "name": "Lockhart River Airport"
+ },
+ {
+   "city": "Longreach",
+   "icao": "YLRE",
+   "iata": "LRE",
+   "name": "Longreach Airport"
+ },
+ {
+   "city": "Lord Howe Island",
+   "icao": "YLHI",
+   "iata": "LDH",
+   "name": "Lord Howe Island Airport"
+ },
+ {
+   "city": "Lorraine",
+   "icao": "YLOR",
+   "iata": "LOA",
+   "name": "Lorraine Airport"
+ },
+ {
+   "city": "Lotus Vale",
+   "icao": "YLOV",
+   "iata": "LTV",
+   "name": "Lotus Vale Station Airport"
+ },
+ {
+   "city": "Loxton",
+   "icao": "YLOX",
+   "iata": "",
+   "name": "Loxton Airport"
+ },
+ {
+   "city": "Lyndhurst Station",
+   "icao": "YLHS",
+   "iata": "LTP",
+   "name": "Lyndhurst Station Airport"
+ },
+ {
+   "city": "Mabuiag Island",
+   "icao": "YMAA",
+   "iata": "UBB",
+   "name": "Mabuiag Island Airport"
+ },
+ {
+   "city": "MacDonald Downs",
+   "icao": "YMDS",
+   "iata": "MNW",
+   "name": "MacDonald Downs Airport"
+ },
+ {
+   "city": "Mackay",
+   "icao": "YBMK",
+   "iata": "MKY",
+   "name": "Mackay Airport"
+ },
+ {
+   "city": "Macksville",
+   "icao": "",
+   "iata": "MVH",
+   "name": "Macksville Airport"
+ },
+ {
+   "city": "Mainoru",
+   "icao": "",
+   "iata": "MIZ",
+   "name": "Mainoru Airport"
+ },
+ {
+   "city": "Maitland",
+   "icao": "YMND",
+   "iata": "MTL",
+   "name": "Maitland Airport"
+ },
+ {
+   "city": "Mallacoota",
+   "icao": "YMCO",
+   "iata": "XMC",
+   "name": "Mallacoota Airport"
+ },
+ {
+   "city": "Mandora Station",
+   "icao": "YMDI",
+   "iata": "MQA",
+   "name": "Mandora Station Airport"
+ },
+ {
+   "city": "Mangalore",
+   "icao": "YMNG",
+   "iata": "",
+   "name": "Mangalore Airport"
+ },
+ {
+   "city": "Maningrida",
+   "icao": "YMGD",
+   "iata": "MNG",
+   "name": "Maningrida Airport"
+ },
+ {
+   "city": "Manjimup",
+   "icao": "YMJM",
+   "iata": "MJP",
+   "name": "Manjimup Airport"
+ },
+ {
+   "city": "Manners Creek",
+   "icao": "YMCR",
+   "iata": "MFP",
+   "name": "Manners Creek Airport"
+ },
+ {
+   "city": "Marble Bar",
+   "icao": "YMBL",
+   "iata": "MBB",
+   "name": "Marble Bar Airport"
+ },
+ {
+   "city": "Marcoola / Sunshine Coast",
+   "icao": "YBSU",
+   "iata": "MCY",
+   "name": "Sunshine Coast Airport"
+ },
+ {
+   "city": "Mareeba",
+   "icao": "YMBA",
+   "iata": "MRG",
+   "name": "Mareeba Airfield"
+ },
+ {
+   "city": "Margaret River",
+   "icao": "YMGT",
+   "iata": "MQZ",
+   "name": "Margaret River Airport"
+ },
+ {
+   "city": "Margaret River Station",
+   "icao": "YMGR",
+   "iata": "MGV",
+   "name": "Margaret River Station Airport"
+ },
+ {
+   "city": "Marion Downs",
+   "icao": "YMWX",
+   "iata": "MXD",
+   "name": "Marion Downs Airport"
+ },
+ {
+   "city": "Marla",
+   "icao": "YALA",
+   "iata": "MRP",
+   "name": "Marla Airport"
+ },
+ {
+   "city": "Marqua",
+   "icao": "YMQA",
+   "iata": "MQE",
+   "name": "Marqua Airport"
+ },
+ {
+   "city": "Marree",
+   "icao": "",
+   "iata": "RRE",
+   "name": "Marree Airport"
+ },
+ {
+   "city": "Maryborough",
+   "icao": "YMYB",
+   "iata": "MBH",
+   "name": "Maryborough Airport"
+ },
+ {
+   "city": "Maryborough",
+   "icao": "YMBU",
+   "iata": "",
+   "name": "Maryborough Airport"
+ },
+ {
+   "city": "Meekatharra",
+   "icao": "YMEK",
+   "iata": "MKR",
+   "name": "Meekatharra Airport"
+ },
+ {
+   "city": "Melbourne",
+   "icao": "YMML",
+   "iata": "MEL",
+   "name": "Melbourne Airport"
+ },
+ {
+   "city": "Melbourne / Essendon Fields",
+   "icao": "YMEN",
+   "iata": "MEB",
+   "name": "Essendon Airport"
+ },
+ {
+   "city": "Melbourne / Moorabbin",
+   "icao": "YMMB",
+   "iata": "MBW",
+   "name": "Moorabbin Airport"
+ },
+ {
+   "city": "Merimbula",
+   "icao": "YMER",
+   "iata": "MIM",
+   "name": "Merimbula Airport"
+ },
+ {
+   "city": "Merluna",
+   "icao": "YMEU",
+   "iata": "MLV",
+   "name": "Merluna Airport"
+ },
+ {
+   "city": "Merty Merty",
+   "icao": "YMYT",
+   "iata": "RTY",
+   "name": "Merty Merty Airport"
+ },
+ {
+   "city": "Middlemount",
+   "icao": "YMMU",
+   "iata": "MMM",
+   "name": "Middlemount Airport"
+ },
+ {
+   "city": "Mildura",
+   "icao": "YMIA",
+   "iata": "MQL",
+   "name": "Mildura Airport"
+ },
+ {
+   "city": "Miles",
+   "icao": "YMLS",
+   "iata": "WLE",
+   "name": "Miles Airport"
+ },
+ {
+   "city": "Milikapiti (Melville Island)",
+   "icao": "YSNB",
+   "iata": "SNB",
+   "name": "Snake Bay Airport"
+ },
+ {
+   "city": "Milingimbi",
+   "icao": "YMGB",
+   "iata": "MGT",
+   "name": "Milingimbi Airport"
+ },
+ {
+   "city": "Millicent",
+   "icao": "YMCT",
+   "iata": "MLR",
+   "name": "Millicent Airport"
+ },
+ {
+   "city": "Mindibungu / Billiluna",
+   "icao": "YBIL",
+   "iata": "BIW",
+   "name": "Billiluna Airport"
+ },
+ {
+   "city": "Miners Lake",
+   "icao": "",
+   "iata": "MRL",
+   "name": "Miners Lake Airport"
+ },
+ {
+   "city": "Minlaton",
+   "icao": "YMIN",
+   "iata": "XML",
+   "name": "Minlaton Airport"
+ },
+ {
+   "city": "Minnipa",
+   "icao": "YMPA",
+   "iata": "MIN",
+   "name": "Minnipa Airport"
+ },
+ {
+   "city": "Mitchell",
+   "icao": "YMIT",
+   "iata": "MTQ",
+   "name": "Mitchell Airport"
+ },
+ {
+   "city": "Mitchell Plateau",
+   "icao": "YMIP",
+   "iata": "MIH",
+   "name": "Mitchell Plateau Airport"
+ },
+ {
+   "city": "Mittiebah",
+   "icao": "",
+   "iata": "MIY",
+   "name": "Mittiebah Airport"
+ },
+ {
+   "city": "Monkey Mia",
+   "icao": "YSHK",
+   "iata": "MJK",
+   "name": "Shark Bay Airport"
+ },
+ {
+   "city": "Monkira",
+   "icao": "YMNK",
+   "iata": "ONR",
+   "name": "Monkira Airport"
+ },
+ {
+   "city": "Monto",
+   "icao": "YMTO",
+   "iata": "MNQ",
+   "name": "Monto Airport"
+ },
+ {
+   "city": "Moolawatana",
+   "icao": "YMWT",
+   "iata": "MWT",
+   "name": "Moolawatana Airport"
+ },
+ {
+   "city": "Moomba",
+   "icao": "YOOM",
+   "iata": "MOO",
+   "name": "Moomba Airport"
+ },
+ {
+   "city": "Mooraberree",
+   "icao": "YMOO",
+   "iata": "OOR",
+   "name": "Mooraberree Airport"
+ },
+ {
+   "city": "Moranbah",
+   "icao": "YMRB",
+   "iata": "MOV",
+   "name": "Moranbah Airport"
+ },
+ {
+   "city": "Morawa",
+   "icao": "YMRW",
+   "iata": "MWB",
+   "name": "Morawa Airport"
+ },
+ {
+   "city": "Moree",
+   "icao": "YMOR",
+   "iata": "MRZ",
+   "name": "Moree Airport"
+ },
+ {
+   "city": "Moreton / Wenlock",
+   "icao": "YMOT",
+   "iata": "MET",
+   "name": "Moreton Airport"
+ },
+ {
+   "city": "Morney",
+   "icao": "YMNY",
+   "iata": "OXY",
+   "name": "Morney Airport"
+ },
+ {
+   "city": "Mornington Island",
+   "icao": "YMTI",
+   "iata": "ONG",
+   "name": "Mornington Island Airport"
+ },
+ {
+   "city": "Moroak",
+   "icao": "",
+   "iata": "MRT",
+   "name": "Moroak Airport"
+ },
+ {
+   "city": "Moruya",
+   "icao": "YMRY",
+   "iata": "MYA",
+   "name": "Moruya Airport"
+ },
+ {
+   "city": "Mount Barnett",
+   "icao": "",
+   "iata": "MBN",
+   "name": "Mount Barnett Airport"
+ },
+ {
+   "city": "Mount Cavenagh / Ghan",
+   "icao": "YMVG",
+   "iata": "MKV",
+   "name": "Mount Cavenagh Airport"
+ },
+ {
+   "city": "Mount Gambier",
+   "icao": "YMTG",
+   "iata": "MGB",
+   "name": "Mount Gambier Airport"
+ },
+ {
+   "city": "Mount Gordon Mine",
+   "icao": "YGON",
+   "iata": "GPD",
+   "name": "Mount Gordon Airport"
+ },
+ {
+   "city": "Mount Gunson",
+   "icao": "YMGN",
+   "iata": "GSN",
+   "name": "Mount Gunson Airport"
+ },
+ {
+   "city": "Mount Hotham",
+   "icao": "YHOT",
+   "iata": "MHU",
+   "name": "Mount Hotham Airport"
+ },
+ {
+   "city": "Mount House",
+   "icao": "YMHO",
+   "iata": "MHO",
+   "name": "Mount House Airport"
+ },
+ {
+   "city": "Mount Isa",
+   "icao": "YBMA",
+   "iata": "ISA",
+   "name": "Mount Isa Airport"
+ },
+ {
+   "city": "Mount Keith Mine",
+   "icao": "YMNE",
+   "iata": "WME",
+   "name": "Mount Keith Airport"
+ },
+ {
+   "city": "Mount Magnet",
+   "icao": "YMOG",
+   "iata": "MMG",
+   "name": "Mount Magnet Airport"
+ },
+ {
+   "city": "Mount Sandford",
+   "icao": "YMSF",
+   "iata": "MTD",
+   "name": "Mount Sandford Airport"
+ },
+ {
+   "city": "Mount Swan",
+   "icao": "YMNS",
+   "iata": "MSF",
+   "name": "Mount Swan Airport"
+ },
+ {
+   "city": "Mount Valley",
+   "icao": "",
+   "iata": "MNV",
+   "name": "Mount Valley Airport"
+ },
+ {
+   "city": "Mudgee",
+   "icao": "YMDG",
+   "iata": "DGE",
+   "name": "Mudgee Airport"
+ },
+ {
+   "city": "Mulga Park",
+   "icao": "YMUP",
+   "iata": "MUP",
+   "name": "Mulga Park Airport"
+ },
+ {
+   "city": "Mulka",
+   "icao": "YMUK",
+   "iata": "MVK",
+   "name": "Mulka Airport"
+ },
+ {
+   "city": "Mullewa",
+   "icao": "YMWA",
+   "iata": "MXU",
+   "name": "Mullewa Airport"
+ },
+ {
+   "city": "Mungalalu",
+   "icao": "YTST",
+   "iata": "TTX",
+   "name": "Mungalalu - Truscott Airport"
+ },
+ {
+   "city": "Mungeranie",
+   "icao": "YMUG",
+   "iata": "MNE",
+   "name": "Mungeranie Airport"
+ },
+ {
+   "city": "Murray Island",
+   "icao": "YMUI",
+   "iata": "MYI",
+   "name": "Murray Island Airport"
+ },
+ {
+   "city": "Murrin Murrin",
+   "icao": "YMMI",
+   "iata": "WUI",
+   "name": "Murrin Murrin Airport"
+ },
+ {
+   "city": "Musgrave",
+   "icao": "YMGV",
+   "iata": "MVU",
+   "name": "Musgrave Airport"
+ },
+ {
+   "city": "Muttaburra",
+   "icao": "YMTB",
+   "iata": "UTB",
+   "name": "Muttaburra Airport"
+ },
+ {
+   "city": "Myroodah",
+   "icao": "YMYR",
+   "iata": "MYO",
+   "name": "Myroodah Airport"
+ },
+ {
+   "city": "Nambucca Heads",
+   "icao": "YNHS",
+   "iata": "NBH",
+   "name": "Nambucca Heads Airport"
+ },
+ {
+   "city": "Nappa Merrie",
+   "icao": "YNAP",
+   "iata": "NMR",
+   "name": "Nappa Merrie Airport"
+ },
+ {
+   "city": "Napperby",
+   "icao": "",
+   "iata": "NPP",
+   "name": "Napperby Airport"
+ },
+ {
+   "city": "Narrabri",
+   "icao": "YNBR",
+   "iata": "NAA",
+   "name": "Narrabri Airport"
+ },
+ {
+   "city": "Narrabri",
+   "icao": "YNBR",
+   "iata": "NAA",
+   "name": "Narrabri Airport"
+ },
+ {
+   "city": "Narrandera",
+   "icao": "YNAR",
+   "iata": "NRA",
+   "name": "Narrandera Airport"
+ },
+ {
+   "city": "Narrogin",
+   "icao": "YNRG",
+   "iata": "NRG",
+   "name": "Narrogin Airport"
+ },
+ {
+   "city": "Narromine",
+   "icao": "YNRM",
+   "iata": "",
+   "name": "Narromine Airport"
+ },
+ {
+   "city": "New Laura",
+   "icao": "YLRS",
+   "iata": "LUT",
+   "name": "New Laura Airport"
+ },
+ {
+   "city": "New Moon",
+   "icao": "",
+   "iata": "NMP",
+   "name": "New Moon Airport"
+ },
+ {
+   "city": "Newcastle",
+   "icao": "YWLM",
+   "iata": "NTL",
+   "name": "Newcastle Airport (RAAF Williamtown)"
+ },
+ {
+   "city": "Newman",
+   "icao": "YNWN",
+   "iata": "ZNE",
+   "name": "Newman Airport"
+ },
+ {
+   "city": "Newry",
+   "icao": "",
+   "iata": "NRY",
+   "name": "Newry Airport"
+ },
+ {
+   "city": "Ngukurr",
+   "icao": "YRRB",
+   "iata": "RPM",
+   "name": "Ngukurr Airport"
+ },
+ {
+   "city": "Nhill",
+   "icao": "YNHL",
+   "iata": "",
+   "name": "Nhill Airport"
+ },
+ {
+   "city": "Nhulunbuy",
+   "icao": "YPGV",
+   "iata": "GOV",
+   "name": "Gove Airport"
+ },
+ {
+   "city": "Nicholson",
+   "icao": "",
+   "iata": "NLS",
+   "name": "Nicholson Airport"
+ },
+ {
+   "city": "Nifty",
+   "icao": "YCNF",
+   "iata": "NIF",
+   "name": "Nifty Airport"
+ },
+ {
+   "city": "Noonkanbah",
+   "icao": "",
+   "iata": "NKB",
+   "name": "Noonkanbah Airport"
+ },
+ {
+   "city": "Noosaville / Noosa",
+   "icao": "YNSH",
+   "iata": "NSV",
+   "name": "Noosa Airport"
+ },
+ {
+   "city": "Normanton",
+   "icao": "YNTN",
+   "iata": "NTN",
+   "name": "Normanton Airport"
+ },
+ {
+   "city": "Norseman",
+   "icao": "YNSM",
+   "iata": "NSM",
+   "name": "Norseman Airport"
+ },
+ {
+   "city": "Nullagine",
+   "icao": "YNUL",
+   "iata": "NLL",
+   "name": "Nullagine Airport"
+ },
+ {
+   "city": "Numbulwar",
+   "icao": "YNUM",
+   "iata": "NUB",
+   "name": "Numbulwar Airport"
+ },
+ {
+   "city": "Nutwood Downs",
+   "icao": "",
+   "iata": "UTD",
+   "name": "Nutwood Downs Airport"
+ },
+ {
+   "city": "Nyngan",
+   "icao": "YNYN",
+   "iata": "NYN",
+   "name": "Nyngan Airport"
+ },
+ {
+   "city": "Oban",
+   "icao": "",
+   "iata": "OBA",
+   "name": "Oban Airport"
+ },
+ {
+   "city": "Olympic Dam",
+   "icao": "YOLD",
+   "iata": "OLP",
+   "name": "Olympic Dam Airport"
+ },
+ {
+   "city": "Onslow",
+   "icao": "YOLW",
+   "iata": "ONS",
+   "name": "Onslow Airport"
+ },
+ {
+   "city": "Oodnadatta",
+   "icao": "YOOM",
+   "iata": "ODD",
+   "name": "Oodnadatta Airport"
+ },
+ {
+   "city": "Orange",
+   "icao": "YORG",
+   "iata": "OAG",
+   "name": "Orange Airport"
+ },
+ {
+   "city": "Orbost",
+   "icao": "YORB",
+   "iata": "RBS",
+   "name": "Orbost Airport"
+ },
+ {
+   "city": "Ord River",
+   "icao": "YORV",
+   "iata": "ODR",
+   "name": "Ord River Airport"
+ },
+ {
+   "city": "Orientos",
+   "icao": "",
+   "iata": "OXO",
+   "name": "Orientos Airport"
+ },
+ {
+   "city": "Orpheus Island",
+   "icao": "",
+   "iata": "ORS",
+   "name": "Orpheus Island Resort Waterport"
+ },
+ {
+   "city": "Osborne Mine",
+   "icao": "YOSB",
+   "iata": "OSO",
+   "name": "Osborne Mine Airport"
+ },
+ {
+   "city": "Ouyen",
+   "icao": "YOUY",
+   "iata": "OYN",
+   "name": "Ouyen Airport"
+ },
+ {
+   "city": "Palm Island",
+   "icao": "YPAM",
+   "iata": "PMK",
+   "name": "Palm Island Airport"
+ },
+ {
+   "city": "Pandie Pandie",
+   "icao": "YPDI",
+   "iata": "PDE",
+   "name": "Pandie Pandie Airport"
+ },
+ {
+   "city": "Paraburdoo",
+   "icao": "YPBO",
+   "iata": "PBO",
+   "name": "Paraburdoo Airport"
+ },
+ {
+   "city": "Pardoo",
+   "icao": "YPDO",
+   "iata": "PRD",
+   "name": "Pardoo Airport"
+ },
+ {
+   "city": "Parkes",
+   "icao": "YPKS",
+   "iata": "PKE",
+   "name": "Parkes Airport"
+ },
+ {
+   "city": "Parndana",
+   "icao": "",
+   "iata": "PDN",
+   "name": "Parndana Airport"
+ },
+ {
+   "city": "Penneshaw",
+   "icao": "YPSH",
+   "iata": "PEA",
+   "name": "Penneshaw Airport"
+ },
+ {
+   "city": "Penong",
+   "icao": "",
+   "iata": "PEY",
+   "name": "Penong Airport"
+ },
+ {
+   "city": "Peppimenarti",
+   "icao": "",
+   "iata": "PEP",
+   "name": "Peppimenarti Airport"
+ },
+ {
+   "city": "Perth",
+   "icao": "YPPH",
+   "iata": "PER",
+   "name": "Perth Airport"
+ },
+ {
+   "city": "Phosphate Hill",
+   "icao": "YTMO",
+   "iata": "PHQ",
+   "name": "The Monument Airport"
+ },
+ {
+   "city": "Porepunkah / Mount Buffalo",
+   "icao": "",
+   "iata": "MBF",
+   "name": "Porepunkah - Mount Buffalo Airport"
+ },
+ {
+   "city": "Pormpuraaw / Edward River",
+   "icao": "YPMP",
+   "iata": "EDR",
+   "name": "Edward River Airport"
+ },
+ {
+   "city": "Port Augusta",
+   "icao": "YPAG",
+   "iata": "PUG",
+   "name": "Port Augusta Airport"
+ },
+ {
+   "city": "Port Hedland",
+   "icao": "YPPD",
+   "iata": "PHE",
+   "name": "Port Hedland International Airport"
+ },
+ {
+   "city": "Port Lincoln",
+   "icao": "YPLC",
+   "iata": "PLO",
+   "name": "Port Lincoln Airport"
+ },
+ {
+   "city": "Port Macquarie",
+   "icao": "YPMQ",
+   "iata": "PQQ",
+   "name": "Port Macquarie Airport"
+ },
+ {
+   "city": "Port Pirie",
+   "icao": "YPIR",
+   "iata": "PPI",
+   "name": "Port Pirie Airport"
+ },
+ {
+   "city": "Portland",
+   "icao": "YPOD",
+   "iata": "PTJ",
+   "name": "Portland Airport"
+ },
+ {
+   "city": "Prominent Hill",
+   "icao": "YPMH",
+   "iata": "PXH",
+   "name": "Prominent Hill Airport"
+ },
+ {
+   "city": "Proserpine",
+   "icao": "YBPN",
+   "iata": "PPP",
+   "name": "Whitsunday Coast Airport"
+ },
+ {
+   "city": "Pukatja",
+   "icao": "YERN",
+   "iata": "ERB",
+   "name": "Pukatja Airport"
+ },
+ {
+   "city": "Pularumpi (Melville Island)",
+   "icao": "YGPT",
+   "iata": "GPN",
+   "name": "Garden Point Airport"
+ },
+ {
+   "city": "Purnululu National Park",
+   "icao": "YBEB",
+   "iata": "BXF",
+   "name": "Bellburn Airport"
+ },
+ {
+   "city": "Queenstown",
+   "icao": "YQNS",
+   "iata": "UEE",
+   "name": "Queenstown Airport"
+ },
+ {
+   "city": "Quilpie",
+   "icao": "YQLP",
+   "iata": "ULP",
+   "name": "Quilpie Airport"
+ },
+ {
+   "city": "Quirindi",
+   "icao": "YQDI",
+   "iata": "UIR",
+   "name": "Quirindi Airport"
+ },
+ {
+   "city": "Ramingining",
+   "icao": "YRNG",
+   "iata": "RAM",
+   "name": "Ramingining Airport"
+ },
+ {
+   "city": "Ravensthorpe",
+   "icao": "YNRV",
+   "iata": "RVT",
+   "name": "Ravensthorpe Airport"
+ },
+ {
+   "city": "Redcliffe City (Rothwell)",
+   "icao": "YRED",
+   "iata": "",
+   "name": "Redcliffe Airport"
+ },
+ {
+   "city": "Renmark",
+   "icao": "YREN",
+   "iata": "RMK",
+   "name": "Renmark Airport"
+ },
+ {
+   "city": "Richmond",
+   "icao": "YRMD",
+   "iata": "RCM",
+   "name": "Richmond Airport"
+ },
+ {
+   "city": "Robinhood",
+   "icao": "YROB",
+   "iata": "ROH",
+   "name": "Robinhood Airport"
+ },
+ {
+   "city": "Robinson River",
+   "icao": "",
+   "iata": "RRV",
+   "name": "Robinson River Airport"
+ },
+ {
+   "city": "Robinvale",
+   "icao": "YROI",
+   "iata": "RBC",
+   "name": "Robinvale Airport"
+ },
+ {
+   "city": "Rockhampton",
+   "icao": "YBRK",
+   "iata": "ROK",
+   "name": "Rockhampton Airport"
+ },
+ {
+   "city": "Roebourne",
+   "icao": "YROE",
+   "iata": "RBU",
+   "name": "Roebourne Airport"
+ },
+ {
+   "city": "Rokeby",
+   "icao": "",
+   "iata": "RKY",
+   "name": "Rokeby Airport"
+ },
+ {
+   "city": "Roma",
+   "icao": "YROM",
+   "iata": "RMA",
+   "name": "Roma Airport"
+ },
+ {
+   "city": "Roper Bar",
+   "icao": "YNGU",
+   "iata": "RPB",
+   "name": "Roper Bar Airport"
+ },
+ {
+   "city": "Roper Valley",
+   "icao": "",
+   "iata": "RPV",
+   "name": "Roper Valley Airport"
+ },
+ {
+   "city": "Roseberth",
+   "icao": "",
+   "iata": "RSB",
+   "name": "Roseberth Airport"
+ },
+ {
+   "city": "Rosella Plains",
+   "icao": "",
+   "iata": "RLP",
+   "name": "Rosella Plains Airport"
+ },
+ {
+   "city": "Rottnest Island",
+   "icao": "YRTI",
+   "iata": "RTS",
+   "name": "Rottnest Island Airport"
+ },
+ {
+   "city": "Roy Hill Station",
+   "icao": "YRYH",
+   "iata": "RHL",
+   "name": "Roy Hill Station Airport"
+ },
+ {
+   "city": "Rutland Plains",
+   "icao": "YRTP",
+   "iata": "RTP",
+   "name": "Rutland Plains Airport"
+ },
+ {
+   "city": "Saibai Island",
+   "icao": "YSII",
+   "iata": "SBR",
+   "name": "Saibai Island Airport"
+ },
+ {
+   "city": "Sale",
+   "icao": "YWSL",
+   "iata": "SXE",
+   "name": "West Sale Airport"
+ },
+ {
+   "city": "Sandringham Station",
+   "icao": "",
+   "iata": "SRM",
+   "name": "Sandringham Station Airport"
+ },
+ {
+   "city": "Sandstone",
+   "icao": "YSAN",
+   "iata": "NDS",
+   "name": "Sandstone Airport"
+ },
+ {
+   "city": "Shaw River",
+   "icao": "",
+   "iata": "SWB",
+   "name": "Shaw River Airport"
+ },
+ {
+   "city": "Shay Gap",
+   "icao": "YSHG",
+   "iata": "SGP",
+   "name": "Shay Gap Airport"
+ },
+ {
+   "city": "Shepparton",
+   "icao": "YSHT",
+   "iata": "SHT",
+   "name": "Shepparton Airport"
+ },
+ {
+   "city": "Silver Plains",
+   "icao": "",
+   "iata": "SSP",
+   "name": "Silver Plains Airport"
+ },
+ {
+   "city": "Smith Point",
+   "icao": "YSMP",
+   "iata": "SHU",
+   "name": "Smith Point Airport"
+ },
+ {
+   "city": "Smithton",
+   "icao": "YSMI",
+   "iata": "SIO",
+   "name": "Smithton Airport"
+ },
+ {
+   "city": "South Galway",
+   "icao": "YSGW",
+   "iata": "ZGL",
+   "name": "South Galway Airport"
+ },
+ {
+   "city": "Southern Cross",
+   "icao": "YSCR",
+   "iata": "SQC",
+   "name": "Southern Cross Airport"
+ },
+ {
+   "city": "Southport",
+   "icao": "YSPT",
+   "iata": "SHQ",
+   "name": "Southport Airport"
+ },
+ {
+   "city": "Spring Creek",
+   "icao": "YSPK",
+   "iata": "SCG",
+   "name": "Spring Creek Airport"
+ },
+ {
+   "city": "Springvale",
+   "icao": "YSPV",
+   "iata": "KSV",
+   "name": "Springvale Airport"
+ },
+ {
+   "city": "Springvale",
+   "icao": "",
+   "iata": "ZVG",
+   "name": "Springvale Airport"
+ },
+ {
+   "city": "St George",
+   "icao": "YSGE",
+   "iata": "SGO",
+   "name": "St George Airport"
+ },
+ {
+   "city": "St Helens",
+   "icao": "YSTH",
+   "iata": "HLS",
+   "name": "St Helens Airport"
+ },
+ {
+   "city": "St Pauls",
+   "icao": "",
+   "iata": "SVM",
+   "name": "St Pauls Airport"
+ },
+ {
+   "city": "Stanthorpe",
+   "icao": "YSPE",
+   "iata": "SNH",
+   "name": "Stanthorpe Airport"
+ },
+ {
+   "city": "Stawell",
+   "icao": "YSWL",
+   "iata": "SWC",
+   "name": "Stawell Airport"
+ },
+ {
+   "city": "Stephens Island",
+   "icao": "",
+   "iata": "STF",
+   "name": "Stephens Island Airport"
+ },
+ {
+   "city": "Strahan",
+   "icao": "YSRN",
+   "iata": "SRN",
+   "name": "Strahan Airport"
+ },
+ {
+   "city": "Strathmore",
+   "icao": "YSMR",
+   "iata": "STH",
+   "name": "Strathmore Airport"
+ },
+ {
+   "city": "Streaky Bay",
+   "icao": "YKBY",
+   "iata": "KBY",
+   "name": "Streaky Bay Airport"
+ },
+ {
+   "city": "Sturt Creek",
+   "icao": "",
+   "iata": "SSK",
+   "name": "Sturt Creek Airport"
+ },
+ {
+   "city": "Sue Islet",
+   "icao": "YWBS",
+   "iata": "SYU",
+   "name": "Warraber Island Airport"
+ },
+ {
+   "city": "Swan Hill",
+   "icao": "YSWH",
+   "iata": "SWH",
+   "name": "Swan Hill Airport"
+ },
+ {
+   "city": "Sydney / Mascot",
+   "icao": "YSSY",
+   "iata": "SYD",
+   "name": "Sydney Airport (Kingsford Smith Airport)"
+ },
+ {
+   "city": "Tableland Homestead",
+   "icao": "YTAB",
+   "iata": "TBL",
+   "name": "Tableland Homestead Airport"
+ },
+ {
+   "city": "Tamworth",
+   "icao": "YSTW",
+   "iata": "TMW",
+   "name": "Tamworth Airport"
+ },
+ {
+   "city": "Tanbar",
+   "icao": "",
+   "iata": "TXR",
+   "name": "Tanbar Airport"
+ },
+ {
+   "city": "Tangalooma",
+   "icao": "YTGA",
+   "iata": "TAN",
+   "name": "Tangalooma Airport"
+ },
+ {
+   "city": "Tara",
+   "icao": "YTAA",
+   "iata": "XTR",
+   "name": "Tara Airport"
+ },
+ {
+   "city": "Tarcoola",
+   "icao": "",
+   "iata": "TAQ",
+   "name": "Tarcoola Airport"
+ },
+ {
+   "city": "Taree",
+   "icao": "YTRE",
+   "iata": "TRO",
+   "name": "Taree Airport"
+ },
+ {
+   "city": "Taroom",
+   "icao": "YTAM",
+   "iata": "XTO",
+   "name": "Taroom Airport"
+ },
+ {
+   "city": "Telfer",
+   "icao": "YTEF",
+   "iata": "TEF",
+   "name": "Telfer Airport"
+ },
+ {
+   "city": "Temora",
+   "icao": "YTEM",
+   "iata": "TEM",
+   "name": "Temora Airport"
+ },
+ {
+   "city": "Tennant Creek",
+   "icao": "YTNK",
+   "iata": "TCA",
+   "name": "Tennant Creek Airport"
+ },
+ {
+   "city": "Tewantin",
+   "icao": "",
+   "iata": "TWN",
+   "name": "Tewantin Airport"
+ },
+ {
+   "city": "Thangool",
+   "icao": "YTNG",
+   "iata": "THG",
+   "name": "Thangool Airport"
+ },
+ {
+   "city": "Thargomindah",
+   "icao": "YTGM",
+   "iata": "XTG",
+   "name": "Thargomindah Airport"
+ },
+ {
+   "city": "The Granites",
+   "icao": "YGDW",
+   "iata": "GTS",
+   "name": "The Granites Airport"
+ },
+ {
+   "city": "Theda Station",
+   "icao": "YTHD",
+   "iata": "TDN",
+   "name": "Theda Station Airport"
+ },
+ {
+   "city": "Theodore",
+   "icao": "YTDR",
+   "iata": "TDR",
+   "name": "Theodore Airport"
+ },
+ {
+   "city": "Thylungra",
+   "icao": "",
+   "iata": "TYG",
+   "name": "Thylungra Airport"
+ },
+ {
+   "city": "Tibooburra",
+   "icao": "YTIB",
+   "iata": "TYB",
+   "name": "Tibooburra Airport"
+ },
+ {
+   "city": "Timber Creek",
+   "icao": "YTBR",
+   "iata": "TBK",
+   "name": "Timber Creek Airport"
+ },
+ {
+   "city": "Tobermorey",
+   "icao": "YTMY",
+   "iata": "TYP",
+   "name": "Tobermorey Airport"
+ },
+ {
+   "city": "Tocumwal",
+   "icao": "YTOC",
+   "iata": "TCW",
+   "name": "Tocumwal Airport"
+ },
+ {
+   "city": "Tom Price",
+   "icao": "YTMP",
+   "iata": "TPR",
+   "name": "Tom Price Airport"
+ },
+ {
+   "city": "Toowoomba",
+   "icao": "YTWB",
+   "iata": "TWB",
+   "name": "Toowoomba Airport"
+ },
+ {
+   "city": "Toowoomba",
+   "icao": "YBWW",
+   "iata": "WTB",
+   "name": "Brisbane West Wellcamp Airport"
+ },
+ {
+   "city": "Torwood",
+   "icao": "",
+   "iata": "TWP",
+   "name": "Torwood Airport"
+ },
+ {
+   "city": "Townsville",
+   "icao": "YBTL",
+   "iata": "TSV",
+   "name": "Townsville Airport (RAAF Townsville)"
+ },
+ {
+   "city": "Trepell",
+   "icao": "YTEE",
+   "iata": "TQP",
+   "name": "Trepell Airport"
+ },
+ {
+   "city": "Tumut",
+   "icao": "YTMU",
+   "iata": "TUM",
+   "name": "Tumut Airport"
+ },
+ {
+   "city": "Uluru / Yulara",
+   "icao": "YAYE",
+   "iata": "AYQ",
+   "name": "Ayers Rock Airport (Connellan Airport)"
+ },
+ {
+   "city": "Undara",
+   "icao": "YUDA",
+   "iata": "UDA",
+   "name": "Undara Airport"
+ },
+ {
+   "city": "Useless Loop",
+   "icao": "YUSL",
+   "iata": "USL",
+   "name": "Useless Loop Airport"
+ },
+ {
+   "city": "Vanrook",
+   "icao": "YVRS",
+   "iata": "VNR",
+   "name": "Vanrook Airport"
+ },
+ {
+   "city": "Victoria River Downs",
+   "icao": "YVRD",
+   "iata": "VCD",
+   "name": "Victoria River Downs Airport"
+ },
+ {
+   "city": "Wadeye",
+   "icao": "YPKT",
+   "iata": "PKT",
+   "name": "Port Keats Airfield"
+ },
+ {
+   "city": "Wagga Wagga",
+   "icao": "YSWG",
+   "iata": "WGA",
+   "name": "Wagga Wagga Airport (RAAF Base Wagga)"
+ },
+ {
+   "city": "Waikerie",
+   "icao": "YWKI",
+   "iata": "",
+   "name": "Waikerie Airport"
+ },
+ {
+   "city": "Walcha",
+   "icao": "YWCH",
+   "iata": "WLC",
+   "name": "Walcha Airport"
+ },
+ {
+   "city": "Walgett",
+   "icao": "YWLG",
+   "iata": "WGE",
+   "name": "Walgett Airport"
+ },
+ {
+   "city": "Wallal",
+   "icao": "YWAL",
+   "iata": "WLA",
+   "name": "Wallal Airport"
+ },
+ {
+   "city": "Wandovale",
+   "icao": "",
+   "iata": "MFL",
+   "name": "Wandovale - Mount Full Stop Airport"
+ },
+ {
+   "city": "Wangaratta",
+   "icao": "YWGT",
+   "iata": "WGT",
+   "name": "Wangaratta Airport"
+ },
+ {
+   "city": "Warmun (Turkey Creek)",
+   "icao": "YTKY",
+   "iata": "TKY",
+   "name": "Turkey Creek Airport"
+ },
+ {
+   "city": "Warnervale / Wyong",
+   "icao": "YWVA",
+   "iata": "",
+   "name": "Warnervale Airport"
+ },
+ {
+   "city": "Warracknabeal",
+   "icao": "YWKB",
+   "iata": "WKB",
+   "name": "Warracknabeal Airport"
+ },
+ {
+   "city": "Warrawagine",
+   "icao": "YWWG",
+   "iata": "WRW",
+   "name": "Warrawagine Airport"
+ },
+ {
+   "city": "Warren",
+   "icao": "YWRN",
+   "iata": "",
+   "name": "Warren Airport"
+ },
+ {
+   "city": "Warrnambool",
+   "icao": "YWBL",
+   "iata": "WMB",
+   "name": "Warrnambool Airport"
+ },
+ {
+   "city": "Warwick",
+   "icao": "YWCK",
+   "iata": "WAZ",
+   "name": "Warwick Airport"
+ },
+ {
+   "city": "Wauchope",
+   "icao": "",
+   "iata": "WAU",
+   "name": "Wauchope Airport"
+ },
+ {
+   "city": "Waverney",
+   "icao": "",
+   "iata": "WAN",
+   "name": "Waverney Airport"
+ },
+ {
+   "city": "Wee Waa",
+   "icao": "YWWA",
+   "iata": "WEW",
+   "name": "Wee Waa Airport"
+ },
+ {
+   "city": "Weipa",
+   "icao": "YBWP",
+   "iata": "WEI",
+   "name": "Weipa Airport"
+ },
+ {
+   "city": "Welshpool",
+   "icao": "",
+   "iata": "WHL",
+   "name": "Welshpool Airport"
+ },
+ {
+   "city": "West Angelas",
+   "icao": "YANG",
+   "iata": "WLP",
+   "name": "West Angelas Airport"
+ },
+ {
+   "city": "West Wyalong",
+   "icao": "YWWL",
+   "iata": "WWY",
+   "name": "West Wyalong Airport"
+ },
+ {
+   "city": "Whitsunday, Shute Harbour",
+   "icao": "YWHI",
+   "iata": "WSY",
+   "name": "Whitsunday - Shute Harbour Airport"
+ },
+ {
+   "city": "Whyalla",
+   "icao": "YWHA",
+   "iata": "WYA",
+   "name": "Whyalla Airport"
+ },
+ {
+   "city": "Wilcannia",
+   "icao": "YWCA",
+   "iata": "WIO",
+   "name": "Wilcannia Airport"
+ },
+ {
+   "city": "Wiluna",
+   "icao": "YWLU",
+   "iata": "WUN",
+   "name": "Wiluna Airport"
+ },
+ {
+   "city": "Windarra",
+   "icao": "",
+   "iata": "WND",
+   "name": "Windarra Airport"
+ },
+ {
+   "city": "Windorah",
+   "icao": "YWDH",
+   "iata": "WNR",
+   "name": "Windorah Airport"
+ },
+ {
+   "city": "Winton",
+   "icao": "YWTN",
+   "iata": "WIN",
+   "name": "Winton Airport"
+ },
+ {
+   "city": "Wittenoom",
+   "icao": "YWIT",
+   "iata": "WIT",
+   "name": "Wittenoom Airport"
+ },
+ {
+   "city": "Wollogorang",
+   "icao": "YWOR",
+   "iata": "WLL",
+   "name": "Wollogorang Airport"
+ },
+ {
+   "city": "Wollongong",
+   "icao": "YWOL",
+   "iata": "WOL",
+   "name": "Illawarra Regional Airport (Wollongong Airport)"
+ },
+ {
+   "city": "Wondai",
+   "icao": "YWND",
+   "iata": "WDI",
+   "name": "Wondai Airport"
+ },
+ {
+   "city": "Wondoola",
+   "icao": "YWDL",
+   "iata": "WON",
+   "name": "Wondoola Airport"
+ },
+ {
+   "city": "Woodie Woodie",
+   "icao": "YWWI",
+   "iata": "WWI",
+   "name": "Woodie Woodie Airport"
+ },
+ {
+   "city": "Woodstock",
+   "icao": "YDOP",
+   "iata": "",
+   "name": "Donnington Airpark"
+ },
+ {
+   "city": "Wrotham Park",
+   "icao": "YWMP",
+   "iata": "WPK",
+   "name": "Wrotham Park Airport"
+ },
+ {
+   "city": "Wudinna",
+   "icao": "YWUD",
+   "iata": "WUD",
+   "name": "Wudinna Airport"
+ },
+ {
+   "city": "Wyndham",
+   "icao": "YWYM",
+   "iata": "WYN",
+   "name": "Wyndham Airport"
+ },
+ {
+   "city": "Wynyard / Burnie",
+   "icao": "YWYY",
+   "iata": "BWT",
+   "name": "Burnie Airport (Wynyard Airport)"
+ },
+ {
+   "city": "Yalata",
+   "icao": "YYTA",
+   "iata": "KYI",
+   "name": "Yalata Airport"
+ },
+ {
+   "city": "Yalgoo",
+   "icao": "YYAL",
+   "iata": "YLG",
+   "name": "Yalgoo Airport"
+ },
+ {
+   "city": "Yam Island",
+   "icao": "YYMI",
+   "iata": "XMY",
+   "name": "Yam Island Airport"
+ },
+ {
+   "city": "Yandicoogina",
+   "icao": "",
+   "iata": "YNN",
+   "name": "Yandicoogina Airport"
+ },
+ {
+   "city": "Yarrawonga",
+   "icao": "YYWG",
+   "iata": "",
+   "name": "Yarrawonga Airport"
+ },
+ {
+   "city": "Yeelirrie",
+   "icao": "YYLR",
+   "iata": "KYF",
+   "name": "Yeelirrie Airport"
+ },
+ {
+   "city": "Yorke Island",
+   "icao": "YYKI",
+   "iata": "OKR",
+   "name": "Yorke Island Airport"
+ },
+ {
+   "city": "Yorketown",
+   "icao": "YYOR",
+   "iata": "ORR",
+   "name": "Yorketown Airport"
+ },
+ {
+   "city": "Young",
+   "icao": "YYNG",
+   "iata": "NGA",
+   "name": "Young Airport"
+ },
+ {
+   "city": "Yuendumu",
+   "icao": "YYND",
+   "iata": "YUE",
+   "name": "Yuendumu Airport"
+ }
+]
