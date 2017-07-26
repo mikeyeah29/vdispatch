@@ -3,53 +3,17 @@ extends ../layout
 block content
 	include ../partials/_header
 
-	section#page-driveroverview
+	section#page-accounts
 		.container
 			h1 Drivers
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/drivers/overview") Drivers Overview
+				li.breadcrumb-item.active View All Drivers
 			ul.actions_bar
 				li
 					.search_group
 						input(type="text", id="q_search")
 						.btn.btn-search Search
-				li
-					a(href="/drivers").btn.btn-blue View All Drivers
 				li.right
-					a(href="/drivers/create-driver").btn.add.btn-default Add New Driver
-			.row
-				.col-7
-					#driver-calandar
-				.col-5
-					.panel.expire_panel
-						.panel-heading
-							h3 Expiring Licences &amp; Authorities
-						.panel-body
-							table
-								tr
-									th Driver
-									th Type
-									th Remaining
-									th 
-	#event-modal.modal.modal-fade
-		.modal-dialog
-			.modal-content
-				.modal-header
-					h4.modal-title Driver Absence
-					button(type="button", class="close", data-dismiss="modal")
-						span(aria-hidden="true") ×
-						span.sr-only Close
-				.modal-body
-					.input-group.input-daterange(data-provide="datepicker")
-						input(name="event-start-date", type="text").form-control
-						span.input-group-addon to
-						input(name="event-end-date", type="text").form-control
-					.absence_new.btn_row.right
-						.btn.btn-blue.addAbsence Add absence
-					.absence_update.btn_row.right
-						.btn.btn-update.deleteAbsence Remove this absence
-						.btn.btn-blue.updateAbsence Apply changes to this absence
-	
-	script(src="/js/functions.js")
-	script(src="/js/bootstrap-datepicker.min.js")
-	script(src="/js/bootstrap-calandar.js")
-	//- script(src="/js/datepicker.js")
-	script(src="/js/drivers/drivers.js")
+					a(href="/drivers/create-driver").btn.btn-default Add New Driver

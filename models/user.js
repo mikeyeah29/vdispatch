@@ -110,4 +110,48 @@ UserSchema.statics.authenticate = function(email, password, callback){
 // };
 
 var User = mongoose.model("User", UserSchema);
+
+User.find({}).exec(function(err, users){
+
+    if(err){
+        return next(err);
+    }
+
+    if(!users || users == ''){
+
+    	const userData = {
+			created_at: new Date(),
+			first_name: 'Jason',
+			last_name: 'Bartlett',
+			email: 'j@j.com',
+			password: '123',
+		    phone: '',
+			address: [{
+				line1: '',
+				line2: '',
+		        suburb: '',
+		        postcode: ''
+			}],
+			payment_details: [{
+				bank_name: '',
+		        account: '',
+		        bsb: ''
+		    }],
+		    permissions: [{
+		        administrator: true,
+		        management: true,
+		        reservations: true,
+		        operations: true,
+		        accounts: true,
+		        reports: true
+		    }],
+		    status: true
+		}
+
+        User.create(userData, function(error, user){});
+
+    }
+
+});
+
 module.exports.User = User;

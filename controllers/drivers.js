@@ -13,14 +13,14 @@ drivers.get('/', function(req, res, next){
 	if(req.session.permissions[0][routePermission] == false){
 		return res.redirect('/dashboard');
 	}
-
+	
 	User.findById(req.session.userId).exec(function(err, user){
 
 		if(err){
 			return next(err);
 		}
 
-		Driver.find({}).exec(function(err, drivers){
+		Driver.find({}).limit(30).exec(function(err, drivers){
 
 			if(err){
 				return next(err);
@@ -31,6 +31,7 @@ drivers.get('/', function(req, res, next){
 				user: user,
 				drivers: drivers
 			});
+
 
 		});
 
@@ -43,14 +44,27 @@ drivers.get('/overview', function(req, res, next){
 	if(req.session.permissions[0][routePermission] == false){
 		return res.redirect('/dashboard');
 	}
-	
+
 	User.findById(req.session.userId).exec(function(err, user){
 
 		if(err){
 			return next(err);
 		}
 
-		
+		// THIS NEEDS TO ONLY RETURN DRIVERS WITH EXPIRING LICENCES ECT
+		Driver.find({}).exec(function(err, drivers){
+
+			if(err){
+				return next(err);
+			}
+
+			res.render('drivers/overview', {
+				title: 'Drivers Overview',
+				user: user,
+				drivers: drivers
+			});
+
+		});
 
 	});
 
