@@ -17,3 +17,31 @@ block content
 						.btn.btn-search Search
 				li.right
 					a(href="/drivers/create-driver").btn.btn-default Add New Driver
+
+			table.table-striped.table.table-condensed
+				tr
+					th Name
+					th Phone
+					th Email
+					th Driver Code
+					th Color
+					th
+				each driver in drivers
+					tr
+						td #{driver.first_name} #{driver.last_name}
+						td #{driver.phone}
+						td #{driver.email}
+						td #{driver.driver_code}
+						td(style=`background: ${driver.color};`) #{driver.color}
+						td.actions
+							a(href=`/drivers/edit/${driver._id}`).btn.btn-warning.edit
+							label.switch
+								if driver.status
+									input(type="checkbox", data-itemid=`${driver._id}` checked)
+								else
+									input(type="checkbox", data-itemid=`${driver._id}`)
+								.slider
+							.spin
+
+	script(src="/js/functions.js")
+	script(src="/js/drivers/drivers.js")

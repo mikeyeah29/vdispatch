@@ -1,22 +1,19 @@
-// CSV
 
-// function createZoneObjs(objArray){
+function getDateForInput(date){
 
-// 	var newObjArray = [];
+	var dd = date.getDate();
+	var mm = date.getMonth()+1; //January is 0!
+	var yyyy = date.getFullYear();
 
-// 	for(i=0; i<objArray.length; i++){
+	if(dd<10){
+	    dd='0'+dd;
+	} 
+	if(mm<10){
+	    mm='0'+mm;
+	} 
 
-//         var obj = objArray[i];
-//         var newObj = {};
+	return mm+'/'+dd+'/'+yyyy;
 
-        
+}
 
-//         newObjArray.push(newObj);
-        
-//     }
-
-//     return newObjArray;
-
-// }
-
-// module.exports.createZoneObjs = createZoneObjs;
+module.exports.getDateForInput = getDateForInput;

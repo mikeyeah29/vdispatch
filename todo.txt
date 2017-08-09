@@ -40,16 +40,30 @@ ACCOUNTS
         - populate overview table
 
 DRIVERS
-    - all drivers
-    - create driver
-    - update driver
-    - calander (use populate to get driver info) https://jaketrent.com/post/mongoose-population/
-        - add absence
-        - update absence
-        - remove absence
+
+    - overview of expiring licences
+    - update/edit drivers
+    - delete drivers
+    - update vdispatch and let jason know
 
 VEHICLES
 
+    (Try This Order + Test First...)
+    - Controller
+        - route
+        - route
+        - route
+        - route
+    - Model
+        - getVehicleData() // returns object with 3 arrays, one with all vehicles and two with relevant expiries
+
+    - Test Front End Scripts
+        - add
+        - update
+        - all
+        - etc
+
+    Once Testing Complete Build the view (pug templates)
 
 /***************************/
 
@@ -63,15 +77,6 @@ BOOKINGS
     - create model
     - pug templates
     - api (crud)
-
-POST MAN TESTING WHEN THE FOLLOWING IS COMPLETE....
-    - Users
-    - Pricing varables
-    - Accounts
-    - Bookings
-    - Drivers
-    - Vechicles
-    - Ratesheets
 
 ///////////////////////////////////////////////////////////
 	

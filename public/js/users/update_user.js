@@ -108,6 +108,10 @@
 			userForm.fields[2].validation = '';
 			userForm.fields[3].validation = 'password';
 			updatePassword = true;
+		}else{
+			userForm.fields[2].validation = 'none';
+			userForm.fields[3].validation = 'none';
+			updatePassword = false;
 		}
 
 		var userId = $(this).data('userid');

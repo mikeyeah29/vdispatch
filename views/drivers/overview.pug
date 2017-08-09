@@ -17,7 +17,9 @@ block content
 					a(href="/drivers/create-driver").btn.add.btn-default Add New Driver
 			.row
 				.col-7
-					#driver-calandar
+					#driver-calandar-cont
+						.overlay_spin
+						#driver-calandar
 				.col-5
 					.panel.expire_panel
 						.panel-heading
@@ -27,8 +29,12 @@ block content
 								tr
 									th Driver
 									th Type
-									th Remaining
-									th 
+									th Expires
+								each exp in expiring
+									tr
+										td #{exp.name}
+										td #{exp.type}
+										td #{exp.expires}
 	#event-modal.modal.modal-fade
 		.modal-dialog
 			.modal-content
@@ -38,18 +44,29 @@ block content
 						span(aria-hidden="true") ×
 						span.sr-only Close
 				.modal-body
+					.current_absences_box
+						h5 Drivers absent on this day
+						ul.list.absences_today
+					h5.absenceH5 Add Absence
 					.input-group.input-daterange(data-provide="datepicker")
-						input(name="event-start-date", type="text").form-control
+						input(name="event-start-date", type="text")#q_start_date.form-control
 						span.input-group-addon to
-						input(name="event-end-date", type="text").form-control
+						input(name="event-end-date", type="text")#q_end_date.form-control
+					select(id="select_driver")
+						option(value="") - select driver -
+						each driver in drivers
+							option(value=`${driver._id}`) #{driver.first_name} #{driver.last_name}
+					.spin#abSpin
 					.absence_new.btn_row.right
 						.btn.btn-blue.addAbsence Add absence
-					.absence_update.btn_row.right
-						.btn.btn-update.deleteAbsence Remove this absence
 						.btn.btn-blue.updateAbsence Apply changes to this absence
+					//- .absence_update.btn_row.right
+					//- 	.btn.btn-update.deleteAbsence Remove this absence
+					//- 	.btn.btn-blue.updateAbsence Apply changes to this absence
 	
 	script(src="/js/functions.js")
+	script(src="/js/form.js")
 	script(src="/js/bootstrap-datepicker.min.js")
 	script(src="/js/bootstrap-calandar.js")
 	//- script(src="/js/datepicker.js")
-	script(src="/js/drivers/drivers.js")
+	script(src="/js/drivers/drivers_overview.js")

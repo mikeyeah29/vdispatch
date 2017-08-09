@@ -182,6 +182,14 @@ ul {
     display: none;
 }
 
+.xSpin {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.79) url(../img/spin.gif) no-repeat 50% !important;
+    background-size: 100% !important;
+    color: transparent !important;
+}
+
 .formList li {
 	margin-bottom: 10px;
 }
@@ -353,6 +361,32 @@ select {
     box-shadow: 2px 2px 3px rgba(191, 191, 191, 0.27);
 }
 
+.color_select input {
+    width: 100px;
+    display: inline-block;
+}
+
+.color_select div {
+    display: inline-block;
+    width: 49px;
+    height: 32px;
+    background: linear-gradient(#ccc, #eee);
+    vertical-align: bottom;
+}
+
+.color_select ul {
+    margin-top: 10px;
+}
+
+.color_select ul li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
 /* Panel */
 
 .panel {
@@ -420,6 +454,7 @@ select {
     -moz-transition: bottom 0.5s ease-in-out;
     -o-transition: bottom 0.5s ease-in-out;
     transition: bottom 0.5s ease-in-out;
+    z-index: 9999;
 }
 
 #message_box.error_msg {
@@ -594,6 +629,18 @@ footer {
 
 /* Drivers */
 
+#driver-calandar-cont {
+    position: relative;
+}
+
+#driver-calandar-cont .overlay_spin {
+    display: block;
+    background: rgba(255, 255, 255, 0.79) url(../img/spin.gif) no-repeat 50% 30px;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+
 .calendar .month-container {
     height: auto;
     float: left;
@@ -601,4 +648,45 @@ footer {
 
 .calendar .month-container:nth-child(3n+4) {
     clear: both;
+}
+
+.modal-body .spin {
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+#select_driver {
+    width: 50%;
+    margin-top: 20px;
+}
+
+.current_absences_box {
+    /*display: none;*/
+}
+
+.absences_today li {
+    display: inline-block;
+    margin-right: 10px;
+    /*font-weight: bold;*/    
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.absences_today li:hover > span,
+.active_absence {
+    border-bottom: solid 2px;
+    font-weight: bold;
+}
+
+.absences_today li .x {
+    background: #2f5092;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: text-top;
+    font-size: 17px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 1em;
 }

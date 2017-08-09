@@ -1,0 +1,142 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accountsoverview
+		.container
+			h1 Drivers
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/drivers/overview") Drivers Overview
+				li.breadcrumb-item.active Edit Driver
+
+			.row
+				.col-sm-4
+					h3 Driver Details
+					ul.list.form
+						li
+							label First Name
+							input(type="text", value=`${driver.first_name}`)#q_first_name
+						li
+							label Last Name
+							input(type="text", value=`${driver.last_name}`)#q_last_name
+						li
+							label DOB
+							input(type="text", data-provide="datepicker", value=`${dob}`)#q_dob
+						li
+							label Address Line 1
+							input(type="text", value=`${driver.address[0].line1}`)#q_address_line1
+						li
+							label Address Line 2
+							input(type="text", value=`${driver.address[0].line2}`)#q_address_line2
+						li
+							label Suburb
+							input(type="text", value=`${driver.address[0].suburb}`)#q_suburb
+						li
+							label Postcode
+							input(type="text", value=`${driver.address[0].postcode}`)#q_postcode
+						li
+							label Email
+							input(type="email", value=`${driver.email}`)#q_email
+						li
+							label Phone
+							input(type="phone", value=`${driver.phone}`)#q_phone
+						li
+							label Driver Code
+							input(type="text", value=`${driver.driver_code}`)#q_driver_code
+						li
+							label(for="change_pw_toggle") Change Password?
+							input(type="checkbox", id="change_pw_toggle")
+						li.change_pw_li
+							label New Password
+							input(type="password", id="q_password")
+						li.change_pw_li
+							label Confirm New Password
+							input(type="password", id="q_passwordconfirm")
+						
+				.col-sm-4
+					h3 Driver Authorisation
+					ul.list.form
+						li
+							label Number
+							input(type="text", value=`${driver.driver_authorisation.da_number}`)#q_da_number
+						li
+							label Expiry
+							input(type="text", data-provide="datepicker", value=`${da_expiry}`)#q_da_expiry
+						li
+							label Scan
+							input(type="text", value=`${driver.driver_authorisation.da_scan}`)#q_da_scan
+					h3 Driver Licence
+					ul.list.form
+						li
+							label Number
+							input(type="text", value=`${driver.driver_licence.dl_number}`)#q_dl_number
+						li
+							label Expiry
+							input(type="text", data-provide="datepicker", value=`${dl_expiry}`)#q_dl_expiry
+						li
+							label Scan
+							input(type="text", value=`${driver.driver_licence.dl_scan}`)#q_dl_scan
+					h3 Payment Details
+					ul.list.form
+						li
+							label ABN
+							input(type="text", value=`${driver.payment_details[0].abn}`)#q_abn
+						li
+							label Account
+							input(type="text", value=`${driver.payment_details[0].account}`)#q_account
+						li
+							label BSB
+							input(type="text", value=`${driver.payment_details[0].bsb}`)#q_bsb
+				.col-sm-4
+					h3 Other Details
+					ul.list.form
+						li
+							label Driver Type
+							select#q_drivertype
+								if driver.driver_type == ''
+									option(value="" selected) - select -
+								else
+									option(value="") - select -
+
+								if driver.driver_type == 'optionone'
+									option(value="optionone" selected) option one
+								else
+									option(value="optionone") option one
+
+								if driver.driver_type == 'optiontwo'
+									option(value="optiontwo" selected) option two
+								else
+									option(value="optiontwo") option two
+
+								if driver.driver_type == 'optionthree'
+									option(value="optionthree" selected) option three 
+								else
+									option(value="optionthree") option three 
+						li.color_select
+							label.break Color
+							input(type="text", value=`${driver.color}`)#q_color
+							.colorExample(style=`background: ${driver.color}`)
+							//- ul.list
+							//- 	li(data-color="#012345", style="background: #012345;")
+							//- 	li(data-color="#456456", style="background: #456456;")
+							//- 	li(data-color="#f4f5f6", style="background: #f4f5f6;")
+							//- 	li(data-color="#f55f66", style="background: #f55f66;")
+							//- 	li(data-color="#234333", style="background: #234333;")
+							//- 	li(data-color="#ab5fff", style="background: #ab5fff;")
+						li
+							label.switch
+								if driver.status
+									input(type="checkbox" checked)#q_status
+								else
+									input(type="checkbox")#q_status
+								.slider
+							label.switch_label Driver Active
+						li
+							.btn.btn-default#update-btn(data-driverid=`${driver._id}`) Update
+
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/drivers/update_driver.js")
