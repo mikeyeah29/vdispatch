@@ -1,0 +1,79 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-vehiclesoverview
+		.container
+			h1 Vehicles 
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/vehicles/overview") Vehicles Overview
+				li.breadcrumb-item
+					a(href="/vehicles") Vehicles &amp; Types
+				li.breadcrumb-item.active Edit Vehicle Type
+			.row
+				.col-sm-6
+					h3 Main Details
+					ul.list.form.half_width
+						li
+							label Name
+							input(type="text", value=`${vehicleType.name}`)#q_name
+						li
+							label Code
+							input(type="text", value=`${vehicleType.code}`)#q_code
+						li
+							label Make
+							input(type="text", value=`${vehicleType.type.make}`)#q_make
+						li
+							label Model
+							input(type="text", value=`${vehicleType.type.model}`)#q_model
+					h3 Capacity Details
+					ul.list.form.horizontal_form
+						li
+							label.break Seats
+							input(type="number", value=`${vehicleType.features.seats}`, min="0")#q_seats
+						li
+							label.break Suitcases
+							input(type="number", value=`${vehicleType.features.suitcases}`, min="0")#q_suitcases
+						li
+							label.break Carry On
+							input(type="number", value=`${vehicleType.features.carry_on}`, min="0")#q_carry_on
+						li
+							label Vehicle Image
+							.scan
+								img(src=`${vehicleType.features.image}`)#q_image
+								.uploadBtn Upload Image
+				.col-sm-6
+					h3 Other Details
+					ul.list.form
+						li
+							label Service (km)
+							input(type="text", value=`${vehicleType.details.service_km}`)#q_servicekm
+						li
+							label Fuel Type
+							select#q_fuel_type
+								if vehicleType.details.fuel_type == 'Petrol'
+									option(value="Petrol", selected) Petrol
+									option(value="Diesel") Diesel
+								else
+									option(value="Petrol") Petrol
+									option(value="Diesel", selected) Diesel
+						li
+							label.switch
+								if vehicleType.status
+									input(type="checkbox", checked)#q_status
+								else
+									input(type="checkbox")#q_status
+								.slider
+							label.switch_label Active
+						li
+							.btn.btn-default#update-btn(data-vehicletypeid=`${vehicleType._id}`) Update
+
+	include ../partials/_img_lib
+
+	script(src="/lib/image_library/image_library.js")
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/vehicles/update_type.js")

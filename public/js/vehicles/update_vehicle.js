@@ -1,0 +1,93 @@
+!function(Form){
+
+	/* Variables */
+
+	var submit_btn = $('#update-btn');
+
+	var vehicleForm = new Form('/vehicles/update', [
+		{
+			id: 'q_year',
+			validation: ''
+		},
+		{
+			id: 'q_color',
+			validation: ''
+		},
+		{
+			id: 'q_type',
+			validation: ''	
+		},
+		{
+			id: 'q_vin',
+			validation: ''	
+		},
+		{
+			id: 'q_rego',
+			validation: ''	
+		},
+		{
+			id: 'q_rego_expiry',
+			validation: ''	
+		},
+		{
+			id: 'q_coi_expiry',
+			validation: ''	
+		},
+		{
+			id: 'q_dotbooking',
+			validation: 'none'	
+		},
+		{
+			id: 'q_odometer',
+			validation: ''	
+		},
+		{
+			id: 'q_status',
+			validation: 'none'
+		}
+	]);
+
+	submit_btn.on('click', function(){
+
+		var vehicleId = $(this).data('vehicleid');
+
+		if(vehicleForm.isValid()){
+			// send form
+			var data = {
+				vehicleId: vehicleId,
+				year: $('#' + vehicleForm.fields[0].id).val(),
+			    color: $('#' + vehicleForm.fields[1].id).val(),
+			    type: $('#' + vehicleForm.fields[2].id).val(),
+			    vin: $('#' + vehicleForm.fields[3].id).val(),
+			    rego: $('#' + vehicleForm.fields[4].id).val(),
+			    rego_expiry: $('#' + vehicleForm.fields[5].id).val(),
+			    coi_expiry: $('#' + vehicleForm.fields[6].id).val(),
+			    dot_booking: $('#' + vehicleForm.fields[7].id).val(),
+			    odometer: $('#' + vehicleForm.fields[8].id).val(),
+		        status: $('#' + vehicleForm.fields[9].id).is(':checked')
+			};
+
+			vehicleForm.send(data, function(data){
+				
+				if(!data.error){
+					var msg = new Message(
+								'Vehicle has been Updated.', 
+								false, 
+								$('#message_box')
+							);
+					msg.display(true);
+				}else{
+					var msg = new Message(data.error, true, $('#message_box'));
+					msg.display();
+				}
+			});
+
+		}else{
+			// error message
+			var msg = new Message(vehicleForm.message, true, $('#message_box'));
+			msg.display();
+		}
+
+	});
+
+}(form.Form);

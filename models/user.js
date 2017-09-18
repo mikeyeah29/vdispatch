@@ -59,7 +59,15 @@ var UserSchema = new Schema({
 });
 
 UserSchema.pre('save', function(next){
+
+	var now = new Date();
+ 
+    if(this.isNew) {
+        this.created_at = now;
+    }
+
 	var user = this;
+
 	bcrypt.hash(user.password, 10, function(err, hash){
 		
 		if(err){
@@ -70,6 +78,7 @@ UserSchema.pre('save', function(next){
 		next();
 
 	});
+	
 });
 
 // Authenticate

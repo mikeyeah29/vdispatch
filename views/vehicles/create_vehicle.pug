@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-vehiclesoverview
+		.container
+			h1 Vehicles
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/vehicles/overview") Vehicles Overview
+				li.breadcrumb-item
+					a(href="/vehicles") Vehicles &amp; Types
+				li.breadcrumb-item.active Create New Vehicle
+			.row
+				.col-sm-6
+					ul.list.form.half_width
+						li
+							label Year
+							select#q_year
+								each year in years
+									option(value=`${year}`) #{year}
+						li
+							label Color
+							input(type="text")#q_color
+						li
+							label Type
+							select#q_type
+								each type in types
+									option(value=`${type._id}`) #{type.name}
+						li
+							label.break VIN
+							input(type="text")#q_vin
+						li
+							label.break REGO
+							input(type="text")#q_rego
+						li
+							label.break REGO Expiry
+							input(type="text", data-provide="datepicker")#q_rego_expiry
+				.col-sm-6
+					h3 Other Details
+					ul.list.form.half_width
+						li
+							label.break COI Expiry
+							input(type="text", data-provide="datepicker")#q_coi_expiry
+						li
+							label.break DOT Booking
+							input(type="text", data-provide="datepicker")#q_dotbooking
+						li
+							label.break Odometer
+							input(type="number", value="0", min="0")#q_odometer
+						li
+							label.switch
+								input(type="checkbox")#q_status
+								.slider
+							label.switch_label Active
+					ul.list.form
+						li
+							.btn.btn-default#save-btn Submit
+
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/vehicles/create_vehicle.js")

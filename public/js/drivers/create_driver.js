@@ -1,5 +1,5 @@
 
-!function(Form, easyAutocomplete){
+!function(Form, easyAutocomplete, ImageLibrary){
 
 	/* Variables */
 
@@ -64,7 +64,7 @@
 		},
 		{
 			id: 'q_da_scan',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_dl_number',
@@ -76,7 +76,7 @@
 		},
 		{
 			id: 'q_dl_scan',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_abn',
@@ -125,10 +125,10 @@
 				q_passwordconfirm: $('#' + driverForm.fields[11].id).val(),
 				q_da_number: $('#' + driverForm.fields[12].id).val(),
 				q_da_expiry: $('#' + driverForm.fields[13].id).val(),
-				q_da_scan: $('#' + driverForm.fields[14].id).val(),
+				q_da_scan: $('#' + driverForm.fields[14].id).attr('src'),
 				q_dl_number: $('#' + driverForm.fields[15].id).val(),
 				q_dl_expiry: $('#' + driverForm.fields[16].id).val(),
-				q_dl_scan: $('#' + driverForm.fields[17].id).val(),
+				q_dl_scan: $('#' + driverForm.fields[17].id).attr('src'),
 				q_abn: $('#' + driverForm.fields[18].id).val(),
 				q_account: $('#' + driverForm.fields[19].id).val(),
 				q_bsb: $('#' + driverForm.fields[20].id).val(),
@@ -212,4 +212,20 @@
 		$(this).next().css('background', $(this).val());
 	});
 
-}(form.Form, EasyAutocomplete);
+	// scan upload
+
+	var imageLibrary = new ImageLibrary();
+
+	$('#da_scan .uploadBtn').on('click', function(){
+		imageLibrary.openLibrary('#da_scan .uploadBtn', '#da_scan img');
+	});
+
+	$('#dl_scan .uploadBtn').on('click', function(){
+		imageLibrary.openLibrary('#dl_scan .uploadBtn', '#dl_scan img');
+	});
+
+	imageLibrary.onSelectImage(function(img){
+		$(imageLibrary.imgContainer).attr('src', '/uploads/' + img);
+	});
+
+}(form.Form, EasyAutocomplete, imageLibrary.ImageLibrary);

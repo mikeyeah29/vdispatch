@@ -22,7 +22,7 @@ block content
 							label Last Name
 							input(type="text", value=`${driver.last_name}`)#q_last_name
 						li
-							label DOB
+							label.break DOB
 							input(type="text", data-provide="datepicker", value=`${dob}`)#q_dob
 						li
 							label Address Line 1
@@ -62,22 +62,28 @@ block content
 							label Number
 							input(type="text", value=`${driver.driver_authorisation.da_number}`)#q_da_number
 						li
-							label Expiry
+							label.break Expiry
 							input(type="text", data-provide="datepicker", value=`${da_expiry}`)#q_da_expiry
 						li
 							label Scan
-							input(type="text", value=`${driver.driver_authorisation.da_scan}`)#q_da_scan
+							.scan#da_scan
+								img(src=`${driver.driver_authorisation.da_scan}`)#q_da_scan
+								.uploadBtn Upload Scan
 					h3 Driver Licence
 					ul.list.form
 						li
 							label Number
 							input(type="text", value=`${driver.driver_licence.dl_number}`)#q_dl_number
 						li
-							label Expiry
+							label.break Expiry
 							input(type="text", data-provide="datepicker", value=`${dl_expiry}`)#q_dl_expiry
 						li
 							label Scan
-							input(type="text", value=`${driver.driver_licence.dl_scan}`)#q_dl_scan
+							.scan#dl_scan
+								img(src=`${driver.driver_licence.dl_scan}`)#q_dl_scan
+								.uploadBtn Upload Scan
+					
+				.col-sm-4
 					h3 Payment Details
 					ul.list.form
 						li
@@ -89,7 +95,6 @@ block content
 						li
 							label BSB
 							input(type="text", value=`${driver.payment_details[0].bsb}`)#q_bsb
-				.col-sm-4
 					h3 Other Details
 					ul.list.form
 						li
@@ -100,20 +105,20 @@ block content
 								else
 									option(value="") - select -
 
-								if driver.driver_type == 'optionone'
-									option(value="optionone" selected) option one
+								if driver.driver_type == 'Wages'
+									option(value="Wages" selected) Wages
 								else
-									option(value="optionone") option one
+									option(value="Wages") Wages
 
-								if driver.driver_type == 'optiontwo'
-									option(value="optiontwo" selected) option two
+								if driver.driver_type == 'RCTI'
+									option(value="RCTI" selected) RCTI
 								else
-									option(value="optiontwo") option two
+									option(value="RCTI") RCTI
 
-								if driver.driver_type == 'optionthree'
-									option(value="optionthree" selected) option three 
+								if driver.driver_type == 'Offload'
+									option(value="Offload" selected) Offload
 								else
-									option(value="optionthree") option three 
+									option(value="Offload") Offload
 						li.color_select
 							label.break Color
 							input(type="text", value=`${driver.color}`)#q_color
@@ -136,6 +141,19 @@ block content
 						li
 							.btn.btn-default#update-btn(data-driverid=`${driver._id}`) Update
 
+	#image_library_modal
+		#image_library
+			.header
+				h1 Image Library
+				label(for="uploadImgBtn").uploadBtn Upload Image
+				input(type="file", name="imglib_image").btn.nobg#uploadImgBtn 
+			.prog_wrap
+				.progress-bar
+			.imgWindow
+				ul.images
+				.message Select Image
+
+	script(src="/lib/image_library/image_library.js")
 	script(src="/lib/autocomplete/autocomplete.min.js")
 	script(src="/js/functions.js")
 	script(src="/js/form.js")

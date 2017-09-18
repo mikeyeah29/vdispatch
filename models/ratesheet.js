@@ -1,5 +1,6 @@
 /*HOW TO ADD IN EACH VEHICLE TYPE. NEW DOCUMENT?*/
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 // var createZoneObjs = require('../helpers/main.js').createZoneObjs;
 
@@ -13,7 +14,16 @@ var RateSheetSchema = new mongoose.Schema(
         discount_percent: Number,
         C1: Array,
         N4: Array,
-        N5: Array
+        N5: Array,
+        valid_from: Date,
+        valid_to: Date,
+        hourly: {
+            sedan: Number,
+            peoplemover: Number,
+            minibus: Number,
+            coaster: Number,
+            stretch: Number
+        }
         //  N5: [{
         //     zone: String,
         //     sedan: Number,
@@ -28,14 +38,27 @@ var RateSheetSchema = new mongoose.Schema(
 RateSheetSchema.statics.makeObjFromCsv = function(csvData){
     
     const infoObj = csvData[1];
+    const hoursObj = csvData[5];
+
+    console.log(infoObj);
+    console.log(hoursObj);
 
     const rateSheetObj = {
         name: infoObj.Zone,
         ratecode: infoObj.Suburb,
         discount_percent: infoObj.Sedan.replace('%', ''), // remove %
-        C1: csvData.slice(6, 30),
-        N4: csvData.slice(35, 59),
-        N5: csvData.slice(64, 88)
+        valid_from: moment(infoObj.Coaster, 'DD/MM/YYYY', true).format(),
+        valid_to: moment(infoObj.Stretch, 'DD/MM/YYYY', true).format(),
+        C1: csvData.slice(10, 35),
+        N4: csvData.slice(39, 64),
+        N5: csvData.slice(68, 93),
+        hourly: {
+            sedan: hoursObj.Sedan,
+            peoplemover: hoursObj.PeopleMover,
+            minibus: hoursObj.Minibus,
+            coaster: hoursObj.Coaster,
+            stretch: hoursObj.Stretch
+        }
     }
 
     return rateSheetObj;
@@ -80,6 +103,7 @@ RateSheetSchema.statics.updateRateSheetWithCsv = function(csvData, id, callback)
         function(err, affected){
 
             if(err){
+                console.log(err);
                 error = err;
             }
                 

@@ -22,7 +22,7 @@ block content
 							label Last Name
 							input(type="text")#q_last_name
 						li
-							label DOB
+							label.break DOB
 							input(type="text", data-provide="datepicker")#q_dob
 						li
 							label Address Line 1
@@ -59,22 +59,29 @@ block content
 							label Number
 							input(type="text")#q_da_number
 						li
-							label Expiry
+							label.break Expiry
 							input(type="text", data-provide="datepicker")#q_da_expiry
 						li
 							label Scan
-							input(type="text")#q_da_scan
+							//- input(type="text")#q_da_scan
+							.scan#da_scan
+								img(src="/img/license.png")#q_da_scan
+								.uploadBtn Upload Scan
 					h3 Driver Licence
 					ul.list.form
 						li
 							label Number
 							input(type="text")#q_dl_number
 						li
-							label Expiry
+							label.break Expiry
 							input(type="text", data-provide="datepicker")#q_dl_expiry
 						li
 							label Scan
-							input(type="text")#q_dl_scan
+							//- input(type="text")#q_dl_scan
+							.scan#dl_scan
+								img(src="/img/license.png")#q_dl_scan
+								.uploadBtn Upload Scan
+				.col-sm-4
 					h3 Payment Details
 					ul.list.form
 						li
@@ -86,16 +93,15 @@ block content
 						li
 							label BSB
 							input(type="text")#q_bsb
-				.col-sm-4
 					h3 Other Details
 					ul.list.form
 						li
 							label Driver Type
 							select#q_drivertype
 								option(value="") - select -
-								option(value="optionone") option one
-								option(value="optiontwo") option two
-								option(value="optionthree") option three 
+								option(value="Wages") Wages
+								option(value="RCTI") RCTI
+								option(value="Offload") Offload 
 						li.color_select
 							label.break Color
 							input(type="text")#q_color
@@ -115,6 +121,19 @@ block content
 						li
 							.btn.btn-default#save-btn Submit
 
+	#image_library_modal
+		#image_library
+			.header
+				h1 Image Library
+				label(for="uploadImgBtn").uploadBtn Upload Image
+				input(type="file", name="imglib_image").btn.nobg#uploadImgBtn 
+			.prog_wrap
+				.progress-bar
+			.imgWindow
+				ul.images
+				.message Select Image
+
+	script(src="/lib/image_library/image_library.js")
 	script(src="/lib/autocomplete/autocomplete.min.js")
 	script(src="/js/bootstrap-datepicker.min.js")
 	script(src="/js/functions.js")

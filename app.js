@@ -5,25 +5,39 @@ const session = require('express-session');
 const app = express();
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const config = require('./config.json');
+let config = '';
+
+if(process.env.NODE_ENV == 'test'){
+	config = require('./config/test.json');
+}else{
+	config = require('./config/dev.json');
+}
+
 const MongoStore = require('connect-mongo')(session);
 const fileUpload = require('express-fileupload');
+const autoIncrement = require('mongoose-auto-increment');
 
 const mid = require('./middlewares/index');
 
 const userRoutes = require('./controllers/users.js');
 const homeRoutes = require('./controllers/home.js');
 const apiRoutes = require('./controllers/api.js');
+const imgLibRoutes = require('./controllers/api/image_library.js');
 const pricingVariableRoutes = require('./controllers/pricing_variables.js');
 const rateSheetRoutes = require('./controllers/ratesheets.js');
 const accountsRoutes = require('./controllers/accounts.js');
 const driverRoutes = require('./controllers/drivers.js');
+const vehiclesRoutes = require('./controllers/vehicles.js');
+
 
 // const mid = require('./middlewares/index');
 // const pricingVariableRoutes = require('./controllers/pricing_variables.js');
 
 app.use(fileUpload());
-app.use(logger("dev"));
+
+if(process.env.NODE_ENV !== 'test'){
+	app.use(logger("dev"));
+}
 // app.use(jsonParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -64,6 +78,7 @@ app.use(function(req, res, next){
 
 app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
+app.use('/api/image_library', imgLibRoutes);
 
 app.use('/users', mid.requiresLogin, userRoutes);
 app.use('/pricing_variables', mid.requiresLogin, pricingVariableRoutes);
@@ -71,6 +86,7 @@ app.use('/ratesheets', mid.requiresLogin, rateSheetRoutes);
 
 app.use('/accounts', mid.requiresLogin, accountsRoutes);
 app.use('/drivers', mid.requiresLogin, driverRoutes);
+app.use('/vehicles', vehiclesRoutes);
 
 // catch 404 error and forward to handler
 app.use(function(req, res, next){

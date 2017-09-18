@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-vehiclesoverview
+		.container
+			h1 Vehicles
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/vehicles/overview") Vehicles Overview
+				li.breadcrumb-item.active Vehicles &amp; Types
+
+			ul.nav.nav-tabs
+				li.nav-item
+					a(href="#").nav-link.active Vehicles
+				li.nav-item
+					a(href="/vehicles/types").nav-link Types
+
+			a(href="/vehicles/create-vehicle").btn.add.btn-default.btn-nolist Add New Vehicle 
+
+			table.table-striped.table.table-condensed#table_vehicles
+				tr
+					th Number
+					th Type
+					th Colour
+					th Year
+					th
+				each vehicle in vehicles
+					tr
+						td #{vehicle._id}
+						td #{vehicle.type.name}
+						td #{vehicle.color}
+						td #{vehicle.year}
+						td.actions
+							a(href=`/vehicles/edit/${vehicle._id}`).btn.btn-warning.edit
+							label.switch
+								if vehicle.status
+									input(type="checkbox", data-itemid=`${vehicle._id}` checked)
+								else
+									input(type="checkbox", data-itemid=`${vehicle._id}`)
+								.slider
+							.spin
+
+	script(src="/js/functions.js")
+	script(src="/js/vehicles/vehicles.js")
+				

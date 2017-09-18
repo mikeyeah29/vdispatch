@@ -1,20 +1,20 @@
 /*NEED TO DO BOOKING NOTES + BOOKING REQ ATTN + TAGS*/
 var mongoose = require('mongoose');
-var BookingsSchema = new mongoose.Schema(
+var BookingSchema = new mongoose.Schema(
 	{
 		status: String,
 		customer: String,
         reference1: String,
         reference2: String,
         reference3: String,
-        passengers: [{
-            passenger_name: String,
-            pax_adults: Number,
-            pax_children: Number,
-            pax_infants: Number,
-            passenger_email: String,
-            passenger_phone: String,
-        }],
+        passengers: {
+            name: String,
+            adults: Number,
+            children: Number,
+            infants: Number,
+            email: String,
+            phone: String,
+        },
         vehicle_type: String,
         transfer: [{
             date_time: Date,

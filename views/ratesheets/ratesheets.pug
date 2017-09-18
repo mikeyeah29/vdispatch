@@ -22,12 +22,14 @@ block content
 					th Name
 					th Code
 					th Dicount
+					th Valid
 					th
 				each rate in rates
 					tr
 						td #{rate.name}
 						td #{rate.ratecode}
 						td #{rate.discount_percent}%
+						td #{rate.from} to #{rate.to}
 						td.actions.right
 							a(href=`/ratesheets/update/${rate._id}`).btn.btn-update View Rate Sheet
 			//- if rs

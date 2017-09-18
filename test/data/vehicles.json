@@ -1,0 +1,12 @@
+[
+	{
+		"number": 10,
+	    "year": 2005,
+	    "color": "Blue",
+	    "vin": "8789789",
+	    "rego": "TY5 YYHJ",
+	    "rego_expiry": "2019-04-23T18:25:43.511Z",
+	    "coi_expiry": "2019-09-23T18:25:43.511Z",
+	    "odometer": 440
+	}
+]

@@ -7,7 +7,13 @@
 		$(trs).each(function(index){
 
 			if(index > 0){
-				$(this).children().eq(1).text('$' + pvars[index-1].price + ' / ' + pvars[index-1].unit);
+
+				if(index < $(trs).length - 1){
+					$(this).children().eq(1).text('$' + pvars[index-1].price + ' / ' + pvars[index-1].unit);
+				}else{
+					$(this).children().eq(1).text('%' + pvars[index-1].price);
+				}
+
 			}
 
 		});

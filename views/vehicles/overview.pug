@@ -1,0 +1,92 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-vehiclesoverview
+		.container
+			h1 Vehicles
+			ul.actions_bar
+				li
+					.search_group
+						input(type="text", id="q_search")
+						.btn.btn-search Search
+				li
+					a(href="/vehicles").btn.btn-default All Vehicles &amp; Types
+				li.right
+					a(href="/vehicles/create-vehicle").btn.add.btn-default Add New Vehicle
+			.row
+				.col-sm-6
+					.panel
+						.panel-heading 
+							h3 Vehicles Overview
+						.panel-body
+							table
+								tr
+									th No #
+									th Licence
+									th Reg Expiry
+									th COI Expiry
+									th Service Due
+									th
+								each vehicle in vehicles
+									tr
+										td #{vehicle._id}
+										td #{vehicle.rego}
+										td #{vehicle.rego_formatted}
+										td #{vehicle.coi_formatted}
+										td #{vehicle.odometer} km
+										td
+											a(href=`/vehicles/edit/${vehicle._id}`).small-edit
+				.col-sm-6
+					.row
+						.col-sm-6
+							.panel.warning_panel
+								.panel-heading
+									h3 Reg Expiries
+								.panel-body
+									table
+										tr
+											th No #
+											th Expiry Date
+											th
+										each vehicle in vehiclesByRegExp
+											tr
+												td #{vehicle._id}
+												td #{vehicle.rego_formatted}
+												td 
+													a(href=`/vehicles/edit/${vehicle._id}`).small-edit
+						.col-sm-6
+							.panel.warning_panel
+								.panel-heading
+									h3 COI Expiries
+								.panel-body
+									table
+										tr
+											th No #
+											th Expiry Date
+											th
+										each veh in vehiclesByCoiExp
+											tr
+												td #{veh._id}
+												td #{veh.coi_formatted}
+												td 
+													a(href=`/vehicles/edit/${veh._id}`).small-edit
+						.col-sm-12
+							.panel.warning_panel
+								.panel-heading 
+									h3 DOT Bookings
+								.panel-body
+									table
+										tr
+											th No #
+											th Expiry Date
+											th Inspection
+											th
+										each vehicle in vehiclesByDot
+											tr
+												td #{vehicle._id}
+												td #{vehicle.coi_formatted}
+												td #{vehicle.dot_formatted}
+												td 
+													a(href=`/vehicles/edit/${vehicle._id}`).small-edit

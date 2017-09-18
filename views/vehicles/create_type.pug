@@ -1,0 +1,72 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-vehiclesoverview
+		.container
+			h1 Vehicles
+			ol.breadcrumb
+				li.breadcrumb-item
+					a(href="/vehicles/overview") Vehicles Overview
+				li.breadcrumb-item
+					a(href="/vehicles") Vehicles &amp; Types
+				li.breadcrumb-item.active Create New Vehicle Type
+			.row
+				.col-sm-6
+					h3 Main Details
+					ul.list.form.half_width
+						li
+							label Name
+							input(type="text")#q_name
+						li
+							label Code
+							input(type="text")#q_code
+						li
+							label Make
+							input(type="text")#q_make
+						li
+							label Model
+							input(type="text")#q_model
+					h3 Capacity Details
+					ul.list.form.horizontal_form
+						li
+							label.break Seats
+							input(type="number", value="0", min="0")#q_seats
+						li
+							label.break Suitcases
+							input(type="number", value="0", min="0")#q_suitcases
+						li
+							label.break Carry On
+							input(type="number", value="0", min="0")#q_carry_on
+						li
+							label Vehicle Image
+							.scan
+								img(src="/img/car.png")#q_image
+								.uploadBtn Upload Image
+				.col-sm-6
+					h3 Other Details
+					ul.list.form
+						li
+							label Service (km)
+							input(type="text")#q_servicekm
+						li
+							label Fuel Type
+							select#q_fuel_type
+								option(value="Petrol") Petrol
+								option(value="Diesel") Diesel
+						li
+							label.switch
+								input(type="checkbox")#q_status
+								.slider
+							label.switch_label Active
+						li
+							.btn.btn-default#save-btn Submit
+
+	include ../partials/_img_lib
+
+	script(src="/lib/image_library/image_library.js")
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/vehicles/create_type.js")

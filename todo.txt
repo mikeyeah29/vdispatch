@@ -39,13 +39,6 @@ ACCOUNTS
     - overview
         - populate overview table
 
-DRIVERS
-
-    - overview of expiring licences
-    - update/edit drivers
-    - delete drivers
-    - update vdispatch and let jason know
-
 VEHICLES
 
     (Try This Order + Test First...)
@@ -72,7 +65,7 @@ VEHICLES
 /***************************/
 
 BOOKINGS
-    - restrict access#
+    - tests
     - setup routes
     - create model
     - pug templates
@@ -85,4 +78,3 @@ BOOKINGS
 ///////////////////////////////////////////////////////////
 
 - Flights
-- SIC Runs

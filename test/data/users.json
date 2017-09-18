@@ -1,0 +1,83 @@
+[
+	{
+		"first_name": "Nick",
+		"last_name": "Fury",
+		"email": "nick@fury.com",
+		"password": "123",
+	    "phone": "1234559089",
+		"address": [{
+			"line1": "vfbdjkbdjk",
+			"line2": "bhjkbhjb",
+	        "suburb": "yeahh",
+	        "postcode": "44607"
+		}],
+		"payment_details": [{
+			"bank_name": "The bank of austraila",
+	        "account": "98789789",
+	        "bsb": "klnklnkjn"
+	    }],
+	    "permissions": [{
+	        "administrator": true,
+	        "management": true,
+	        "reservations": true,
+	        "operations": true,
+	        "accounts": true,
+	        "reports": true
+	    }],
+	    "status": true
+	},
+	{
+		"first_name": "Tony",
+		"last_name": "Stark",
+		"email": "tony@stark.com",
+		"password": "123",
+	    "phone": "1234559089",
+		"address": [{
+			"line1": "vfbdjkbdjk",
+			"line2": "bhjkbhjb",
+	        "suburb": "yeahh",
+	        "postcode": "44607"
+		}],
+		"payment_details": [{
+			"bank_name": "The bank of austraila",
+	        "account": "98789789",
+	        "bsb": "klnklnkjn"
+	    }],
+	    "permissions": [{
+	        "administrator": true,
+	        "management": false,
+	        "reservations": false,
+	        "operations": false,
+	        "accounts": false,
+	        "reports": false
+	    }],
+	    "status": true
+	},
+	{
+		"first_name": "Ant",
+		"last_name": "Man",
+		"email": "ant@man.com",
+		"password": "123",
+	    "phone": "1234559089",
+		"address": [{
+			"line1": "vfbdjkbdjk",
+			"line2": "bhjkbhjb",
+	        "suburb": "yeahh",
+	        "postcode": "44607"
+		}],
+		"payment_details": [{
+			"bank_name": "The bank of austraila",
+	        "account": "98789789",
+	        "bsb": "klnklnkjn"
+	    }],
+	    "permissions": [{
+	        "administrator": false,
+	        "management": false,
+	        "reservations": true,
+	        "operations": false,
+	        "accounts": false,
+	        "reports": false
+	    }],
+	    "status": true
+	}
+]

@@ -5,7 +5,7 @@ block content
 
 	section#page-ratesheets(data-error=`${error}`, data-success=`${success}`)
 		.container
-			h1 #{rate.name}
+			h1 #{rate.name}, Valid from #{valid_from} until #{valid_to} 
 			ol.breadcrumb
 				li.breadcrumb-item
 					a(href="/ratesheets") All Rate Sheets
@@ -18,6 +18,21 @@ block content
 						input(type="file", name="ratesheet")#new_rate_sheet
 						button.btn.add(disabled) Update Rates for #{rate.name}
 			.ratesheet
+				h2 Hourly
+				table.table-striped.table.table-condensed
+					tr
+						th Sedan
+						th People Mover
+						th Minibus
+						th Coaster
+						th Stretch
+					tr
+						td $#{rate.hourly.sedan}
+						td $#{rate.hourly.peoplemover}
+						td $#{rate.hourly.minibus}
+						td $#{rate.hourly.coaster}
+						td $#{rate.hourly.stretch}
+
 				h2 from / to Cairns APT or CBD
 				table.table-striped.table.table-condensed
 					tr
@@ -58,7 +73,7 @@ block content
 							td #{item.Coaster}
 							td #{item.Stretch}
 
-				h2 from / to Palm Cove
+				h2 from/to Port Douglas
 				table.table-striped.table.table-condensed
 					tr
 						th Zone

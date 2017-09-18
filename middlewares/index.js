@@ -16,7 +16,19 @@ function requiresLogin(req, res, next){
 	if(req.session && req.session.userId){
 		return next();
 	}else{
+		res.status(401);
 		return res.redirect('/');
+	}
+
+}
+
+function requiresLoginJSON(req, res, next){
+
+	if(req.session && req.session.userId){
+		return next();
+	}else{
+		res.status(401);
+		return res.send({error: 'Not logged In'});
 	}
 
 }
@@ -30,4 +42,5 @@ function requiresLogin(req, res, next){
 
 module.exports.loggedIn = loggedIn;
 module.exports.requiresLogin = requiresLogin;
+module.exports.requiresLoginJSON = requiresLoginJSON;
 // module.exports.requiresPermission = requiresPermission;

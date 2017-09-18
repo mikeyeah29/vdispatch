@@ -130,7 +130,15 @@ function itemActiveToggle(url, spin, dataObj){
 
 			spin.hide();
 
-			if(data.success != '1'){
+			// if(data.success != '1'){
+			// 	var msg = new Message(data.error, true, $('#message_box'));
+			// 	msg.display();
+			// }else{
+			// 	var msg = new Message(data.successMsg, false, $('#message_box'));
+			// 	msg.display();
+			// }
+
+			if(data.error){
 				var msg = new Message(data.error, true, $('#message_box'));
 				msg.display();
 			}else{

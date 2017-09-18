@@ -4,6 +4,7 @@ const express = require('express');
 const rates = express.Router();
 const User = require('../models/user.js').User;
 const RateSheet = require('../models/ratesheet.js').RateSheet;
+const moment = require('moment');
 
 var csv = require('csv');
 
@@ -21,13 +22,16 @@ rates.get('/', function(req, res, next){
 			return next(err);
 		}else{
 
-			RateSheet.find().select({name: 1, ratecode: 1, discount_percent: 1}).limit(30).exec(function(err, rates){
+			RateSheet.find().select({name: 1, ratecode: 1, discount_percent: 1, valid_from: 1, valid_to: 1}).limit(30).exec(function(err, rates){
 
 				if(err){
 					return next(err);
 				}
 
-				console.log('Rates: ', rates);
+				rates.forEach(function(rate){
+					rate.from = moment(rate.valid_from).format('YYYY/MM/DD');
+					rate.to = moment(rate.valid_to).format('YYYY/MM/DD');
+				});
 
 				res.render('ratesheets/ratesheets', {
 					title: 'All Ratesheets',
@@ -122,10 +126,15 @@ rates.get('/update/:rateSheetId', function(req, res, next){
 					return next(err);
 				}else{
 
+					// var valid_from = moment(rate.valid_from).format("MMM Do YY");
+					// var valid_to = moment(rate.valid_to).format("MMM Do YY");
+
 					res.render('ratesheets/update_ratesheet', {
 						title: 'Update Ratesheet',
 						user: user,
-						rate: rate
+						rate: rate,
+						valid_from: moment(rate.valid_from).format("MMM Do YY"),
+						valid_to: moment(rate.valid_to).format("MMM Do YY")
 					});
 
 				}

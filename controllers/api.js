@@ -29,8 +29,6 @@ api.post('/postcodes', function(req, res, next){
 
 	Suburb.find({"postcode": regex}).distinct('postcode').exec(function(err, postcodes){
 
-		console.log(postcodes);
-
 		if(err){
 			return res.send(err);
 		}

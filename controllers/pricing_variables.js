@@ -5,7 +5,6 @@ const pricing_variables = express.Router();
 const User = require('../models/user.js').User;
 const PricingVariables = require('../models/pricing_variable.js').PricingVariables;
 const helper = require('../helpers/main.js');
-const config = require('../config.json');
 
 const routePermission = 'administrator';
 

@@ -88,9 +88,6 @@ DriverSchema.statics.getExpiring = function(callback){
     var threeMonthsFuture = new Date();
     threeMonthsFuture.setMonth(threeMonthsFuture.getMonth()+3);
 
-    console.log('DATE: ', now);
-    console.log('DATE: ', new Date(threeMonthsFuture));
-
     var findObj = {'status': true};
 
     this.find(findObj, function(err, drivers){
@@ -102,8 +99,6 @@ DriverSchema.statics.getExpiring = function(callback){
         var expiryArray = [];
 
         for(var i=0; i<drivers.length; i++) {
-
-            // console.log(drivers[i].driver_authorisation.da_expiry, ' ', threeMonthsFuture);
 
             if(drivers[i].driver_authorisation.da_expiry < threeMonthsFuture){
                 expiryArray.push({

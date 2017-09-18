@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Sedan",
+	    "code": "Sed",
+	    "type": {
+	        "make": "Ford",
+	        "model": "Fiesta"
+	    },
+	    "features": {
+	        "seats": 4,
+	        "suitcases": 2,
+	        "carry_on": 1,
+	        "image": "/static/img/uploads/vehicles"
+	    },
+	    "details": {
+	        "service_km": 10000,
+	        "fuel_type": "Petrol"
+	    }
+	},
+	{
+		"name": "Stretch",
+	    "code": "Str",
+	    "type": {
+	        "make": "Thing",
+	        "model": "Thingymajigly"
+	    },
+	    "features": {
+	        "seats": 10,
+	        "suitcases": 5,
+	        "carry_on": 5,
+	        "image": "/static/img/uploads/vehicles"
+	    },
+	    "details": {
+	        "service_km": 10000,
+	        "fuel_type": "Petrol"
+	    }
+	}
+]
