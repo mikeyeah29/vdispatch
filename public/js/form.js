@@ -108,7 +108,7 @@ var form = (function(){
 		}
 		var url = this.url;
 
-		console.log(url);
+		// console.log(url);
 
 		$.ajax({
 			url: url,

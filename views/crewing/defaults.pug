@@ -1,0 +1,129 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-crewingdefaults
+		.container
+			.alert.alert-info Here you can set specific Defaults for airlines, add Transfers for airline crews and Search within crewing bookings for individual crew members.
+
+			h1 Crewing
+
+			ul.nav.nav-tabs
+				li.nav-item
+					a(href="/crewing").nav-link.active Defaults
+				li.nav-item
+					a(href="/crewing/transfers").nav-link Transfers
+				li.nav-item
+					a(href="/crewing/search").nav-link Search
+
+			.aSection
+				.btn.add#addNewCrewing Add New Crewing Customer
+
+			ul.accordian#theAccordian
+				each crew in crewing
+					li.accordian_li
+						.a_title(data-crewing_id=`${crew._id}` data-account_id=`${crew.account}`) #{crew.name}
+						.a_content(data-crewing_id=`${crew._id}`)
+							ul.nav.nav-tabs
+								li.nav-item
+									.nav-link.active Hotels
+								li.nav-item
+									.nav-link Pricing
+								li.nav-item
+									.nav-link Notes
+
+							.crew_box.crew_hotels
+								label Current Hotel
+								if crew.hotel.location
+									p.green #{crew.hotel.location}
+									label.break Change Hotel
+									input(placeholder="Hotel...").input_hotel
+									.btn.btn-update Update
+								else
+									p No hotel Set
+									input(placeholder="Hotel...").input_hotel
+									.btn.btn-update Set Hotel							
+
+							.crew_box.crew_pricing
+								table
+									tr
+										th Vehicle
+										th Max Crew
+										th Price
+										th
+									if crew.pricing
+										each price in crew.pricing
+											tr
+												td #{price.vehicle}
+												td #{price.max_crew}
+												td #{price.price}
+												td
+													span.btn.edit
+													span.delete
+								.btn.add.add_price Add Price
+
+							.crew_box.crew_notes
+								textarea.break #{crew.default_note}
+								.btn.btn-update#updateNotes Update Note
+
+	#add_crewing_box.overlay.overlay-fixed
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h4.modal-title Select Customer
+				.modal-body
+					ul.list.form
+						li
+							label Select Customer to Add to Crewing
+							select#crewing_customers
+						li
+							label Name
+							input(type="text", placeholder="Name...")#q_name
+					.btn.add#submitCrewingNew Add
+				.overlay_spin
+
+	#add_price_box.overlay.overlay-fixed
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h4.modal-title Add Price
+				.modal-body
+					ul.list.form
+						li
+							label Select Vehicle
+							select#vehicle_select
+						li.aHalf
+							label Max Crew
+							input(type="number", placeholder="Name...")#q_max_crew
+						li.aHalf
+							label Price
+							input(type="number", placeholder="Name...")#q_price
+					.btn.add#submitPriceNew Add
+				.overlay_spin
+
+	#edit_price_box.overlay.overlay-fixed
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h4.modal-title Edit Price
+				.modal-body
+					ul.list.form
+						li
+							label Select Vehicle
+							select#vehicle_edit_select
+						li.aHalf
+							label Max Crew
+							input(type="number", placeholder="Name...")#q_edit_max_crew
+						li.aHalf
+							label Price
+							input(type="number", placeholder="Name...")#q_edit_price
+					.btn.add#submitPriceEdit Save
+				.overlay_spin
+
+	script(src="/js/popup.js")
+	script(src="/js/accordian.js")
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/crewing/defaults.js")

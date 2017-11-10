@@ -21,14 +21,20 @@ const mid = require('./middlewares/index');
 
 const userRoutes = require('./controllers/users.js');
 const homeRoutes = require('./controllers/home.js');
+
 const apiRoutes = require('./controllers/api.js');
 const imgLibRoutes = require('./controllers/api/image_library.js');
+const bookingApiRoutes = require('./controllers/api/bookings.js');
+const crewingApiRoutes = require('./controllers/api/crewing.js');
+
 const pricingVariableRoutes = require('./controllers/pricing_variables.js');
 const rateSheetRoutes = require('./controllers/ratesheets.js');
 const accountsRoutes = require('./controllers/accounts.js');
 const driverRoutes = require('./controllers/drivers.js');
 const vehiclesRoutes = require('./controllers/vehicles.js');
-
+const bookingRoutes = require('./controllers/bookings.js');
+const crewingRoutes = require('./controllers/crewing.js');
+const dispatchRoutes = require('./controllers/dispatch.js');
 
 // const mid = require('./middlewares/index');
 // const pricingVariableRoutes = require('./controllers/pricing_variables.js');
@@ -52,6 +58,8 @@ app.set('views', __dirname + '/views');
 var mongoose = require("mongoose");
 mongoose.connect(config.mongo_uri);
 var db = mongoose.connection; 
+
+// autoIncrement.initialize(db);
 
 db.on("error", function(err){
 	console.error("Connection error: ", err);
@@ -79,6 +87,8 @@ app.use(function(req, res, next){
 app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
 app.use('/api/image_library', imgLibRoutes);
+app.use('/api/bookings', bookingApiRoutes);
+app.use('/api/crewing', crewingApiRoutes);
 
 app.use('/users', mid.requiresLogin, userRoutes);
 app.use('/pricing_variables', mid.requiresLogin, pricingVariableRoutes);
@@ -87,6 +97,9 @@ app.use('/ratesheets', mid.requiresLogin, rateSheetRoutes);
 app.use('/accounts', mid.requiresLogin, accountsRoutes);
 app.use('/drivers', mid.requiresLogin, driverRoutes);
 app.use('/vehicles', vehiclesRoutes);
+app.use('/booking', bookingRoutes);
+app.use('/crewing', crewingRoutes);
+app.use('/dispatch', dispatchRoutes);
 
 // catch 404 error and forward to handler
 app.use(function(req, res, next){

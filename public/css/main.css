@@ -20,6 +20,10 @@
 
 */
 
+hr {
+    width: 100%;
+}
+
 .white-bg {
 	background: #DBE9EE;
 }
@@ -103,13 +107,17 @@ ul {
     font-weight: bold;
 }
 
-.btn {
+.btn,
+.yesBtn,
+.noBtn {
 	cursor: pointer;
     padding: 5px 10px;
     border: none;
 }
 
-.btn-default {
+.btn-default,
+.yesBtn,
+.noBtn {
     background: linear-gradient(#0A8874, #0ea78f);
     border-bottom: solid 2px #0e6557;
     color: #fff;
@@ -164,6 +172,11 @@ ul {
     margin: 10px 0px;
 }
 
+.green {
+    background: #b9ffb9;
+    padding: 5px 10px;
+}
+
 .small-edit {
     background: url(/img/edit-dark.png) no-repeat 50%;
     width: 15px;
@@ -175,6 +188,14 @@ ul {
 .box {
 	border-radius: 3px;
 	background: #DBE9EE;
+}
+
+.greyBox {
+    background: #fbfbfb;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+    border: solid 1px #eaeaea;
+    overflow: hidden;
 }
 
 .spin {
@@ -211,6 +232,25 @@ ul {
     display: none;
 }
 
+.overlay-fixed {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+}
+
+/* Divitions */
+
+.aHalf {
+    width: 50%;
+    display: inline-block;
+}
+
+.aThird {
+    width: 33%;
+    display: inline-block;
+}
+
 .formList li {
 	margin-bottom: 10px;
 }
@@ -220,6 +260,10 @@ a:active,
 a:visited {
 	opacity: 0.5;
 	text-decoration: none;
+}
+
+.aSection {
+    padding-top: 20px;
 }
 
 section {
@@ -336,6 +380,10 @@ input[data-provide="datepicker"] {
     text-align: center;
 }
 
+.nav-item {
+    cursor: pointer;
+}
+
 /* Form Stuff */
 
 .form li {
@@ -371,11 +419,17 @@ input[type="checkbox"] {
 	width: auto;
 }
 
+input[type="time"] {
+    width: 95px;
+}
+
 input[type="checkbox"]:focus {
     outline: auto;
 }
 
-input.invalid {
+input.invalid,
+select.invalid,
+textarea.invalid {
 	background: #fff4f4;
     border: solid 1px #da1a1a;
 }
@@ -548,7 +602,7 @@ select {
 
 header {
     padding: 10px 0px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     background: #f7f7f7;
     border-bottom: solid 2px #dedede;
 }
@@ -802,4 +856,159 @@ footer {
     max-height: 346px;
 }
 
+/* Autocomplete */
+
+.easy-autocomplete-container ul li {
+    margin-bottom: 0px;
+}
+
 /* Vehicles */
+
+/* Bookings */
+
+.form.notesList li {
+    padding-right: 10px;
+}
+
+/* Accordian */
+
+.accordian {
+    margin-top: 25px;
+}
+
+.accordian .a_title {
+    background: #f1f1f1 url(../img/dark-plus.png) no-repeat 10px 50%;
+    padding: 5px 50px;
+    border-top: dashed 2px #E0DFDE;
+    border-bottom: dashed 2px #E0DFDE;
+    margin-top: -2px;
+    cursor: pointer;
+}
+.accordian .a_title.open {
+    background: #f1f1f1 url(../img/dark-minus.png) no-repeat 10px 50% !important;
+}
+
+.accordian .a_content {
+    padding: 20px 0px;
+    display: none;
+}
+
+/* Crewing */
+
+.crew_box {
+    padding: 25px 10px;
+}
+
+.crew_box input {
+    width: 260px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.crew_box table {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.crew_box table th {
+    border-bottom: solid 1px #000;
+}
+
+.crew_box table th,
+.crew_box table td {
+    padding: 5px 15px;
+}
+
+.crew_box textarea {
+    max-width: 460px;
+    margin-bottom: 20px;
+}
+
+.crew_box .easy-autocomplete {
+    display: inline;
+}
+
+.crew_pricing,
+.crew_notes {
+    display: none;
+}
+
+.crew_box .delete {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-left: 10px;
+}
+
+.crew_box .delete:before {
+    position: absolute;
+    top: -3px;
+    left: 7px;
+}
+
+.crewingForm {
+    padding: 10px 15px 5px 15px;
+    margin-bottom: 20px;
+    background: #fbfbfb;
+/*    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);*/
+    border: solid 1px #eaeaea;
+}
+
+.crewingForm ul {
+    margin-bottom: 0px;
+}
+
+.time {
+    background: url('../img/time.png') no-repeat 0px;
+    padding-left: 26px;
+}
+
+.date {
+    background: url('../img/date.png') no-repeat 0px;
+    padding-left: 26px;
+}
+
+/* Dispatch */
+
+#add_crewing_box, 
+#add_price_box,
+#edit_price_box {
+    text-align: left;
+}
+
+#add_crewing_box .overlay_spin,
+#add_price_box .overlay_spin,
+#edit_price_box .overlay_spin {
+    position: absolute;
+}
+
+#add_price_box input[type="number"],
+#edit_price_box input[type="number"] {
+    margin-left: 20px;
+}
+
+/* Pop Up */
+
+.c_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    top: 0px;
+}
+
+.c_modal .box {
+    border-radius: 3px;
+    background: #f1f1f1;
+    width: 250px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.c_modal button {
+    border-radius: 3px;
+    margin: 0px 10px;
+}

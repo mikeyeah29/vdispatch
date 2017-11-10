@@ -10,8 +10,6 @@ let server = require('../../app');
 let should = chai.should();
 let expect = chai.expect();
 let userTestData = require('../data/users.json');
-let vehicleTypeTestData = require('../data/vehicletypes.json');
-let vehicleTestData = require('../data/vehicles.json');
 let async = require('async');
 
 chai.use(chaiHttp);
@@ -52,14 +50,15 @@ function logAvengerIn(avenger, callback){
 
 }
 
-describe('Booking Routes', () => {
+describe('Crewing Routes', () => {
 
-	describe('GET /booking', () => {
+    describe('GET /', () => {
 
-		it('should redirect to homepage as no one is logged in', (done) => {
+        // no on logged in
+        it('should redirect to homepage as no one is logged in', (done) => {
 
             chai.request(server)
-                .get('/booking')
+                .get('/crewing')
                 .end((err, res) => {
                     res.should.redirect;
                     done();
@@ -67,11 +66,12 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should redirect to homepage as tony is unauthorised to view bookings', (done) => {
+        // logged in without permission
+        it('should redirect to homepage as Tony Stark is unauthorised to view crewing', (done) => {
 
             logAvengerIn('tony', function(agent){
 
-                agent.get('/booking')
+                agent.get('/crewing')
                     .end(function (err, res) {
                         res.should.redirect;
                         done();
@@ -81,28 +81,13 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should render the bookings overview page, as nick fury is logged in', (done) => {
-
-            logAvengerIn('nick', function(agent){
-
-                agent.get('/booking')
-                    .end(function (err, res) {
-                        // res.should.not.redirect;
-                        res.should.have.status(200);
-                        done();
-                    });
-
-            });
-
-        });
-
-        it('should render the bookings overview page, as ant man is logged in', (done) => {
+        // logged in with permission
+        it('should render the crewing defaults page', (done) => {
 
             logAvengerIn('antman', function(agent){
 
-                agent.get('/booking')
+                agent.get('/crewing')
                     .end(function (err, res) {
-                        // res.should.not.redirect;
                         res.should.have.status(200);
                         done();
                     });
@@ -111,14 +96,15 @@ describe('Booking Routes', () => {
 
         });
 
-	});
+    });
 
-	describe('GET /booking/search', () => {
+    describe('GET /transfers', () => {
 
-		it('should redirect to homepage as no one is logged in', (done) => {
+        // no on logged in
+        it('should redirect to homepage as no one is logged in', (done) => {
 
             chai.request(server)
-                .get('/booking/search')
+                .get('/crewing/transfers')
                 .end((err, res) => {
                     res.should.redirect;
                     done();
@@ -126,11 +112,12 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should redirect to homepage as tony is unauthorised to view bookings', (done) => {
+        // logged in without permission
+        it('should redirect to homepage as Tony Stark is unauthorised to view crewing', (done) => {
 
             logAvengerIn('tony', function(agent){
 
-                agent.get('/booking/search')
+                agent.get('/crewing/transfers')
                     .end(function (err, res) {
                         res.should.redirect;
                         done();
@@ -140,28 +127,13 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should render the bookings search page, as nick fury is logged in', (done) => {
-
-            logAvengerIn('nick', function(agent){
-
-                agent.get('/booking/search')
-                    .end(function (err, res) {
-                        // res.should.not.redirect;
-                        res.should.have.status(200);
-                        done();
-                    });
-
-            });
-
-        });
-
-        it('should render the bookings search page, as ant man is logged in', (done) => {
+        // logged in with permission
+        it('should render the crewing transfers page', (done) => {
 
             logAvengerIn('antman', function(agent){
 
-                agent.get('/booking/search')
+                agent.get('/crewing/transfers')
                     .end(function (err, res) {
-                        // res.should.not.redirect;
                         res.should.have.status(200);
                         done();
                     });
@@ -169,26 +141,16 @@ describe('Booking Routes', () => {
             });
 
         });
-		
-	});
 
-	describe('GET /booking/edit/:bookingId', () => {
+    });
 
-		let bookingId = '';
+    describe('GET /search', () => {
 
-		before(function(done){
-
-			Booking.create({}, function(err, booking){
-				bookingId = booking._id;
-				done();
-			});
-
-		});
-
-		it('should redirect to homepage as no one is logged in', (done) => {
+        // no on logged in
+        it('should redirect to homepage as no one is logged in', (done) => {
 
             chai.request(server)
-                .get('/booking/edit/' + bookingId)
+                .get('/crewing/search')
                 .end((err, res) => {
                     res.should.redirect;
                     done();
@@ -196,11 +158,12 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should redirect to homepage as tony is unauthorised to view bookings', (done) => {
+        // logged in without permission
+        it('should redirect to homepage as Tony Stark is unauthorised to view crewing', (done) => {
 
             logAvengerIn('tony', function(agent){
 
-                agent.get('/booking/edit/' + bookingId)
+                agent.get('/crewing/search')
                     .end(function (err, res) {
                         res.should.redirect;
                         done();
@@ -210,28 +173,13 @@ describe('Booking Routes', () => {
 
         });
 
-        it('should render the edit booking page, as nick fury is logged in', (done) => {
-
-            logAvengerIn('nick', function(agent){
-
-                agent.get('/booking/edit/' + bookingId)
-                    .end(function (err, res) {
-                        // res.should.not.redirect;
-                        res.should.have.status(200);
-                        done();
-                    });
-
-            });
-
-        });
-
-        it('should render the edit booking page, as ant man is logged in', (done) => {
+        // logged in with permission
+        it('should render the crewing search page', (done) => {
 
             logAvengerIn('antman', function(agent){
 
-                agent.get('/booking/edit/' + bookingId)
+                agent.get('/crewing/search')
                     .end(function (err, res) {
-                        // res.should.not.redirect;
                         res.should.have.status(200);
                         done();
                     });
@@ -239,7 +187,7 @@ describe('Booking Routes', () => {
             });
 
         });
-		
-	});
+
+    });
 
 });

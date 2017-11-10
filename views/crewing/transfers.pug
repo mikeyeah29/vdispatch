@@ -1,0 +1,74 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-crewingdefaults
+		.container
+
+			h1 Crewing
+
+			ul.nav.nav-tabs
+				li.nav-item
+					a(href="/crewing").nav-link Defaults
+				li.nav-item
+					a(href="/crewing/transfers").nav-link.active Transfers
+				li.nav-item
+					a(href="/crewing/search").nav-link Search
+
+			.aSection
+				ul.form.horizontal_form
+					li
+						label.break Airline Crew
+						select#crewing_select
+							option(value="") - select airline crew -
+							each crew in crewing
+								option(value=`${crew._id}`) #{crew.name}
+					li
+						label.break.date Date
+						input(type="text", data-provide="datepicker")#q_date
+					li
+						label.break Arrival / Departure
+						select#arrdep_select
+							option(value="true") Arrival
+							option(value="false") Departure
+					li.right
+						.btn.add#submitCrewingBookings Add Crewing Bookings
+
+			hr
+
+			.row
+				- var n = 0
+				while n < 8
+					.col-sm-6
+						.crewingForm
+							ul.form.horizontal_form
+								li
+									label.break.time Time
+									input(type="time").q_time
+								li
+									label.break Dom / Int
+									select.q_flighttype
+										option(value="") - select -
+										option(value="Domestic") Domestic
+										option(value="International") International
+								li
+									label.break.time Flight
+									input(type="text").q_flight
+							ul.form.horizontal_form
+								li
+									label.break Tech
+									input(type="number", min="0").q_tech
+								li
+									label.break Cabin
+									input(type="number", min="0").q_cabin
+								li
+									label.breal Crew Names
+									input(type="text").q_crewnames
+					- n++
+
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/crewing/transfers.js")
+
+

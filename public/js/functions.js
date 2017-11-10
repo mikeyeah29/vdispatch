@@ -130,14 +130,6 @@ function itemActiveToggle(url, spin, dataObj){
 
 			spin.hide();
 
-			// if(data.success != '1'){
-			// 	var msg = new Message(data.error, true, $('#message_box'));
-			// 	msg.display();
-			// }else{
-			// 	var msg = new Message(data.successMsg, false, $('#message_box'));
-			// 	msg.display();
-			// }
-
 			if(data.error){
 				var msg = new Message(data.error, true, $('#message_box'));
 				msg.display();
@@ -168,5 +160,57 @@ function getDateForInput(date){
 	} 
 
 	return mm+'/'+dd+'/'+yyyy;
+
+}
+
+// Autocompletes
+
+function vDisp_autocomplete(dataToSearch, id, callback = null){
+
+	url = '';
+
+	var theElement;
+
+	if($.type(id) == 'object'){
+		theElement = id;
+	}else{
+		theElement = $('#' + id);
+	}
+
+	var options = {
+		url: function(phrase) {
+			return "/api/" + dataToSearch + 's';
+		},
+		getValue: function(element) {
+
+			var thing = dataToSearch;
+
+			if(dataToSearch == 'location'){
+				thing = 'line1';
+			}
+			return element[thing] || element;
+		},
+		ajaxSettings: {
+			dataType: "json",
+			method: "POST",
+			data: {
+			  dataType: "json"
+			}
+		},
+		preparePostData: function(data) {
+			data.phrase = theElement.val();
+			return data;
+		},
+		list: {
+			onSelectItemEvent: function(){
+				if(callback){
+					callback(theElement);
+				}
+			}
+		},
+		requestDelay: 400
+	};
+
+	theElement.easyAutocomplete(options);
 
 }

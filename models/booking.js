@@ -1,9 +1,23 @@
 /*NEED TO DO BOOKING NOTES + BOOKING REQ ATTN + TAGS*/
 var mongoose = require('mongoose');
-var BookingSchema = new mongoose.Schema(
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose.connection);
+
+var Schema = mongoose.Schema;
+
+var BookingSchema = new Schema(
 	{
-		status: String,
+        booking_no: Number,
+        isCrewing: {
+            type: Boolean,
+            default: false
+        },
+		status: {
+            type: String,
+            default: 'Confirmed'
+        },
 		customer: String,
+        sub_customer: String,
         reference1: String,
         reference2: String,
         reference3: String,
@@ -13,40 +27,62 @@ var BookingSchema = new mongoose.Schema(
             children: Number,
             infants: Number,
             email: String,
-            phone: String,
+            phone: String
         },
-        vehicle_type: String,
-        transfer: [{
-            date_time: Date,
-        pick_up: [{
-            location: String,
+        vehicle_type: {
+            type: Schema.Types.ObjectId,
+            ref: 'VehicleType',
+        },
+        pick_up: {
+            line1: String,
+            line2: String,
             suburb: String,
-            zone: String
-        }],
-        drop_off: [{
-            location: String,
+            postcode: String,
+            zone: String,
+            instructions: String
+        },
+        drop_off: {
+            line1: String,
+            line2: String,
             suburb: String,
-            zone: String
-        }],
+            postcode: String,
+            zone: String,
+            instructions: String
+        },
+        transfer_type: String,
+        date: Date,
+        time: String,
         flight: String,
-        allocation: [{
+        allocation: {
             driver: String,
             vehicle: String
-        }],
-        extras: [{
+        },
+        extras: {
             water: Number,
             face_towel: Number,
             rear_seat: Number,
             forward_seat: Number,
             booster: Number
-        }],
+        },
+        notes: {
+            office: String,
+            customer: String,
+            driver: String
+        },
         invoiced: {
             type: Boolean,
-            required: true
-        },
+            required: true,
+            default: false
+        }
 	}
 );
 
-var Bookings = mongoose.model('Bookings', BookingsSchema);
-module.exports = Bookings;
+BookingSchema.plugin(autoIncrement.plugin, {
+    model: 'Booking',
+    field: 'booking_no',
+    startAt: 2000,
+    incrementBy: 1
+});
 
+var Booking = mongoose.model('Booking', BookingSchema);
+module.exports.Booking = Booking;

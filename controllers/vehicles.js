@@ -457,6 +457,8 @@ vehicles.get('/edit/:vehicleId', mid.requiresLogin, function(req, res, next){
 					return next(err);
 				}
 
+				console.log('ve ', vehicle);
+
 				const rego_expiry = helpful.getDateForInput(vehicle.rego_expiry);
 				const coi_expiry = helpful.getDateForInput(vehicle.coi_expiry);
 				const dot_booking = helpful.getDateForInput(vehicle.dot_booking);

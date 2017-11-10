@@ -1,6 +1,10 @@
 
 function getDateForInput(date){
 
+	if(!date){
+		return '';
+	}
+
 	var dd = date.getDate();
 	var mm = date.getMonth()+1; //January is 0!
 	var yyyy = date.getFullYear();

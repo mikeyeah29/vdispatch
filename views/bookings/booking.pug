@@ -1,0 +1,151 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-accountsoverview
+		.container
+			h1 Booking
+			.bookingForm.greyBox
+				.row
+					.col-sm-6
+						h3 Main Details
+						.row
+							.col-sm-6
+								ul.list.form
+									li
+										label Customer
+										select#q_customer
+											option(value="") - select -
+											each customer in customers
+												option(value=`${customer.name}`) #{customer.name}		
+
+									li
+										label Sub Customer
+										select#q_subcustomer
+											option(value="") - select -
+											each customer in customers
+												option(value=`${customer.name}`) #{customer.name}
+									li
+										label Reference One
+										input(type="text")#q_ref1
+									li
+										label Reference Two
+										input(type="text")#q_ref2
+									li
+										label Reference Three
+										input(type="text")#q_ref3
+									li
+										label Flight
+										input(type="text")#q_flight
+									li.aHalf
+										label.break Date
+										input(type="text", data-provide="datepicker")#q_date
+									li.aHalf
+										label.break Time
+										input(type="time")#q_time
+							.col-sm-6
+								ul.list.form
+									li
+										label Passenger Name
+										input(type="text")#q_name
+									li.aThird
+										label.break Adults
+										input(type="number", min="1", max="10", value="1")#q_adults
+									li.aThird
+										label.break Children
+										input(type="number", min="0", max="10", value="0")#q_children
+									li.aThird
+										label.break Infants
+										input(type="number", min="0", max="10", value="0")#q_infants
+									li
+										label Email
+										input(type="email")#q_email
+									li
+										label Phone
+										input(type="text")#q_phone
+									li
+										label Vehicle Type
+										select#q_vehicle_type
+											option(value="") - select -
+											each vt in vehicleTypes
+												option(value=`${vt._id}`) #{vt.name}
+									li
+										label Transfer Type
+										select#q_transfertype
+											option(value='') -
+											option(value='Type One') Type One
+											option(value='Type Two') Type Two
+
+					.col-sm-3
+						h3 Pick Up
+						ul.list.form
+							li 
+								label Location
+								input(type="text")#q_pu_location
+							li 
+								label Line 2
+								input(type="text")#q_pu_line2
+							li 
+								label Post Code
+								input(type="text")#q_pu_postcode
+							li
+								label Suburb
+								input(type="text")#q_pu_suburb
+
+					.col-sm-3
+						h3 Drop Off
+						ul.list.form
+							li 
+								label Location
+								input(type="text")#q_do_location
+							li 
+								label Line 2
+								input(type="text")#q_do_line2
+							li 
+								label Post Code
+								input(type="text")#q_do_postcode
+							li
+								label Suburb
+								input(type="text")#q_do_suburb
+				hr
+				.row
+					.col-sm-4
+						h3 Extras
+						ul.list.form
+							li.aThird
+								label.break Rear Seats
+								input(type="number", min="0", max="10", value="0")#q_rearseats
+							li.aThird
+								label.break Forward Seats
+								input(type="number", min="0", max="10", value="0")#q_forward_seat
+							li.aThird
+								label.break Booster Seats
+								input(type="number", min="0", max="10", value="0")#q_booster
+							li.aThird
+								label.break Water
+								input(type="number", min="0", max="10", value="0")#q_water
+							li.aThird
+								label.break Face Towel
+								input(type="number", min="0", max="10", value="0")#q_face_towel
+					.col-sm-8
+						h3 Notes
+						ul.list.form.notesList
+							li.aThird
+								label Office
+								textarea#q_office_note
+							li.aThird
+								label Customer
+								textarea#q_customer_note
+							li.aThird
+								label Driver
+								textarea#q_driver_note
+
+				.btn.btn-default.right#save-btn Save Booking
+				.spin.right
+
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/bookings/bookings.js")

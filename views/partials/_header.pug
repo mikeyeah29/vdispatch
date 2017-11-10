@@ -26,18 +26,19 @@ header.color-2-bg.clearfix
 					.dropdown
 						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Reservations
 						.dropdown-menu(aria-labelledby="dropdownMenuLink")
-							a(href="").dropdown-item Booking
-							a(href="").dropdown-item Search
+							a(href="/booking").dropdown-item Booking
+							a(href="/crewing").dropdown-item Crewing
+							a(href="/search").dropdown-item Search
 			
 			if user.permissions[0].operations
 				li 
 					.dropdown
 						a(href="", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").dropdown-toggle.white-txt Operations
 						.dropdown-menu(aria-labelledby="dropdownMenuLink")
-							a(href="").dropdown-item Dispatch
-							a(href="").dropdown-item Allocations
-							a(href="").dropdown-item Flight Times
-							a(href="").dropdown-item Runsheets
+							a(href="/dispatch").dropdown-item Dispatch
+							a(href="/allocations").dropdown-item Allocations
+							a(href="/flight-times").dropdown-item Flight Times
+							a(href="/runsheets").dropdown-item Runsheets
 			
 			if user.permissions[0].accounts
 				li 

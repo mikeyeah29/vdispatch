@@ -77,8 +77,6 @@ home.get('/logout', function(req, res, next){
 
 });
 
-// home.('/setup', function(req, res, next){
-
-// });
+// dispatch
 
 module.exports = home;

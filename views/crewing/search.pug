@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section#page-crewingdefaults
+		.container
+
+			h1 Crewing
+
+			ul.nav.nav-tabs
+				li.nav-item
+					a(href="/crewing").nav-link Defaults
+				li.nav-item
+					a(href="/crewing/transfers").nav-link Transfers
+				li.nav-item
+					a(href="/crewing/search").nav-link.active Search

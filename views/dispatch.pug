@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	include partials/_header
+	.container
+		h1 Dispatch
+
+		table
+			tr
+				th 
+				th Time
+				th Name
+				th x
+				th Pick-up
+				th
+				th
+				th Destination
+				th
+				th Veh
+				th #
+				th Driver
+				th Price
+				th Customer
+			each booking in bookings
+				tr
+					td
+						input(type="checkbox")
+					td #{booking.time}
+					td #{booking.passengers.name}
+					td 
+					td 
+					td
+					td
+					td 
+					td
+					td 
+					td
+					td
+					td
+					td

@@ -22,7 +22,7 @@ FlightCityPair.find({}).exec(function(err, citypairs){
 
     if(!citypairs || citypairs == ''){
 
-        FlightCityPair.insertMany(citypairs)
+        FlightCityPair.insertMany(citypairData)
             .then(function(citypairs) {
                 console.log('Yeah!');
             })
@@ -31,7 +31,7 @@ FlightCityPair.find({}).exec(function(err, citypairs){
             });
 
     }else{
-        console.log('citypairs ', citypairs);
+      //  console.log('citypairs ', citypairs);
     }
 
 });
