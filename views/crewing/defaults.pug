@@ -35,8 +35,8 @@ block content
 
 							.crew_box.crew_hotels
 								label Current Hotel
-								if crew.hotel.location
-									p.green #{crew.hotel.location}
+								if crew.hotel
+									p.green #{crew.hotel.line1}
 									label.break Change Hotel
 									input(placeholder="Hotel...").input_hotel
 									.btn.btn-update Update
@@ -65,7 +65,7 @@ block content
 
 							.crew_box.crew_notes
 								textarea.break #{crew.default_note}
-								.btn.btn-update#updateNotes Update Note
+								.btn.btn-update.updateNotes Update Note
 
 	#add_crewing_box.overlay.overlay-fixed
 		.modal-dialog

@@ -27,7 +27,7 @@
 			url: '/api/vehicletypes',
 			method: 'POST',
 			success: function(data){
-				console.log(data);
+				// console.log(data);
 				callback(data);
 			},
 			error: function(a, b, c){
@@ -43,16 +43,13 @@
 			method: 'POST',
 			data: {
 				crewing_id: id,
-				location: hotel.location,
-				line2: hotel.line2,
-				suburb: hotel.suburb,
-				zone: hotel.zone
+				hotel: hotel
 			},
 			success: function(data) {
 				callback(data);
 			},
 			error: function(a, b, c){
-				console.log(a, b, c);
+				callback({error: a.responseJSON.error});
 			}
 		});
 	
@@ -91,14 +88,13 @@
 			method: 'POST',
 			data: {
 				crewing_id: crewingDefId,
-				notes: notes
+				note: notes
 			},
 			success: function(data) {
-				console.log('data ', data);
 				callback(data);
 			},
 			error: function(a, b, c){
-				console.log(a, b, c);
+				console.log({error: a.removeJSON.error});
 			}
 		});
 
@@ -332,27 +328,15 @@
 	Crewing.prototype.setUphotels = function(){
 
 		var tCrew = this;
-		var hotel = {
-			location: '',
-			line2: '',
-			suburb: '',
-			zone: ''
-		};
+		var hotel;
 
 		$('.input_hotel').each(function(){
 
 			// '.input_hotel'
 
 			vDisp_autocomplete('location', $(this), function(hmm){
-
 				var data = $(hmm).getSelectedItemData();
-
-				hotel = {
-					location: data.line1,
-					line2: data.line2,
-					suburb: data.suburb
-				};
-
+				hotel = data._id;
 			});
 
 		});
@@ -373,6 +357,9 @@
 						tCrew.accordian = new Accordian($('#theAccordian'));
 						// tCrew.accordian.openByIndex(($(this).closest('.a_content').index() + 1) / 2);
 						var msg = new Message('Hotel Updated', false, $('#message_box'));
+						msg.display();
+					}else{
+						var msg = new Message('Location Does Not Exist', true, $('#message_box'));
 						msg.display();
 					}
 				});
@@ -591,11 +578,8 @@
 			var areYouSure = new Popup(function(){
 
 				var thisCrewing = $(thisDel).closest('.accordian_li');
-				var crewId = $(thisDel).closest('.a_content').data('crewing_id');	
-				// console.log($(thisDel).closest('tr'));		
+				var crewId = $(thisDel).closest('.a_content').data('crewing_id');
 				var prices = tCrew.getCurrentPrices($(thisDel).closest('table'), $(thisDel).parent().parent().index());
-				console.log('CrewId ', crewId);
-				console.log('Prices ', prices);
 
 				tCrew.model.removePrice(crewId, prices, function(data){
 					if(data.crewing){
@@ -675,7 +659,7 @@
 
 	Crewing.prototype.setUpNotes = function() {
 		var tCrew = this;
-		$('#updateNotes').on('click', function(){
+		$('.updateNotes').on('click', function(){
 			var notes = $(this).prev('textarea').val();
 			if(notes != ''){
 				// update
@@ -686,6 +670,9 @@
 						tCrew.accordian = new Accordian($('#theAccordian'));
 						// tCrew.accordian.openByIndex(($(this).closest('.a_content').index() + 1) / 2);
 						var msg = new Message('Notes Updated', false, $('#message_box'));
+						msg.display();
+					}else{
+						var msg = new Message(data.error || 'Something went wrong', true, $('#message_box'));
 						msg.display();
 					}
 				});

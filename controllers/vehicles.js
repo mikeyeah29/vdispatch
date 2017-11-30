@@ -397,6 +397,7 @@ vehicles.post('/create-vehicle', mid.requiresLoginJSON, function(req, res, next)
 	}
 
 	let vechicleObj = {
+		vehicle_number: req.body.vehicle_number,
 	    year: req.body.year,
 	    color: req.body.color,
 	    type: req.body.type,
@@ -494,6 +495,7 @@ vehicles.post('/update', mid.requiresLoginJSON, function(req, res, next){
 	}
 
 	var vObj = {
+		vehicle_number: req.body.vehicle_number,
         year: req.body.year,
         color: req.body.color,
         vin: req.body.vin,

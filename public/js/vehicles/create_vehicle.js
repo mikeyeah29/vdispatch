@@ -45,6 +45,10 @@
 		{
 			id: 'q_status',
 			validation: 'none'
+		},
+		{
+			id: 'q_number',
+			validation: ''
 		}
 	]);
 
@@ -62,7 +66,8 @@
 			    coi_expiry: $('#' + vehicleForm.fields[6].id).val(),
 			    dot_booking: $('#' + vehicleForm.fields[7].id).val(),
 			    odometer: $('#' + vehicleForm.fields[8].id).val(),
-		        status: $('#' + vehicleForm.fields[9].id).is(':checked')
+		        status: $('#' + vehicleForm.fields[9].id).is(':checked'),
+		        vehicle_number: $('#' + vehicleForm.fields[10].id).val()
 			};
 
 			vehicleForm.send(data, function(data){

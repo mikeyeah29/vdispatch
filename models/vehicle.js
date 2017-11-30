@@ -7,6 +7,7 @@ autoIncrement.initialize(mongoose);
 var Schema = mongoose.Schema;
 
 var VehicleSchema = new Schema({
+    vehicle_number: String,
     year: Number,
     color: String,
     type: {

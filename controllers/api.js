@@ -13,30 +13,17 @@ api.post('/suburbs', function(req, res, next){
 	var phrase = req.body.phrase;
 	var regex = new RegExp(phrase, 'i');
 
+	console.log('phrase ', phrase);
+
 	Suburb.find({"suburb": regex}).exec(function(err, suburbs){
 
 		if(err){
 			return res.send(err);
 		}
 
+		console.log('suburbs ', suburbs);
+
 		return res.send(suburbs);
-
-	});
-
-});
-
-api.post('/locations', function(req, res, next){
-
-	var phrase = req.body.phrase;
-	var regex = new RegExp(phrase, 'i');
-
-	Locaton.find({"line1": regex}).exec(function(err, locations){
-
-		if(err){
-			return res.send(err);
-		}
-
-		return res.send(locations);
 
 	});
 
@@ -81,7 +68,7 @@ api.post('/accounts', function(req, res, next){
 
 	let body = {};
 
-	let queryObj = {};
+	let queryObj = {status: true};
 
 	if(req.body.account_category){
 		queryObj.account_category = req.body.account_category;

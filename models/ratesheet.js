@@ -35,13 +35,19 @@ var RateSheetSchema = new mongoose.Schema(
 	}
 );
 
+RateSheetSchema.statics.getPrice = function(vehicle, from, to, callback){
+
+    
+    
+};
+
 RateSheetSchema.statics.makeObjFromCsv = function(csvData){
     
     const infoObj = csvData[1];
     const hoursObj = csvData[5];
 
-    console.log(infoObj);
-    console.log(hoursObj);
+    // console.log(infoObj);
+    // console.log(hoursObj);
 
     const rateSheetObj = {
         name: infoObj.Zone,

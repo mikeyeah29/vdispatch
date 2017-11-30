@@ -28,20 +28,12 @@
 
 		vDisp_autocomplete('location', 'q_pu_location', function(){
 			var data = $('#q_pu_location').getSelectedItemData();
-			thisBooking.view.pickup.line2.val(data.line2);
-			thisBooking.view.pickup.postcode.val(data.postcode);
-			thisBooking.view.pickup.suburb.val(data.suburb);
+			$('#q_pu_location').data('locationid', data._id);
 		});
-		vDisp_autocomplete('postcode', 'q_pu_postcode');
-		vDisp_autocomplete('suburb', 'q_pu_suburb');
 		vDisp_autocomplete('location', 'q_do_location', function(){
 			var data = $('#q_do_location').getSelectedItemData();
-			thisBooking.view.dropoff.line2.val(data.line2);
-			thisBooking.view.dropoff.postcode.val(data.postcode);
-			thisBooking.view.dropoff.suburb.val(data.suburb);
+			$('#q_do_location').data('locationid', data._id);
 		});
-		vDisp_autocomplete('postcode', 'q_do_postcode');
-		vDisp_autocomplete('suburb', 'q_do_suburb');
 
 		var submit_btn = $('#save-btn');
 
@@ -63,13 +55,7 @@
 			{ id: 'q_vehicle_type', validation: ''},
 			{ id: 'q_transfertype', validation: ''},
 			{ id: 'q_pu_location', validation: ''},
-			{ id: 'q_pu_line2', validation: ''},
-			{ id: 'q_pu_postcode', validation: ''},
-			{ id: 'q_pu_suburb', validation: ''},
 			{ id: 'q_do_location', validation: ''},
-			{ id: 'q_do_line2', validation: ''},
-			{ id: 'q_do_postcode', validation: ''},
-			{ id: 'q_do_suburb', validation: ''},
 			{ id: 'q_rearseats', validation: ''},
 			{ id: 'q_forward_seat', validation: ''},
 			{ id: 'q_booster', validation: ''},
@@ -117,27 +103,21 @@
 	            phone: $('#' + bForm.fields[13].id).val(),
 		        vehicletype_id: $('#' + bForm.fields[14].id).val(),
 				transfer_type: $('#' + bForm.fields[15].id).val(),		 
-	            pu_line1: $('#' + bForm.fields[16].id).val(),
-	            pu_line2: $('#' + bForm.fields[17].id).val(),
-	            pu_postcode: $('#' + bForm.fields[18].id).val(),
-	            pu_suburb: $('#' + bForm.fields[19].id).val(),
-	            do_line1: $('#' + bForm.fields[20].id).val(),
-	            do_line2: $('#' + bForm.fields[21].id).val(),
-	            do_postcode: $('#' + bForm.fields[22].id).val(),
-	            do_suburb: $('#' + bForm.fields[23].id).val(),
-	            rear_seat: $('#' + bForm.fields[24].id).val(),
-	            forward_seat: $('#' + bForm.fields[25].id).val(),
-	            booster: $('#' + bForm.fields[26].id).val(),
-	            water: $('#' + bForm.fields[27].id).val(),
-	            face_towel: $('#' + bForm.fields[28].id).val(),
-	            notes_office: $('#' + bForm.fields[29].id).val(),
-	            notes_customer: $('#' + bForm.fields[30].id).val(),
-	            notes_driver: $('#' + bForm.fields[31].id).val()
+	            pu_line1: $('#' + bForm.fields[16].id).data('locationid'),
+	            do_line1: $('#' + bForm.fields[17].id).data('locationid'),
+	            rear_seat: $('#' + bForm.fields[18].id).val(),
+	            forward_seat: $('#' + bForm.fields[19].id).val(),
+	            booster: $('#' + bForm.fields[20].id).val(),
+	            water: $('#' + bForm.fields[21].id).val(),
+	            face_towel: $('#' + bForm.fields[22].id).val(),
+	            notes_office: $('#' + bForm.fields[23].id).val(),
+	            notes_customer: $('#' + bForm.fields[24].id).val(),
+	            notes_driver: $('#' + bForm.fields[25].id).val()
 			};
 
 			bForm.send(data, function(data){
 				
-				console.log(data);
+				// console.log(data);
 
 				$(submit).show();
 				$(spin).hide();
@@ -150,7 +130,8 @@
 							);
 					msg.display(true);
 				}else{
-					var msg = new Message(data.error, true, $('#message_box'));
+					console.log('ERRPR: ', data.responseJSON);
+					var msg = new Message(data.responseJSON.error || 'Something went wrong', true, $('#message_box'));
 					msg.display();
 				}
 

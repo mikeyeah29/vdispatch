@@ -5,6 +5,7 @@ let User = require('../../../models/user').User;
 let Booking = require('../../../models/booking').Booking;
 let CrewingDefault = require('../../../models/crewing_default').CrewingDefault;
 let Account = require('../../../models/account').Account;
+let Locaton = require('../../../models/location').Locaton;
 
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -163,6 +164,27 @@ describe('Crewing API Routes', () => {
     describe('POST /api/crewing/update-hotel', () => {
 
         let jetStar;
+        let theStarHotel;
+
+        before((done) => {
+            
+            theStarHotel = new Locaton({
+                line1: 'The Star Hotel',
+                line2: 'mkxlsmxksla'
+            });
+
+            theStarHotel.save()
+                .then(() => {
+                    done();
+                });
+
+        });
+
+        after((done) => {
+            Locaton.remove({}, function(err){
+                done();
+            });
+        });
 
         beforeEach((done) => {
             createJetstar(function(hmm){
@@ -195,16 +217,13 @@ describe('Crewing API Routes', () => {
                 agent.post('/api/crewing/update-hotel')
                     .send({
                         crewing_id: jetStar._id,
-                        location: 'The Star Hotel',
-                        line2: 'Mond jsk',
-                        suburb: 'Yeah',
-                        zone: 'C1'
+                        hotel: theStarHotel
                     })
                     .end(function (err, res) {
-                        CrewingDefault.findOne({}, function(err, crewDefault){
+                        CrewingDefault.findOne({}).populate('hotel').exec(function(err, crewDefault){
                             res.should.have.status(200);
                             crewDefault.name.should.equal('Jetstar');
-                            crewDefault.hotel.location.should.equal('The Star Hotel');
+                            crewDefault.hotel.line1.should.equal('The Star Hotel');
                             done();
                         });
                     });

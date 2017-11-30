@@ -11,6 +11,20 @@ function isInArray(value, array) {
   return array.indexOf(value) > -1;
 }
 
+function setCloseModel(selector){
+
+	$(selector).on('click', function(e){
+
+		console.log($(e.target));
+
+		if($(e.target).hasClass(selector)){
+			$(this).hide();
+		}
+
+	});
+
+}
+
 // Classes
 
 function Message(msg, isError, elem){
@@ -179,7 +193,13 @@ function vDisp_autocomplete(dataToSearch, id, callback = null){
 
 	var options = {
 		url: function(phrase) {
-			return "/api/" + dataToSearch + 's';
+
+			if(dataToSearch == 'location'){
+				return '/api/locations/search';
+			}else{
+				return "/api/" + dataToSearch + 's';
+			}
+
 		},
 		getValue: function(element) {
 

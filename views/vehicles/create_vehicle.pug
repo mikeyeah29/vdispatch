@@ -16,13 +16,16 @@ block content
 				.col-sm-6
 					ul.list.form.half_width
 						li
+							label Vehicle Number
+							input(type="text" id="q_number")
+						li
+							label Color
+							input(type="text")#q_color
+						li
 							label Year
 							select#q_year
 								each year in years
 									option(value=`${year}`) #{year}
-						li
-							label Color
-							input(type="text")#q_color
 						li
 							label Type
 							select#q_type

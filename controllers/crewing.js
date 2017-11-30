@@ -15,7 +15,7 @@ const routePermission = 'reservations';
 
 // /crewing
 
-crewing.get('/', mid.requiresLogin, function(req, res){
+crewing.get('/', mid.requiresLogin, function(req, res, next){
 
 	// dafaults
 
@@ -29,7 +29,7 @@ crewing.get('/', mid.requiresLogin, function(req, res){
 			return next(err);
 		}
 
-		CrewingDefault.find({}).exec(function(err, crewing){
+		CrewingDefault.find({}).populate('hotel').exec(function(err, crewing){
 
 			if(err){
 				return next(err);

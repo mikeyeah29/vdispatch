@@ -26,6 +26,7 @@ const apiRoutes = require('./controllers/api.js');
 const imgLibRoutes = require('./controllers/api/image_library.js');
 const bookingApiRoutes = require('./controllers/api/bookings.js');
 const crewingApiRoutes = require('./controllers/api/crewing.js');
+const locationApiRoutes = require('./controllers/api/locations.js');
 
 const pricingVariableRoutes = require('./controllers/pricing_variables.js');
 const rateSheetRoutes = require('./controllers/ratesheets.js');
@@ -89,6 +90,7 @@ app.use('/api', apiRoutes);
 app.use('/api/image_library', imgLibRoutes);
 app.use('/api/bookings', bookingApiRoutes);
 app.use('/api/crewing', crewingApiRoutes);
+app.use('/api/locations', locationApiRoutes);
 
 app.use('/users', mid.requiresLogin, userRoutes);
 app.use('/pricing_variables', mid.requiresLogin, pricingVariableRoutes);

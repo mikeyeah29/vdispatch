@@ -74,43 +74,27 @@ block content
 										label Transfer Type
 										select#q_transfertype
 											option(value='') -
-											option(value='Type One') Type One
-											option(value='Type Two') Type Two
+											option(value='Private') Private
+											option(value='Seat') Seat
+											option(value='Coach') Coach
 
-					.col-sm-3
-						h3 Pick Up
-						ul.list.form
-							li 
-								label Location
-								input(type="text")#q_pu_location
-							li 
-								label Line 2
-								input(type="text")#q_pu_line2
-							li 
-								label Post Code
-								input(type="text")#q_pu_postcode
-							li
-								label Suburb
-								input(type="text")#q_pu_suburb
-
-					.col-sm-3
-						h3 Drop Off
-						ul.list.form
-							li 
-								label Location
-								input(type="text")#q_do_location
-							li 
-								label Line 2
-								input(type="text")#q_do_line2
-							li 
-								label Post Code
-								input(type="text")#q_do_postcode
-							li
-								label Suburb
-								input(type="text")#q_do_suburb
-				hr
-				.row
-					.col-sm-4
+					.col-sm-6
+						.row
+							.col-sm-6
+								h3 Pick Up
+								ul.list.form
+									li 
+										label Location
+										input(type="text")#q_pu_location
+										a(href="/booking/locations", target="_blank") Add Location
+							.col-sm-6
+								h3 Drop Off
+								ul.list.form
+									li 
+										label Location
+										input(type="text")#q_do_location
+										a(href="/booking/locations", target="_blank") Add Location
+						hr
 						h3 Extras
 						ul.list.form
 							li.aThird
@@ -128,7 +112,6 @@ block content
 							li.aThird
 								label.break Face Towel
 								input(type="number", min="0", max="10", value="0")#q_face_towel
-					.col-sm-8
 						h3 Notes
 						ul.list.form.notesList
 							li.aThird

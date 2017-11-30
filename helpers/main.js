@@ -39,5 +39,10 @@ function getYears(tense = future, amount, theYear = 0){
 	return years;
 }
 
+function dollarStringToInt(dollarString) {
+	return parseInt(dollarString.replace('$', ''));
+}
+
 module.exports.getDateForInput = getDateForInput;
 module.exports.getYears = getYears;
+module.exports.dollarStringToInt = dollarStringToInt;

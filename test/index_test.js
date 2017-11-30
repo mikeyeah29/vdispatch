@@ -38,6 +38,6 @@ before(function(done){
 var booking_api = require('./controllers/api/booking_api_test.js');
 var crewing_api_test = require('./controllers/api/crewing_api_test.js');
 
-// var vehicles_controller = require('./controllers/vehicles_test.js');
-// var booking_controller = require('./controllers/bookings_test.js');
-// var crewing_controller = require('./controllers/crewing_test.js');
+//var vehicles_controller = require('./controllers/vehicles_test.js');
+//var booking_controller = require('./controllers/bookings_test.js');
+//var crewing_controller = require('./controllers/crewing_test.js');

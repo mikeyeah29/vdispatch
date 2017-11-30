@@ -1,0 +1,58 @@
+extends layout
+
+block content
+	include partials/_header
+	.container
+		h1 Locations
+		ul.actions_bar
+			li
+				.search_group
+					input(type="text", id="q_search", placeholder="Search Locations...")
+			li.right
+				.btn.btn-default#addLoc Add Location
+		table.table-striped.table.table-condensed#loc-table
+			tr
+				th Line 1
+				th Line 2
+				th Suburb
+				th Post Code
+				th
+			each loc in locations
+				tr(data-locid=`${loc._id}`)
+					td #{loc.line1}
+					td #{loc.line2}
+					if loc.suburb
+						td #{loc.suburb.suburb}
+						td #{loc.suburb.postcode}
+					td
+						.btn.edit(data-suburbid=`${loc.suburb._id}`)
+						.delCircle
+
+		.paginationLinks !{paginationLinks}
+
+
+	#add_location_modal.overlay
+		.box.panel
+			ul.boxUl
+				li
+					label Line One
+					input(type="text")#q_line1
+				li
+					label Line Two
+					input(type="text")#q_line2
+				li
+					label Suburb
+					input(type="text")#q_suburb
+				li
+					.btn.add#addLocation Add Location
+					.btn.btn-update#editLocation Edit Location
+
+	script(src="/js/popup.js")
+	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/yeahautocomplete.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/bookings/locations.js")
+
+
+				

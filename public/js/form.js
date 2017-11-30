@@ -120,6 +120,7 @@ var form = (function(){
 			},
 			error: function(xhr, desc, err){
 				console.log(xhr, desc, err);
+				callback(xhr);
 			}
 		});
 

@@ -71,6 +71,7 @@ crewingApi.post('/create', mid.requiresLoginJSON, function(req, res){
 			body.crewing = crewing;
 			res.status(200);
 			return res.json(body);
+
 		});
 
 	});
@@ -87,19 +88,16 @@ crewingApi.post('/update-hotel', mid.requiresLoginJSON, function(req, res){
 		return res.json(body);
 	}
 
-	if(!req.body.crewing_id || !req.body.location){
+	console.log('Resbosty dsv ', req.body);
+
+	if(!req.body.crewing_id || !req.body.hotel){
 		body.error = 'Invalid Data';
 		res.status(400);
 		return res.json(body);
 	}
 
 	CrewingDefault.update({_id: req.body.crewing_id}, {
-		hotel: {
-			location: req.body.location,
-            line2: req.body.line2 || '',
-            suburb: req.body.suburb || '',
-            zone: req.body.zone || ''
-		}
+		hotel: req.body.hotel
 	}, function(err, crewDef){
 
 		if(err){
@@ -202,6 +200,12 @@ crewingApi.post('/update-notes', mid.requiresLoginJSON, function(req, res){
 		return res.json(body);
 	}
 
+	if(!req.body.note){
+		body.error = 'Note Missing';
+		res.status(400);
+		return res.json(body);
+	}
+
 	CrewingDefault.update({_id: req.body.crewing_id}, {
 		default_note: req.body.note
 	}, function(err, crewDef){
@@ -232,4 +236,3 @@ crewingApi.post('/update-notes', mid.requiresLoginJSON, function(req, res){
 });
 
 module.exports = crewingApi;
-

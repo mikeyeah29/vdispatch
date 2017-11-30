@@ -31,22 +31,20 @@ var BookingSchema = new Schema(
         },
         vehicle_type: {
             type: Schema.Types.ObjectId,
-            ref: 'VehicleType',
+            ref: 'VehicleType'
         },
         pick_up: {
-            line1: String,
-            line2: String,
-            suburb: String,
-            postcode: String,
-            zone: String,
+            locaton: {
+                type: Schema.Types.ObjectId,
+                ref: 'Location'
+            },
             instructions: String
         },
         drop_off: {
-            line1: String,
-            line2: String,
-            suburb: String,
-            postcode: String,
-            zone: String,
+            locaton: {
+                type: Schema.Types.ObjectId,
+                ref: 'Location'
+            },
             instructions: String
         },
         transfer_type: String,
@@ -69,6 +67,7 @@ var BookingSchema = new Schema(
             customer: String,
             driver: String
         },
+        price: Number,
         invoiced: {
             type: Boolean,
             required: true,

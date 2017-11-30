@@ -11,10 +11,8 @@ var CrewingDefaultSchema = new Schema(
         },
         name: String,
         hotel: {
-            location: String,
-            line2: String,
-            suburb: String,
-            zone: String
+            type: Schema.Types.ObjectId,
+            ref: 'Location'
         },
         pricing: [{
             vehicle: String,
