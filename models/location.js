@@ -1,3 +1,5 @@
+var Suburb = require('./suburb').Suburb;
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 // var locationData = require('./data/locations.json');
@@ -19,7 +21,7 @@ var LocationSchema = new Schema(
 
 var Locaton = mongoose.model('Location', LocationSchema);
 
-Locaton.find({}).exec(function(err, locations){
+Locaton.find({line1: 'Cairns International Airport'}).exec(function(err, locations){
 
     if(err){
         return next(err);
@@ -27,10 +29,18 @@ Locaton.find({}).exec(function(err, locations){
 
     if(!locations || locations == ''){
 
-        const international = new Locaton({ line1: 'Cairns International Airport' });
-        const domestic = new Locaton({ line1: 'Cairns Domestic Airport' });
+        Suburb.findOne({ suburb: 'Cairns City' }).exec(function(err, suburb){
 
-        Promise.all([international.save(), domestic.save()]);
+            if(err){
+                return next(err);
+            }
+
+            const international = new Locaton({ line1: 'Cairns International Airport', suburb: suburb });
+            const domestic = new Locaton({ line1: 'Cairns Domestic Airport', suburb: suburb });
+
+            Promise.all([international.save(), domestic.save()]);
+
+        });
 
     }
 

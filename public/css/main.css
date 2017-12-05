@@ -1129,3 +1129,43 @@ footer {
 .pagination li a {
     
 }
+
+.bookingModal {
+    /*display: block;*/
+}
+
+.bookingModal .box {
+    background: #ffffff;
+    width: 600px;
+    margin: 35px auto;
+    text-align: left;
+    padding: 15px 10px 10px 10px;
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.bookingModal .box h2 {
+    font-size: 24px;
+    margin-bottom: 0px;
+    color: #5ADB67;
+    background: url('../img/tick.png') no-repeat 0% 50%;
+    padding-left: 30px;
+}
+
+.bookingModal hr {
+    margin: 10px 0px;
+}
+
+.booking .panel {
+    padding: 10px;
+    box-shadow: none;
+}
+
+.booking b {
+    width: 95px;
+    display: inline-block;
+}
+
+.booking ul {
+    margin-bottom: 0px;
+}

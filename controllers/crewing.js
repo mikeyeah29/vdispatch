@@ -29,7 +29,7 @@ crewing.get('/', mid.requiresLogin, function(req, res, next){
 			return next(err);
 		}
 
-		CrewingDefault.find({}).populate('hotel').exec(function(err, crewing){
+		CrewingDefault.find({}).populate('hotel').populate('pricing.vehicle').exec(function(err, crewing){
 
 			if(err){
 				return next(err);

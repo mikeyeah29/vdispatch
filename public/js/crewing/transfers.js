@@ -1,12 +1,22 @@
 !function(){
 
 	function BookingForm(obj) {
-		this.inpTime = obj.inpTime,
-		this.inpFlightType = obj.inpFlightType,
-		this.inpFlight = obj.inpFlight,
-		this.inpTech = obj.inpTech,
-		this.inpCabin = obj.inpCabin,
-		this.inpCrewnames = obj.inpCrewnames
+		
+		this.inpTime = obj.inpTime;
+		this.inpFlightType = obj.inpFlightType;
+		this.inpFlight = obj.inpFlight;
+		this.inpTech = obj.inpTech;
+		this.inpCabin = obj.inpCabin;
+		this.inpCrewnames = obj.inpCrewnames;
+
+		var modal = $('.bookingModal');
+			
+		modal.on('click', function(e){
+			if($(e.target).hasClass('bookingModal')){
+				modal.hide();
+			}
+		});
+
 	};
 	BookingForm.prototype.isUsed = function() {
 		
@@ -213,6 +223,57 @@
 
 	}
 
+	function getCrewOnly(string){
+		return string.substring(string.indexOf('_')+1);
+	}
+
+	function showSuccesfulBookings(bookings) {
+
+		console.log('Bookings ', bookings);
+
+		var modal = $('.bookingModal');
+		var theBookings = $('.bookingModal .box');
+
+		$('.bookingModal .box .booking').remove();
+
+		for(var i=0; i<bookings.length; i++){
+
+			var str = '';
+			str += '<div class="booking">';
+			str += '<h3>Reference: ' + bookings[i].booking_no + '</h3>';
+			str += '<div class="panel">';
+			str += '<ul>';
+			str += '<li><b>Customer: </b>' + bookings[i].customer + '</li>';
+			str += '<li><b>Time/Date: </b>' + getDateForInput(new Date(bookings[i].date), true) + ' @ ' + bookings[i].time + '</li>';
+			str += '<li><b>Crew: </b>' + bookings[i].passengers.name + '</li>';
+			str += '<li><b>Pick Up: </b>' + bookings[i].pick_up.locaton.line1 + '</li>';
+			str += '<li><b>Destination: </b>' + bookings[i].drop_off.locaton.line1 + '</li>';
+			str += '<li><b>Names: </b>' + bookings[i].pick_up.instructions + '</li>';
+			str += '<li><b>Notes: </b>' + bookings[i].notes + '</li>';
+			str += '</ul>';
+			str += '</div>';
+			str += '</div>';					
+
+				/*
+
+					reference
+					time/date
+					crew
+					pickup
+					destination
+					names
+					notes
+
+				*/
+
+			theBookings.append(str);
+
+		}
+
+		modal.show();
+
+	}
+
 	function submitBookings() {
 
 		var bData = getAllBookings();
@@ -227,11 +288,17 @@
 					bookings: bData.bookings
 				},
 				success: function(data){
-					
+						
+					console.log('Bookings ', data);
+
 					if(data.success){
-						resetAllForms();
+						//resetAllForms();
 						var msg = new Message('Bookings Created', false, $('#message_box'));
 						msg.display();
+
+						// popup with jobs
+						showSuccesfulBookings(data.booking);
+
 					}else{
 						var msg = new Message(data.error || 'Something has gone wrong', true, $('#message_box'));
 						msg.display();
@@ -239,7 +306,8 @@
 				
 				},
 				error: function(a, b, c){
-					console.log(a, b, c);
+					var msg = new Message(a.responseJSON.error || 'Something has gone wrong', true, $('#message_box'));
+					msg.display();
 				}
 			});
 

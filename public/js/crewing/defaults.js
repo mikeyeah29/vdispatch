@@ -192,9 +192,9 @@
 		vSelect.empty();
 		vSelect.append('<option value="">- select vehicle -</option>');
 		for(var i=0; i<vehicles.length; i++){
-			vSelect.append('<option value="' + vehicles[i].name + '">' + vehicles[i].name + '</option>');
+			vSelect.append('<option value="' + vehicles[i]._id + '">' + vehicles[i].name + '</option>');
 		}
-	};	
+	};
 
 	function Crewing(Model, View){
 
@@ -430,7 +430,7 @@
 
 					}else{
 						spin.hide();
-						var msg = new Message(data.error, true, $('#message_box'));
+						var msg = new Message(data.error || data.responseJSON.error, true, $('#message_box'));
 						msg.display();
 					}
 				});
@@ -523,7 +523,7 @@
 			if(row > 0){
 				if(row != index){
 					arr.push({
-						vehicle: $($(this).children()[0]).text(),
+						vehicle: $($(this).children()[0]).data('vehicle'),
 			            max_crew: $($(this).children()[1]).text(),
 			            price: $($(this).children()[2]).text()
 					});

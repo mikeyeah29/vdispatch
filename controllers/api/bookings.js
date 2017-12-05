@@ -30,6 +30,8 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 					Locaton.findById(dropOff).populate('suburb')
 						.then((dropOffLoc) => {
 
+							console.log('dropOffLoc ', dropOffLoc);
+
 							const puZone = pickUpLoc.suburb.zone;
 							const doZone = dropOffLoc.suburb.zone;
 
@@ -143,21 +145,30 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 	
 }
 
-function calculateCrewingPrice(accountName, callback){
+function calculateCrewingPrice(prices, crew){
 
-	Account.findOne({name: accountName})
-		.then((account) => {
+	let obj = null;
 
-			if(!account){ 
-				callback(new Error('Could Not Find Account ' + accountName), null);	
-			}
+	// reorder prices by maxcrew
+	prices.sort(function(a, b){
+	    return a.max_crew-b.max_crew;
+	});
 
-			callback(null, 200);
+	// console.log('Sorted Prices ', prices);
 
-		})
-		.catch((err) => {
-			return callback(err, null);
-		});
+	for(thisPrice of prices){
+		if(crew <= thisPrice.max_crew){
+			obj = {
+				price: thisPrice.price,
+				vehicle: thisPrice.vehicle
+			};
+			break;
+		}
+	}
+
+	// loop through and find the correct vehicle for the job
+
+	return obj;
 
 }
 
@@ -183,8 +194,6 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 			return res.json(body);
 		}
 
-		console.log('Price: ', price);
-
 		let bookingObj = {
 			price: price,
 			customer: req.body.customer,
@@ -209,7 +218,7 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 		    },
 		    transfer_type: req.body.transfer_type,
 		    flight: req.body.flight,
-		    date: new Date(req.body.date).getDate(),
+		    date: new Date(req.body.date),
 		    time: req.body.time,
 		    extras: {
 		        water: req.body.water || 0,
@@ -257,11 +266,17 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 
 	let crewBookingObjs = [];
 
-	CrewingDefault.findById(req.body.customer, function(err, crewingDef){
+	CrewingDefault.findById(req.body.customer).populate('hotel').exec(function(err, crewingDef){
 
 		if(err){
 			body.error = err.message || 'Some Internal Error';
 			res.status(err.status || 500);
+			return res.json(body);
+		}
+
+		if(!crewingDef.hotel){
+			body.error = 'Hotel not set for ' + crewingDef.name + ' <a href="/crewing">Edit Crewing Defaults</a>';
+			res.status(200);
 			return res.json(body);
 		}
 
@@ -289,91 +304,97 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 				var locationOne = crewingDef.hotel;
 				var locationTwo = domestic._id;
 				// work out which vehicle from number of crew
-				var vehicleType = '';
-
-				calculateCrewingPrice(req.body.customer, function(err, price){
-
-					if(err){
-						body.error = err.message || 'Pricing Error';
-						res.status(err.status || 500);
-						return res.json(body);
-					}
-
-					for(let i=0; i<req.body.bookings.length; i++){
-
-						const thisObj = req.body.bookings[i];
-
-						let name;
-						let adults = thisObj.tech + thisObj.cabin; 
-						let pick_up;
-						let drop_off;
-
-						if(thisObj.arrival){
-							name = thisObj.flight + ' ' + thisObj.tech + ' TECH ' + thisObj.cabin + ' CABIN';
-						}else{
-							name = thisObj.tech + ' TECH ' + thisObj.cabin + ' CABIN';
-						}
-
-						if(thisObj.arrival){
-							
-							pick_up = { locaton: domestic };
-							drop_off = { locaton: crewingDef.hotel };
-
-						}else{
-
-							pick_up = { locaton: crewingDef.hotel };
-						    drop_off = {
-								locaton: international // line1: 'Cairns ' + thisObj.flightType + ' Airport'
-							};
-
-						}
-
-						let bookingObj = new Booking({
-							price: price,
-							customer: thisObj.customer,
-						    reference1: thisObj.flight,
-						    passengers: {
-						        name: name,
-						        adults: adults
-						    },
-						    vehicle_type: vehicleType,
-						    pick_up: pick_up,
-						    drop_off: drop_off,
-						    flight: thisObj.flight,
-						    date: new Date(thisObj.date).getDate(),
-						    time: thisObj.time
-						});	
-
-						crewBookingObjs.push(bookingObj.save());
-
-					}
-
-				});
-
-			});
-
-		});
-
-		// save 
-
-		Promise.all(crewBookingObjs)
-			.then((booking) => {
-
-				body.success = 'Booking Created';
-				body.booking = booking;
-				res.status(200);
-				return res.json(body);
-
-			})
-			.catch((err) => {
 
 				if(err){
-					body.error = err.message || 'Some Internal Error';
+					body.error = err.message || 'Pricing Error';
 					res.status(err.status || 500);
 					return res.json(body);
 				}
 
+				for(let i=0; i<req.body.bookings.length; i++){
+
+					const thisObj = req.body.bookings[i];
+
+					let name;
+					let adults = parseInt(thisObj.tech) + parseInt(thisObj.cabin); 
+					let pick_up;
+					let drop_off;
+
+					if(thisObj.arrival){
+						name = thisObj.flight + ' ' + thisObj.tech + ' TECH ' + thisObj.cabin + ' CABIN';
+					}else{
+						name = thisObj.tech + ' TECH ' + thisObj.cabin + ' CABIN';
+					}
+
+					if(thisObj.arrival){
+						
+						pick_up = { locaton: domestic, instructions: thisObj.crewnames };
+						drop_off = { locaton: crewingDef.hotel };
+
+					}else{
+
+						pick_up = { locaton: crewingDef.hotel, instructions: thisObj.crewnames };
+					    drop_off = {
+							locaton: international // line1: 'Cairns ' + thisObj.flightType + ' Airport'
+						};
+
+					}
+
+					let vehicleObj = calculateCrewingPrice(crewingDef.pricing, adults);
+					
+					if(vehicleObj == null){
+						body.error = adults + ' crew members exceeds the max crew for all vehicles';
+						res.status(200);
+						return res.json(body);
+					}
+
+					let bookingObj = new Booking({
+						price: vehicleObj.price,
+						customer: thisObj.customer,
+					    reference1: thisObj.flight,
+					    passengers: {
+					        name: name,
+					        adults: adults
+					    },
+					    vehicle_type: vehicleObj.vehicle,
+					    pick_up: pick_up,
+					    drop_off: drop_off,
+					    flight: thisObj.flight,
+					    date: new Date(thisObj.date),
+					    time: thisObj.time
+					});
+
+					crewBookingObjs.push(bookingObj.save());
+
+				}
+
+				Promise.all(crewBookingObjs)
+					.then((booking) => {
+
+						for(var i=0; i<booking.length; i++){
+							booking[i].customer = crewingDef.name;
+							booking[i].notes = crewingDef.default_note || '';
+						}
+
+						body.success = 'Booking Created';
+						body.booking = booking;
+						res.status(200);
+						return res.json(body);
+
+					})
+					.catch((err) => {
+
+						if(err){
+							body.error = err.message || 'Some Internal Error';
+							res.status(err.status || 500);
+							return res.json(body);
+						}
+
+					});
+
 			});
+
+		});
 
 	});
 

@@ -144,11 +144,17 @@ crewingApi.post('/update-prices', mid.requiresLoginJSON, function(req, res){
 
 	if(prices != 'empty'){
 		for(let i=0; i<prices.length; i++){
-			if(!prices[i].vehicle || !prices[i].max_crew || !prices[i].price){
+			
+			if(!prices[i].max_crew || !prices[i].price){
 				res.status(400);
 				body.error = 'Prices Object Incorrectly Formatted';
 				return res.json(body);
 			}
+
+			if(prices[i].vehicle == ''){
+				delete prices[i].vehicle;
+			}
+
 		}
 	}
 
@@ -165,6 +171,7 @@ crewingApi.post('/update-prices', mid.requiresLoginJSON, function(req, res){
 	}
 
 	CrewingDefault.update({_id: req.body.crewing_id}, updateObj, function(err, crewDef){
+
 		if(err){
 			body.error = err.message || 'Intenal Server Error';
 			res.status(err.status || 500);

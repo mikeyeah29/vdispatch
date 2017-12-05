@@ -15,7 +15,10 @@ var CrewingDefaultSchema = new Schema(
             ref: 'Location'
         },
         pricing: [{
-            vehicle: String,
+            vehicle: {
+                type: Schema.Types.ObjectId,
+                ref: 'VehicleType'
+            },
             max_crew: Number,
             price: Number
         }],

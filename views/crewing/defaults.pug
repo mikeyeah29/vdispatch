@@ -55,7 +55,7 @@ block content
 									if crew.pricing
 										each price in crew.pricing
 											tr
-												td #{price.vehicle}
+												td(data-vehicle=`${price.vehicle._id}`) #{price.vehicle.name}
 												td #{price.max_crew}
 												td #{price.price}
 												td

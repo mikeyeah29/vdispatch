@@ -56,7 +56,7 @@ Message.prototype.display = function(persist){
 	if(persist != true){
 		setTimeout(function() {
 	    	thisMsg.hideMsg();
-	    }, 3000);
+	    }, 6000);
 	}
 
 };
@@ -160,7 +160,7 @@ function itemActiveToggle(url, spin, dataObj){
 
 }
 
-function getDateForInput(date){
+function getDateForInput(date, ukDate = false){
 
 	var dd = date.getDate();
 	var mm = date.getMonth()+1; //January is 0!
@@ -173,7 +173,11 @@ function getDateForInput(date){
 	    mm='0'+mm;
 	} 
 
-	return mm+'/'+dd+'/'+yyyy;
+	if(ukDate){
+		return dd+'/'+mm+'/'+yyyy;
+	}else{
+		return mm+'/'+dd+'/'+yyyy;
+	}
 
 }
 
