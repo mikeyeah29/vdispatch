@@ -6,7 +6,7 @@ const User = require('../models/user.js').User;
 const Driver = require('../models/driver.js').Driver;
 const Absence = require('../models/absence.js').Absence;
 const getDateForInput = require('../helpers/main.js').getDateForInput;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const routePermission = 'management';
 
