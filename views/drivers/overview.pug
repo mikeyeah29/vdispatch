@@ -9,8 +9,10 @@ block content
 			ul.actions_bar
 				li
 					.search_group
-						input(type="text", id="q_search")
-						.btn.btn-search Search
+						form(action="/drivers" method="POST")
+							input(type="text" name="term")
+							button.btn.btn-default Search
+								span.glyphicon.glyphicon-search
 				li
 					a(href="/drivers").btn.btn-blue View All Drivers
 				li.right
@@ -48,10 +50,10 @@ block content
 						h5 Drivers absent on this day
 						ul.list.absences_today
 					h5.absenceH5 Add Absence
-					.input-group.input-daterange(data-provide="datepicker")
+					.input-group.input-daterange(data-provide="datepicker").datepicker
 						input(name="event-start-date", type="text")#q_start_date.form-control
 						span.input-group-addon to
-						input(name="event-end-date", type="text")#q_end_date.form-control
+						input(name="event-end-date", type="text").datepicker#q_end_date.form-control
 					select(id="select_driver")
 						option(value="") - select driver -
 						each driver in drivers

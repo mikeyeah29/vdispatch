@@ -50,10 +50,14 @@
 		},
 		{
 			id: 'q_address_2',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_suburb',
+			validation: ''	
+		},
+		{
+			id: 'q_city',
 			validation: ''	
 		},
 		{
@@ -129,17 +133,18 @@
 				q_address_1: $('#' + userForm.fields[6].id).val(),
 				q_address_2: $('#' + userForm.fields[7].id).val(),
 				q_suburb: $('#' + userForm.fields[8].id).val(),
-				q_postcode: $('#' + userForm.fields[9].id).val(),
-				q_bankname: $('#' + userForm.fields[10].id).val(),
-				q_accountnumber: $('#' + userForm.fields[11].id).val(),
-				q_bsb: $('#' + userForm.fields[12].id).val(),
-				q_perm_administrator: $('#' + userForm.fields[13].id).is(':checked'),
-				q_perm_management: $('#' + userForm.fields[14].id).is(':checked'),
-				q_perm_reservations: $('#' + userForm.fields[15].id).is(':checked'),
-				q_perm_operations: $('#' + userForm.fields[16].id).is(':checked'),
-				q_perm_accounts: $('#' + userForm.fields[17].id).is(':checked'),
-				q_perm_reports: $('#' + userForm.fields[18].id).is(':checked'),
-				q_useractive: $('#' + userForm.fields[19].id).is(':checked'),
+				q_city: $('#' + userForm.fields[9].id).val(),
+				q_postcode: $('#' + userForm.fields[10].id).val(),
+				q_bankname: $('#' + userForm.fields[11].id).val(),
+				q_accountnumber: $('#' + userForm.fields[12].id).val(),
+				q_bsb: $('#' + userForm.fields[13].id).val(),
+				q_perm_administrator: $('#' + userForm.fields[14].id).is(':checked'),
+				q_perm_management: $('#' + userForm.fields[15].id).is(':checked'),
+				q_perm_reservations: $('#' + userForm.fields[16].id).is(':checked'),
+				q_perm_operations: $('#' + userForm.fields[17].id).is(':checked'),
+				q_perm_accounts: $('#' + userForm.fields[18].id).is(':checked'),
+				q_perm_reports: $('#' + userForm.fields[19].id).is(':checked'),
+				q_useractive: $('#' + userForm.fields[20].id).is(':checked'),
 				update_password: updatePassword
 			};
 

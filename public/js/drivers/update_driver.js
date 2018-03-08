@@ -7,6 +7,10 @@
 	var passwordLis = $('.change_pw_li');
 	var changePasswordCb = $('#change_pw_toggle');
 
+	$('.datepicker').datepicker({
+	    format: 'dd/mm/yyyy'
+	});
+
 	// password toggle
 	changePasswordCb.on('change', function(){
 
@@ -44,7 +48,15 @@
 			validation: ''	
 		},
 		{
+			id: 'q_city',
+			validation: ''	
+		},
+		{
 			id: 'q_postcode',
+			validation: ''	
+		},
+		{
+			id: 'q_state',
 			validation: ''	
 		},
 		{
@@ -141,24 +153,26 @@
 				q_address_line1: $('#' + driverForm.fields[3].id).val(),
 				q_address_line2: $('#' + driverForm.fields[4].id).val(),
 				q_suburb: $('#' + driverForm.fields[5].id).val(),
-				q_postcode: $('#' + driverForm.fields[6].id).val(),
-				q_email: $('#' + driverForm.fields[7].id).val(),
-				q_phone: $('#' + driverForm.fields[8].id).val(),
-				q_driver_code: $('#' + driverForm.fields[9].id).val(),
-				q_password: $('#' + driverForm.fields[10].id).val(),
-				q_password_confirm: $('#' + driverForm.fields[11].id).val(),
-				q_da_number: $('#' + driverForm.fields[12].id).val(),
-				q_da_expiry: $('#' + driverForm.fields[13].id).val(),
-				q_da_scan: $('#' + driverForm.fields[14].id).attr('src'),
-				q_dl_number: $('#' + driverForm.fields[15].id).val(),
-				q_dl_expiry: $('#' + driverForm.fields[16].id).val(),
-				q_dl_scan: $('#' + driverForm.fields[17].id).attr('src'),
-				q_abn: $('#' + driverForm.fields[18].id).val(),
-				q_account: $('#' + driverForm.fields[19].id).val(),
-				q_bsb: $('#' + driverForm.fields[20].id).val(),
-				q_drivertype: $('#' + driverForm.fields[21].id).val(),
-				q_color: $('#' + driverForm.fields[22].id).val(),
-				q_status: $('#' + driverForm.fields[23].id).is(':checked'),
+				q_city: $('#' + driverForm.fields[6].id).val(),
+				q_postcode: $('#' + driverForm.fields[7].id).val(),
+				q_state: $('#' + driverForm.fields[8].id).val(),
+				q_email: $('#' + driverForm.fields[9].id).val(),
+				q_phone: $('#' + driverForm.fields[10].id).val(),
+				q_driver_code: $('#' + driverForm.fields[11].id).val(),
+				q_password: $('#' + driverForm.fields[12].id).val(),
+				q_password_confirm: $('#' + driverForm.fields[13].id).val(),
+				q_da_number: $('#' + driverForm.fields[14].id).val(),
+				q_da_expiry: $('#' + driverForm.fields[15].id).val(),
+				q_da_scan: $('#' + driverForm.fields[16].id).attr('src'),
+				q_dl_number: $('#' + driverForm.fields[17].id).val(),
+				q_dl_expiry: $('#' + driverForm.fields[18].id).val(),
+				q_dl_scan: $('#' + driverForm.fields[19].id).attr('src'),
+				q_abn: $('#' + driverForm.fields[20].id).val(),
+				q_account: $('#' + driverForm.fields[21].id).val(),
+				q_bsb: $('#' + driverForm.fields[22].id).val(),
+				q_drivertype: $('#' + driverForm.fields[23].id).val(),
+				q_color: $('#' + driverForm.fields[24].id).val(),
+				q_status: $('#' + driverForm.fields[25].id).is(':checked'),
 				update_password: updatePassword
 			};
 

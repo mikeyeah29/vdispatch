@@ -51,6 +51,52 @@ accounts.get('/', function(req, res, next){
 
 });
 
+accounts.post('/', function(req, res, next){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+
+	User.findById(req.session.userId).exec(function(err, user){
+
+		if(err){
+			return next(err);
+		}else{
+
+			let query = {};
+
+			if(req.body.term){
+				query.lookup = new RegExp('^' + req.body.term, 'i');
+			}
+
+			Account.find(query).limit(30).exec(function(err, accounts){
+
+				const accountCats = getAccountCats();
+
+				RateSheet.find({}).select({name: 1}).exec(function(err, ratesheets){
+
+					if(err){
+						return next(err);
+					}
+
+					res.render('accounts/accounts', {
+						title: 'All Accounts',
+						user: user,
+						accounts: accounts,
+						accountCats: accountCats,
+						ratesheets: ratesheets
+					});
+
+				});
+
+			});
+
+		}
+
+	});
+
+});
+
 accounts.get('/overview', function(req, res, next){
 
 	if(req.session.permissions[0][routePermission] == false){
@@ -131,18 +177,20 @@ accounts.post('/create-account', function(req, res, next){
 	    parent_account: req.body.q_parent_account,
 	    account_category: req.body.q_account_category,
 	    address: [{
-	        line1: req.body.q_address_1,
-	        line2: req.body.q_address_2,
-	        suburb: req.body.q_suburb,
-	        postcode: req.body.q_postcode
+	        line1: req.body.q_address_1 || '',
+	        line2: req.body.q_address_2 || '',
+	        suburb: req.body.q_suburb || '',
+	        city: req.body.q_city || '',
+	        postcode: req.body.q_postcode || '',
+	        state: req.body.q_state || ''
 	    }],
 	    contact_details: [{
-	        primary_phone: req.body.q_primary_phone,
-	        primary_email: req.body.q_primary_email,
-	        confirmation_phone: req.body.q_confirmation_phone,
-	        confirmation_email: req.body.q_confirmation_email,
-	        accounts_phone: req.body.q_accounts_phone,
-	        accounts_email: req.body.q_accounts_email
+	        primary_phone: req.body.q_primary_phone || '',
+	        primary_email: req.body.q_primary_email || '',
+	        confirmation_phone: req.body.q_confirmation_phone || '',
+	        confirmation_email: req.body.q_confirmation_email || '',
+	        accounts_phone: req.body.q_accounts_phone || '',
+	        accounts_email: req.body.q_accounts_email || ''
 	    }],
 	    default_notes: [{
 	        booking_note: req.body.q_booking_note,
@@ -231,6 +279,8 @@ accounts.post('/update-account', function(req, res, next){
 		return res.send(data);
 	}
 
+	// console.log(req.body);
+	
 	const accountData = {
 		name: req.body.q_full_company_name,
 	    abn: req.body.q_company_abn,
@@ -238,18 +288,20 @@ accounts.post('/update-account', function(req, res, next){
 	    parent_account: req.body.q_parent_account,
 	    account_category: req.body.q_account_category,
 	    address: [{
-	        line1: req.body.q_address_1,
-	        line2: req.body.q_address_2,
-	        suburb: req.body.q_suburb,
-	        postcode: req.body.q_postcode
+	        line1: req.body.q_address_1 || '',
+	        line2: req.body.q_address_2 || '',
+	        suburb: req.body.q_suburb || '',
+	        city: req.body.q_city || '',
+	        postcode: req.body.q_postcode || '',
+	        state: req.body.q_state || ''
 	    }],
 	    contact_details: [{
-	        primary_phone: req.body.q_primary_phone,
-	        primary_email: req.body.q_primary_email,
-	        confirmation_phone: req.body.q_confirmation_phone,
-	        confirmation_email: req.body.q_confirmation_email,
-	        accounts_phone: req.body.q_accounts_phone,
-	        accounts_email: req.body.q_accounts_email
+	        primary_phone: req.body.q_primary_phone || '',
+	        primary_email: req.body.q_primary_email || '',
+	        confirmation_phone: req.body.q_confirmation_phone || '',
+	        confirmation_email: req.body.q_confirmation_email || '',
+	        accounts_phone: req.body.q_accounts_phone || '',
+	        accounts_email: req.body.q_accounts_email || ''
 	    }],
 	    default_notes: [{
 	        booking_note: req.body.q_booking_note,
@@ -268,6 +320,8 @@ accounts.post('/update-account', function(req, res, next){
 	    }],
 	    status: req.body.q_status
 	};
+
+	// console.log('ACCOUNT DATA ', accountData);
 
 	Account.update(
 		{

@@ -6,16 +6,20 @@ block content
 	section#page-ratesheets(data-error=`${error}`, data-success=`${success}`)
 		.container
 			h1 Rate Sheets
-			form(action="/ratesheets", method="POST", encType="multipart/form-data")
-				ul.actions_bar
-					li
-						.search_group
-							input(type="text", id="q_search")
-							.btn.btn-search Search
-					li.right
+			ul.actions_bar
+				li
+					.search_group
+						form(action="/ratesheets" method="POST")
+							input(type="text", id="q_search" name="term")
+							button.btn.btn-search Search
+				li.right
+					form(action="/ratesheets", method="POST", encType="multipart/form-data")
 						label(for="new_rate_sheet") Upload New Rate Sheet
 						input(type="file", name="ratesheet")#new_rate_sheet
 						button.btn.add(disabled) Add Rate Sheet
+
+			if search
+				p.notice #{search}
 
 			table.table-striped.table.table-condensed
 				tr

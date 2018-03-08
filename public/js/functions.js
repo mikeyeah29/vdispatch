@@ -25,6 +25,10 @@ function setCloseModel(selector){
 
 }
 
+function onLoadError(){
+	
+}
+
 // Classes
 
 function Message(msg, isError, elem){

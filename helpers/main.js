@@ -16,7 +16,19 @@ function getDateForInput(date){
 	    mm='0'+mm;
 	} 
 
-	return mm+'/'+dd+'/'+yyyy;
+	return dd+'/'+mm+'/'+yyyy;
+
+}
+
+function dateUsToUk(string){
+
+	const parts = string.split('/');
+
+	if(parts.length < 3){
+		return '';
+	}
+
+	return parts[1] + '/' + parts[0] + '/' + parts[2];
 
 }
 
@@ -44,5 +56,6 @@ function dollarStringToInt(dollarString) {
 }
 
 module.exports.getDateForInput = getDateForInput;
+module.exports.dateUsToUk = dateUsToUk;
 module.exports.getYears = getYears;
 module.exports.dollarStringToInt = dollarStringToInt;

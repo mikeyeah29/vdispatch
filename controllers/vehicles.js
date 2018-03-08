@@ -39,20 +39,12 @@ vehicles.get('/overview', mid.requiresLogin, function(req, res, next){
 				}
 			}
 
-			let vehiclesByRegExp = vehicles.slice(0);
-			let vehiclesByCoiExp = vehicles.slice(0);
-			let vehiclesByDot = vehicles.slice(0);
-
-			Vehicle.sortVehicles(vehiclesByRegExp, 'rego_expiry');
-			Vehicle.sortVehicles(vehiclesByCoiExp, 'coi_expiry');
-			Vehicle.sortVehicles(vehiclesByDot, 'dot_booking');
-
 			return res.render('vehicles/overview', {
 				user: user,
 				vehicles: vehicles,
-				vehiclesByRegExp: vehiclesByRegExp,
-				vehiclesByCoiExp: vehiclesByCoiExp,
-				vehiclesByDot: vehiclesByDot,
+				vehiclesByRegExp: Vehicle.soonExpiring(vehicles.slice(0), 'rego_expiry'),
+				vehiclesByCoiExp: Vehicle.soonExpiring(vehicles.slice(0), 'coi_expiry'),
+				vehiclesByDot: Vehicle.soonExpiring(vehicles.slice(0), 'dot_booking'),
 				title: 'Vehicles Overview'
 			});
 
@@ -74,7 +66,7 @@ vehicles.get('/', mid.requiresLogin, function(req, res, next){
 			return next(err);
 		}
 
-		Vehicle.find({}).populate('type').exec(function(err, vehicles){
+		Vehicle.find({}).sort({created_at: -1}).populate('type').exec(function(err, vehicles){
 
 			if(err){
 				next(err);
@@ -403,14 +395,14 @@ vehicles.post('/create-vehicle', mid.requiresLoginJSON, function(req, res, next)
 	    type: req.body.type,
 	    vin: req.body.vin,
 	    rego: req.body.rego,
-	    rego_expiry: req.body.rego_expiry,
-	    coi_expiry: req.body.coi_expiry,
-	    odometer: req.body.odometer,
+	    rego_expiry: helpful.dateUsToUk(req.body.rego_expiry),
+	    coi_expiry: helpful.dateUsToUk(req.body.coi_expiry),
+	    odometer: helpful.dateUsToUk(req.body.odometer),
         status: req.body.status
 	};
 
 	if(req.body.dot_booking){
-		vechicleObj.dot_booking = req.body.dot_booking;
+		vechicleObj.dot_booking = helpful.dateUsToUk(req.body.dot_booking);
 	}
 
 	Vehicle.create(vechicleObj, function(err, vehicle){
@@ -501,14 +493,14 @@ vehicles.post('/update', mid.requiresLoginJSON, function(req, res, next){
         vin: req.body.vin,
         rego: req.body.rego,
         type: req.body.type,
-        rego_expiry: new Date(req.body.rego_expiry),
-        coi_expiry: new Date(req.body.coi_expiry),
+        rego_expiry: helpful.dateUsToUk(req.body.rego_expiry),
+        coi_expiry: helpful.dateUsToUk(req.body.coi_expiry),
         odometer: req.body.odometer,
         status: req.body.status
 	};
 
 	if(req.body.dot_booking){
-		vObj.dot_booking = new Date(req.body.dot_booking);
+		vObj.dot_booking = helpful.dateUsToUk(req.body.dot_booking);
 	}
 
 	Vehicle.update({_id: req.body.vehicleId}, 

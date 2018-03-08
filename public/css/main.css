@@ -368,6 +368,10 @@ table {
   transition: .4s;
 }
 
+form {
+    min-width: 325px;
+}
+
 input:checked + .slider {
     background: linear-gradient(#0a7b69, #0ea68f);
 }
@@ -870,6 +874,15 @@ footer {
     display: inline-block;
     width: 220px;
     height: 100%;
+}
+
+/* Search */
+
+form input[name="term"] {
+    width: 75%;
+    margin-right: 10px;
+    padding: 5px;
+    vertical-align: bottom;
 }
 
 /* Image Uploader */

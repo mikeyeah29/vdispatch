@@ -42,19 +42,19 @@ block content
 							input(type="text", value=`${vehicle.vin}`)#q_vin
 						li
 							label.break REGO
-							input(type="text", value=`${vehicle.rego}`)#q_rego
+							input(type="text", value=`${vehicle.rego}`).datepicker#q_rego
 						li
 							label.break REGO Expiry
-							input(type="text", data-provide="datepicker", value=`${rego_expiry}`)#q_rego_expiry
+							input(type="text", data-provide="datepicker", value=`${rego_expiry}`).datepicker#q_rego_expiry
 				.col-sm-6
 					h3 Other Details
 					ul.list.form.half_width
 						li
 							label.break COI Expiry
-							input(type="text", data-provide="datepicker", value=`${coi_expiry}`)#q_coi_expiry
+							input(type="text", data-provide="datepicker", value=`${coi_expiry}`).datepicker#q_coi_expiry
 						li
 							label.break DOT Booking
-							input(type="text", data-provide="datepicker", value=`${dot_booking}`)#q_dotbooking
+							input(type="text", data-provide="datepicker", value=`${dot_booking}`).datepicker#q_dotbooking
 						li
 							label.break Odometer
 							input(type="number", min="0", value=`${vehicle.odometer}`)#q_odometer

@@ -1,0 +1,27 @@
+ADMIN
+	Users
+	Flights
+	Priceing Variables
+	Ratesheets
+
+MANAGMENT
+	Accounts
+	Drivers
+	Vehicles
+
+RESERVATIONS
+	Booking
+	Crewing
+	Locations
+
+OPERATIONS
+	Dispatch
+	Allocations
+	Flight Times
+	Run Sheets
+
+ACCOUNTS
+	Invoicing
+	Export
+
+REPORTS

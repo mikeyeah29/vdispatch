@@ -19,4 +19,19 @@
 
 	});
 
+	// function searchAndLoad() {
+	// 	$('#search_input').on('change', function(){
+	// 		$.ajax({
+	// 			url: '/',
+	// 			method: 'GET',
+	// 			success: function(data) {
+
+	// 			},
+	// 			error: function(a, b, c) {
+
+	// 			}
+	// 		});
+	// 	});
+	// }
+
 }();

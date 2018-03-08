@@ -42,9 +42,9 @@ const dispatchRoutes = require('./controllers/dispatch.js');
 
 app.use(fileUpload());
 
-if(process.env.NODE_ENV !== 'test'){
-	app.use(logger("dev"));
-}
+// if(process.env.NODE_ENV !== 'test'){
+// 	app.use(logger("dev"));
+// }
 // app.use(jsonParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

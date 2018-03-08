@@ -7,10 +7,11 @@ block content
 		.container
 			h1 Vehicles
 			ul.actions_bar
-				li
-					.search_group
-						input(type="text", id="q_search")
-						.btn.btn-search Search
+				//- li
+				//- 	form(action="/vehicles" method="POST")
+				//- 			input(type="text" name="term")
+				//- 			button.btn.btn-default Search
+				//- 				span.glyphicon.glyphicon-search
 				li
 					a(href="/vehicles").btn.btn-default All Vehicles &amp; Types
 				li.right
@@ -31,7 +32,7 @@ block content
 									th
 								each vehicle in vehicles
 									tr
-										td #{vehicle._id}
+										td #{vehicle.vehicle_number}
 										td #{vehicle.rego}
 										td #{vehicle.rego_formatted}
 										td #{vehicle.coi_formatted}
@@ -52,7 +53,7 @@ block content
 											th
 										each vehicle in vehiclesByRegExp
 											tr
-												td #{vehicle._id}
+												td #{vehicle.vehicle_number}
 												td #{vehicle.rego_formatted}
 												td 
 													a(href=`/vehicles/edit/${vehicle._id}`).small-edit
@@ -68,7 +69,7 @@ block content
 											th
 										each veh in vehiclesByCoiExp
 											tr
-												td #{veh._id}
+												td #{veh.vehicle_number}
 												td #{veh.coi_formatted}
 												td 
 													a(href=`/vehicles/edit/${veh._id}`).small-edit
@@ -85,7 +86,7 @@ block content
 											th
 										each vehicle in vehiclesByDot
 											tr
-												td #{vehicle._id}
+												td #{vehicle.vehicle_number}
 												td #{vehicle.coi_formatted}
 												td #{vehicle.dot_formatted}
 												td 

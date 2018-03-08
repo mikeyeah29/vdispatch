@@ -7,13 +7,17 @@ block content
 		.container
 			h1 Users
 			.row
-				.col-xs-10.col-sm-4
-					input(type="text")
-				.col-xs-2.col-sm-2
-					.btn.btn-default Search
-						span.glyphicon.glyphicon-search
+				.col-xs-10.col-sm-6
+					form(action="/users" method="POST")
+						input(type="text" name="term")
+						button.btn.btn-default Search
+							span.glyphicon.glyphicon-search
+					
 				.col-sm-2.offset-sm-4
 					a(href="/users/create-user").btn.add.btn-default#add-btn Add
+
+			//- if search
+			//- 	p.notice Search results for #{search}
 
 			table.table-striped.table.table-condensed
 				tr

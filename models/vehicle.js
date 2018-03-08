@@ -27,7 +27,9 @@ var VehicleSchema = new Schema({
     }
 });
 
-VehicleSchema.statics.sortVehicles = function(vehicles, property){
+VehicleSchema.statics.soonExpiring = function(vehicles, property){
+
+    var arr = [];
 
     vehicles.sort(function(a, b){
         if(a[property] < b[property])
@@ -36,6 +38,19 @@ VehicleSchema.statics.sortVehicles = function(vehicles, property){
             return 1;
         return 0;
     });
+
+    var today = new Date();
+    var futureDate = new Date();
+    futureDate.setDate(today.getDate() + 45);
+
+    vehicles.forEach(function(vehicle){
+        console.log(vehicle[property], '  ', futureDate);
+        if(vehicle[property] < futureDate){
+            arr.push(vehicle);
+        }
+    });
+
+    return arr;
 
 };
 

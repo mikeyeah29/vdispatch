@@ -23,7 +23,7 @@ block content
 							input(type="text")#q_last_name
 						li
 							label.break DOB
-							input(type="text", data-provide="datepicker")#q_dob
+							input(type="text", data-provide="datepicker").datepicker#q_dob
 						li
 							label Address Line 1
 							input(type="text")#q_address_line1
@@ -34,8 +34,14 @@ block content
 							label Suburb
 							input(type="text")#q_suburb
 						li
+							label City
+							input(type="text")#q_city
+						li
 							label Postcode
 							input(type="text")#q_postcode
+						li
+							label State
+							input(type="text")#q_state
 						li
 							label Email
 							input(type="email")#q_email
@@ -60,7 +66,7 @@ block content
 							input(type="text")#q_da_number
 						li
 							label.break Expiry
-							input(type="text", data-provide="datepicker")#q_da_expiry
+							input(type="text", data-provide="datepicker").datepicker#q_da_expiry
 						li
 							label Scan
 							//- input(type="text")#q_da_scan
@@ -74,7 +80,7 @@ block content
 							input(type="text")#q_dl_number
 						li
 							label.break Expiry
-							input(type="text", data-provide="datepicker")#q_dl_expiry
+							input(type="text", data-provide="datepicker").datepicker#q_dl_expiry
 						li
 							label Scan
 							//- input(type="text")#q_dl_scan

@@ -5,13 +5,15 @@
 
 ****************************/
 
-- relevent data json (30 mins)
-    - zones + locations
-    - zone transfers
-- search ability on all item list pages    (1 hour)
-- load more results (limit to 30 per page) (30 mins)
-- DESIGN (20 mins)
-    - icons (search etc) 20 mins
+Overhaul:
+    (1 hour) - document api                             
+    (1 hour) - seperate api routes from rendered route
+    (3 evenings) - check tests (improve as you go)          
+    (1 evening) - improve the routes (less nesting break parts into functions if possible)
+    (1 evening) - build front end (use sass) and nail the design
+    (Who knows) - build front end functionality  
+
+- login page spinner when login click
 
 /***************************/
 
@@ -20,8 +22,15 @@
 /***************************/
 
 USERS
+    DONE - search function (make reusable function)
+    - limit users to 30 (paginationm if it doesnt already)
+    DONE - user address 2 field should not be compulsory (add and edit)
+    DONE - need to save City of the user (add between suburb and postcode)
+    - sort order
 
 RATESHEETS
+    DONE - error goes to default error handler, needs to give a json repsonse
+    DONE - search
 
 FLIGHTS
     - set up routes
@@ -35,38 +44,46 @@ FLIGHTS
 /***************************/
 
 ACCOUNTS
-
+    
+    DONE - ratesheets not showing up (possible due to name overwrite theory)
+    DONE - need to be able to add city and state, city between suburb and post code, state after postcode (add and edit)
+    DONE - address and all phone/email fields are NOT compulsory
+    DONE - search
     - overview
         - populate overview table
 
 DRIVERS
     
-    - dashboard dates output with moment and in expiration order
+    DONE - remove hex code from color column
+    DONE - DOB field display as dd/mm/yyyy
+    DONE - calander also need to display as dd/mm/yyyy
+    DONE - add city and state in address section
+    DONE - uploaded images not showing in image library
+    DONE - search
+    DONE - create driver problem
+    DONE - calander
+
+    DONE - absence needs to be dd/mm/yyyy as well as calander selection
 
 VEHICLES
 
-    (Try This Order + Test First...)
-    - Controller
-        - route
-        - route
-        - route
-        - route
-    - Model
-        - getVehicleData() // returns object with 3 arrays, one with all vehicles and two with relevant expiries
-
-    - Test Front End Scripts
-        - add
-        - update
-        - all
-        - etc
-
-    Once Testing Complete Build the view (pug templates)
+    /overview
+    DONE - # numer should be vehicle number
+    DONE - Reg Expiries / COI Expiries (shows expieries within 45 days)
+    DONE - DOT Bookings only show if date is in that field
+    DONE - search
+    DONE - date formats
+    DONE - order of vehcles
 
 /***************************/
 
     RESERVATIONS
 
 /***************************/
+
+CREWING
+    *- add new crewing customer find by lookup name
+    *- no need for name in popup as we would use the lookup name
 
 BOOKINGS
     - tests
@@ -82,3 +99,15 @@ BOOKINGS
 ///////////////////////////////////////////////////////////
 
 - Flights
+
+///////////////////////////////////////////////////////////
+
+    FINAL CHECK LIST
+    
+///////////////////////////////////////////////////////////
+
+- gulp, concat all js to one file per page
+- run tests and finish tests for important routes
+- install backup script (the one I made on github 6omedia)
+- conjob backup to every day maybe? (only store the last weeks worth or backups maybe)
+- create a way to load from backup

@@ -51,6 +51,10 @@
 		}
 	]);
 
+	$('.datepicker').datepicker({
+	    format: 'dd/mm/yyyy'
+	});
+
 	submit_btn.on('click', function(){
 
 		var vehicleId = $(this).data('vehicleid');

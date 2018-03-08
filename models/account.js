@@ -31,7 +31,9 @@ var AccountSchema = new Schema({
         line1: String,
         line2: String,
         suburb: String,
-        postcode: String
+        city: String,
+        postcode: String,
+        state: String
     }],
     contact_details: [{
         primary_phone: String,
@@ -59,7 +61,20 @@ var AccountSchema = new Schema({
     status: {
         type: Boolean,
         required: true
+    },
+    created_at: Date
+});
+
+AccountSchema.pre('save', function(next){
+
+    var now = new Date();
+ 
+    if(this.isNew) {
+        this.created_at = now;
     }
+
+    next();
+
 });
 
 var Account = mongoose.model("Account", AccountSchema);

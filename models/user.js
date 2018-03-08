@@ -37,6 +37,7 @@ var UserSchema = new Schema({
 		line1: String,
 		line2: String,
         suburb: String,
+        city: String,
         postcode: String
 	}],
 	payment_details: [{

@@ -28,43 +28,51 @@
 		},
 		{
 			id: 'q_address_1',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_address_2',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_suburb',
-			validation: ''	
+			validation: 'none'	
+		},
+		{
+			id: 'q_city',
+			validation: 'none'	
 		},
 		{
 			id: 'q_postcode',
-			validation: ''	
+			validation: 'none'
+		},
+		{
+			id: 'q_state',
+			validation: 'none'	
 		},
 		{
 			id: 'q_primary_phone',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_primary_email',
-			validation: 'email'	
+			validation: 'none'	
 		},
 		{
 			id: 'q_confirmation_phone',
-			validation: ''	
+			validation: 'none'	
 		},
 		{
 			id: 'q_confirmation_email',
-			validation: 'email'	
+			validation: 'none'	
 		},
 		{
 			id: 'q_accounts_phone',
-			validation: ''
+			validation: 'none'
 		},
 		{
 			id: 'q_accounts_email',
-			validation: 'email'	
+			validation: 'none'	
 		},
 		{
 			id: 'q_booking_note',
@@ -124,24 +132,28 @@
 				q_address_1: $('#' + accountForm.fields[5].id).val(),
 				q_address_2: $('#' + accountForm.fields[6].id).val(),
 				q_suburb: $('#' + accountForm.fields[7].id).val(),
-				q_postcode: $('#' + accountForm.fields[8].id).val(),
-				q_primary_phone: $('#' + accountForm.fields[9].id).val(),
-				q_primary_email: $('#' + accountForm.fields[10].id).val(),
-				q_confirmation_phone: $('#' + accountForm.fields[11].id).val(),
-				q_confirmation_email: $('#' + accountForm.fields[12].id).val(),
-				q_accounts_phone: $('#' + accountForm.fields[13].id).val(),
-				q_accounts_email: $('#' + accountForm.fields[14].id).val(),
-				q_booking_note: $('#' + accountForm.fields[15].id).val(),
-				q_office_note: $('#' + accountForm.fields[16].id).val(),
-				q_driver_note: $('#' + accountForm.fields[17].id).val(),
-				q_current_ratesheet: $('#' + accountForm.fields[18].id).val(),
-				q_cancellation_period: $('#' + accountForm.fields[19].id).val(),
-				q_after_hours: $('#' + accountForm.fields[20].id).is(':checked'),
-				q_airport_fee: $('#' + accountForm.fields[21].id).is(':checked'),
-				q_invoice_cycle: $('#' + accountForm.fields[22].id).val(),
-				q_stop_credit: $('#' + accountForm.fields[23].id).is(':checked'),
-				q_status: $('#' + accountForm.fields[24].id).is(':checked')
+				q_city: $('#' + accountForm.fields[8].id).val(),
+				q_postcode: $('#' + accountForm.fields[9].id).val(),
+				q_state: $('#' + accountForm.fields[10].id).val(),
+				q_primary_phone: $('#' + accountForm.fields[11].id).val(),
+				q_primary_email: $('#' + accountForm.fields[12].id).val(),
+				q_confirmation_phone: $('#' + accountForm.fields[13].id).val(),
+				q_confirmation_email: $('#' + accountForm.fields[14].id).val(),
+				q_accounts_phone: $('#' + accountForm.fields[15].id).val(),
+				q_accounts_email: $('#' + accountForm.fields[16].id).val(),
+				q_booking_note: $('#' + accountForm.fields[17].id).val(),
+				q_office_note: $('#' + accountForm.fields[18].id).val(),
+				q_driver_note: $('#' + accountForm.fields[19].id).val(),
+				q_current_ratesheet: $('#' + accountForm.fields[20].id).val(),
+				q_cancellation_period: $('#' + accountForm.fields[21].id).val(),
+				q_after_hours: $('#' + accountForm.fields[22].id).is(':checked'),
+				q_airport_fee: $('#' + accountForm.fields[23].id).is(':checked'),
+				q_invoice_cycle: $('#' + accountForm.fields[24].id).val(),
+				q_stop_credit: $('#' + accountForm.fields[25].id).is(':checked'),
+				q_status: $('#' + accountForm.fields[26].id).is(':checked')
 			};
+
+			console.log('data ', data);
 
 			accountForm.send(data, function(data){
 				console.log(data);

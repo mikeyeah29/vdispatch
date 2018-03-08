@@ -9,8 +9,12 @@ block content
 			ul.actions_bar
 				li
 					.search_group
-						input(type="text", id="q_search")
-						.btn.btn-search Search
+						form(action="/accounts" method="POST")
+							input(type="text" name="term")
+							button.btn.btn-default Search
+								span.glyphicon.glyphicon-search
+						//- input(type="text", id="q_search")
+						//- .btn.btn-search Search
 				li
 					a(href="/accounts").btn.btn-blue View All Accounts
 				li.right

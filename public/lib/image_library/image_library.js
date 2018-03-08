@@ -103,7 +103,7 @@ var imageLibrary = (function(){
 	};
 	View.prototype.updateUploadProgress = function(percentage){
 		if(percentage < 100){
-			$('.progress-bar').width(percent + '%');
+			$('.progress-bar').width(percentage + '%');
 			this.message.text('Image Uploading... ' + percentage);	
 		}else{
 			$('.prog_wrap').hide(200);

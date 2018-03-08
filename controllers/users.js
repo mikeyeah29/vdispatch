@@ -6,8 +6,6 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user.js').User;
 const helper = require('../helpers/main.js');
 
-// const expect = require('chai').expect;
-
 const routePermission = 'administrator';
 
 users.get('/', function(req, res, next){
@@ -18,18 +16,80 @@ users.get('/', function(req, res, next){
 
 	User.findById(req.session.userId).exec(function(err, user){
 
-		User.find({}).limit(30).sort({created_at: -1}).exec(function(err, users){
-		
+		if(err){
+			return next(err);
+		}
+
+		User.find({}).limit(30).exec((err, users) => {
+
 			if(err){
 				return next(err);
 			}
-			res.render('users/users', {
+
+			return res.render('users/users', {
 				title: 'Users',
-				users: users,
-				user: user
+				user: user,
+				users: users
 			});
-		
+
 		});
+
+	});
+
+});
+
+users.post('/', function(req, res, next){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+
+	User.findById(req.session.userId).exec(function(err, user){
+
+		if(err){
+			return next(err);
+		}
+
+		if(!req.body.term){
+
+			User.find({}).limit(30).exec((err, users) => {
+
+				if(err){
+					return next(err);
+				}
+
+				return res.render('users/users', {
+					title: 'Search Users',
+					user: user,
+					users: users,
+					search: 'No search term given'
+				});
+
+			});
+
+		}else{
+
+			User.find({ $or:[
+				{first_name: new RegExp(req.body.term, 'i')},
+				{last_name: new RegExp(req.body.term, 'i')}
+			]})
+			.limit(30)
+			.exec((err, users) => {
+
+				if(err){
+					return next(err);
+				}
+
+				return res.render('users/users', {
+					title: 'Search User',
+					user: user,
+					users: users,
+					search: 'Search results for ' + req.body.term
+				});
+
+			});
+
+		}
 
 	});
 
@@ -94,11 +154,6 @@ users.post('/create-user', function(req, res, next){
 		dataValid = false;
 	}
 
-	if(!req.body.q_address_2 || req.body.q_address_2 == ''){
-		response.error = 'Address 2 Missing';
-		dataValid = false;
-	}
-
 	if(!req.body.q_suburb || req.body.q_suburb == ''){
 		response.error = 'Suburb Missing';
 		dataValid = false;
@@ -114,7 +169,6 @@ users.post('/create-user', function(req, res, next){
 		dataValid = false;
 	}
 		
-
 	if(!req.body.q_accountnumber || req.body.q_accountnumber == ''){
 		response.error = 'account Missing';
 		dataValid = false;
@@ -170,10 +224,7 @@ users.post('/create-user', function(req, res, next){
 		return res.send(response);
 	}
 
-	// otherwise all is good so create user...
-
-	// console.log('ADMIN: ', req.body.q_perm_administrator);
-	// console.log('MANAG: ', req.body.q_perm_management);
+	// otherwise all is good so create user... 
 
 	const userData = {
 		created_at: new Date(),
@@ -184,8 +235,9 @@ users.post('/create-user', function(req, res, next){
 	    phone: req.body.q_phone,
 		address: [{
 			line1: req.body.q_address_1,
-			line2: req.body.q_address_1,
+			line2: req.body.q_address_2 || '',
 	        suburb: req.body.q_suburb,
+	        city: req.body.q_city,
 	        postcode: req.body.q_postcode
 		}],
 		payment_details: [{
@@ -267,8 +319,9 @@ users.post('/update-user', function(req, res, next){
 	    phone: req.body.q_phone,
 		address: [{
 			line1: req.body.q_address_1,
-			line2: req.body.q_address_1,
+			line2: req.body.q_address_2 || '',
 	        suburb: req.body.q_suburb,
+	        city: req.body.q_city,
 	        postcode: req.body.q_postcode
 		}],
 		payment_details: [{
@@ -408,6 +461,6 @@ users.post('/update_user_status', function(req, res, next){
         }
 	);
 
-})
+});
 
 module.exports = users;

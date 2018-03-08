@@ -4,6 +4,10 @@
 	var spin = $('.overlay_spin');
 	var modalSpin = $('.modal-body .spin');
 
+	$('.datepicker').datepicker({
+	    format: 'dd/mm/yyyy'
+	});
+
 	function AbsenceController(){
 
 		this.date = null;
@@ -43,8 +47,8 @@
 
 		var thisAc = this;
 
-		this.startDateInput.datepicker('update', getDateForInput(this.date));
-		this.endDateInput.datepicker('update', getDateForInput(this.date));
+		this.startDateInput.datepicker('update', getDateForInput(this.date, true));
+		this.endDateInput.datepicker('update', getDateForInput(this.date, true));
 
 		if(this.drivers != ''){
 			
@@ -79,8 +83,8 @@
 	AbsenceController.prototype.switchToUpdateMode = function(startDate, endDate, driverName, absenceId){
 		this.spin.hide();
 		this.currentAbsencesBox.slideUp(200);
-		this.startDateInput.datepicker('update', new Date(getDateForInput(startDate)));
-		this.endDateInput.datepicker('update', new Date(getDateForInput(endDate)));
+		this.startDateInput.datepicker('update', new Date(getDateForInput(startDate), true));
+		this.endDateInput.datepicker('update', new Date(getDateForInput(endDate), true));
 		this.h5.text('Absence for ' + driverName);
 		this.selectDriver.hide();
 		this.addBtn.hide();
@@ -225,7 +229,6 @@
 			enableContextMenu: true,
 	        enableRangeSelection: true,
 	        clickDay: function(e){
-	        	console.log(e.events);
 	        	thisAc.editEvent(e.events, e.date);
 	        }
 		});

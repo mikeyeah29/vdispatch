@@ -49,8 +49,14 @@ block content
 							label Suburb
 							input(type="text", value=`${account.address[0].suburb}`)#q_suburb
 						li
+							label City
+							input(type="text", value=`${account.address[0].city}`)#q_city
+						li
 							label Postcode
 							input(type="text", value=`${account.address[0].postcode}`)#q_postcode
+						li
+							label State
+							input(type="text", value=`${account.address[0].state}`)#q_state
 				.col-sm-4
 					ul.list.form
 						li

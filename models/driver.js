@@ -24,7 +24,9 @@ var DriverSchema = new Schema(
 			line1: String,
 			line2: String,
             suburb: String,
-            postcode: String
+            city: String,
+            postcode: String,
+            state: String
 		}],
         email: {
             type: String,
@@ -64,12 +66,19 @@ var DriverSchema = new Schema(
         status: {
             type: Boolean,
             required: true
-        }
+        },
+        created_at: Date
 	}
 );
 
 DriverSchema.pre('save', function(next){
     var driver = this;
+    var now = new Date();
+ 
+    if(driver.isNew) {
+        driver.created_at = now;
+    }
+
     bcrypt.hash(driver.password, 10, function(err, hash){
         
         if(err){

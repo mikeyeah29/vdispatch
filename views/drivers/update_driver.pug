@@ -23,7 +23,7 @@ block content
 							input(type="text", value=`${driver.last_name}`)#q_last_name
 						li
 							label.break DOB
-							input(type="text", data-provide="datepicker", value=`${dob}`)#q_dob
+							input(type="text", data-provide="datepicker", value=`${dob}`).datepicker#q_dob
 						li
 							label Address Line 1
 							input(type="text", value=`${driver.address[0].line1}`)#q_address_line1
@@ -34,8 +34,14 @@ block content
 							label Suburb
 							input(type="text", value=`${driver.address[0].suburb}`)#q_suburb
 						li
+							label City
+							input(type="text", value=`${driver.address[0].city}`)#q_city
+						li
 							label Postcode
 							input(type="text", value=`${driver.address[0].postcode}`)#q_postcode
+						li
+							label State
+							input(type="text", value=`${driver.address[0].state}`)#q_state
 						li
 							label Email
 							input(type="email", value=`${driver.email}`)#q_email
@@ -63,7 +69,7 @@ block content
 							input(type="text", value=`${driver.driver_authorisation.da_number}`)#q_da_number
 						li
 							label.break Expiry
-							input(type="text", data-provide="datepicker", value=`${da_expiry}`)#q_da_expiry
+							input(type="text", data-provide="datepicker", value=`${da_expiry}`).datepicker#q_da_expiry
 						li
 							label Scan
 							.scan#da_scan
@@ -76,7 +82,7 @@ block content
 							input(type="text", value=`${driver.driver_licence.dl_number}`)#q_dl_number
 						li
 							label.break Expiry
-							input(type="text", data-provide="datepicker", value=`${dl_expiry}`)#q_dl_expiry
+							input(type="text", data-provide="datepicker", value=`${dl_expiry}`).datepicker#q_dl_expiry
 						li
 							label Scan
 							.scan#dl_scan
@@ -155,6 +161,7 @@ block content
 
 	script(src="/lib/image_library/image_library.js")
 	script(src="/lib/autocomplete/autocomplete.min.js")
+	script(src="/js/bootstrap-datepicker.min.js")
 	script(src="/js/functions.js")
 	script(src="/js/form.js")
 	script(src="/js/drivers/update_driver.js")

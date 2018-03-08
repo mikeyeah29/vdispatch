@@ -3,7 +3,6 @@
 const express = require('express');
 const home = express.Router();
 const User = require('../models/user.js').User;
-const Locaton = require('../models/location.js').Locaton;
 const mid = require('../middlewares/index');
 
 home.get('/', mid.loggedIn, function(req, res, next){

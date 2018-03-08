@@ -15,7 +15,9 @@ var LocationSchema = new Schema(
         suburb: {
             type: Schema.Types.ObjectId,
             ref: 'Suburb'
-        }
+        },
+        city: String,
+        state: String
 	}
 );
 

@@ -23,7 +23,8 @@ var RateSheetSchema = new mongoose.Schema(
             minibus: Number,
             coaster: Number,
             stretch: Number
-        }
+        },
+        created_at: Date
         //  N5: [{
         //     zone: String,
         //     sedan: Number,
@@ -45,14 +46,15 @@ RateSheetSchema.statics.makeObjFromCsv = function(csvData){
     
     const infoObj = csvData[1];
     const hoursObj = csvData[5];
-
-    // console.log(infoObj);
-    // console.log(hoursObj);
+    let discount = '';
+    if(infoObj.Sedan){
+        discount = infoObj.Sedan.replace('%', '');
+    }
 
     const rateSheetObj = {
         name: infoObj.Zone,
         ratecode: infoObj.Suburb,
-        discount_percent: infoObj.Sedan.replace('%', ''), // remove %
+        discount_percent: discount, // remove %
         valid_from: moment(infoObj.Coaster, 'DD/MM/YYYY', true).format(),
         valid_to: moment(infoObj.Stretch, 'DD/MM/YYYY', true).format(),
         C1: csvData.slice(10, 35),
@@ -71,6 +73,18 @@ RateSheetSchema.statics.makeObjFromCsv = function(csvData){
 
 };
 
+RateSheetSchema.pre('save', function(next){
+
+    var now = new Date();
+ 
+    if(this.isNew) {
+        this.created_at = now;
+    }
+
+    next();
+
+});
+
 RateSheetSchema.statics.createRateSheetWithCsv = function(csvData, callback){
 
     let rateSheetObj = this.makeObjFromCsv(csvData);
@@ -81,10 +95,16 @@ RateSheetSchema.statics.createRateSheetWithCsv = function(csvData, callback){
         var error = null;
 
         if(err){
-            error = err;
+            if(err.code == 11000){
+                error = 'There is allready a ratesheet with that that name, edit csv and try again';
+            }else{
+                error = err.errmsg || 'Something went wrong';
+            }
         }
 
-        RateSheet.find({}).select({name: 1, ratecode: 1, discount_percent: 1}).exec(function(err, ratesheets){
+        RateSheet.find({})
+            .sort({created_at: -1})
+            .select({name: 1, ratecode: 1, discount_percent: 1}).exec(function(err, ratesheets){
 
             callback(error, ratesheets);
 

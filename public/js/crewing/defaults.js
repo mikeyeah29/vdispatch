@@ -179,7 +179,7 @@
 		$(this.addCrewing.inpCustomer).empty();
 		$(this.addCrewing.inpCustomer).append('<option value="">- select customer -</option>');
 		for(var i=0; i<accounts.length; i++){
-			this.addCrewing.inpCustomer.append('<option value="' + accounts[i]._id + '">' + accounts[i].name + '</option>');
+			this.addCrewing.inpCustomer.append('<option value="' + accounts[i]._id + '">' + accounts[i].lookup + '</option>');
 		}
 	};	
 	View.prototype.fillVehiclesSelect = function(vehicles, edit = false) {
@@ -209,6 +209,10 @@
 				submit: $('#addCrewingSubmit'),
 				spin: $('#add_crewing_box .overlay_spin')
 			});
+
+		$('#crewing_customers').on('change', function(){
+			$('#q_name').val($('#crewing_customers option:selected').text());
+		});
 
 		/*** Adding Crewing Defaults ***/
 

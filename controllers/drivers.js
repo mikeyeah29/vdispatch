@@ -6,6 +6,7 @@ const User = require('../models/user.js').User;
 const Driver = require('../models/driver.js').Driver;
 const Absence = require('../models/absence.js').Absence;
 const getDateForInput = require('../helpers/main.js').getDateForInput;
+const dateUsToUk = require('../helpers/main.js').dateUsToUk;
 const bcrypt = require('bcryptjs');
 
 const routePermission = 'management';
@@ -22,7 +23,46 @@ drivers.get('/', function(req, res, next){
 			return next(err);
 		}
 
-		Driver.find({}).limit(30).exec(function(err, drivers){
+		Driver.find({}).sort({created_at: -1}).limit(30).exec(function(err, drivers){
+
+			if(err){
+				return next(err);
+			}
+
+			res.render('drivers/drivers', {
+				title: 'All Drivers',
+				user: user,
+				drivers: drivers
+			});
+
+		});
+
+	});
+
+});
+
+drivers.post('/', function(req, res, next){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+	
+	User.findById(req.session.userId).exec(function(err, user){
+
+		if(err){
+			return next(err);
+		}
+
+		let query = {};
+
+		if(req.body.term){
+			query.$or = [
+				{ first_name: new RegExp('^' + req.body.term, 'i') },
+				{ last_name: new RegExp('^' + req.body.term, 'i') }
+			];
+		}
+
+		Driver.find(query).sort({created_at: -1}).limit(30).exec(function(err, drivers){
 
 			if(err){
 				return next(err);
@@ -112,18 +152,18 @@ drivers.post('/create-driver', function(req, res, next){
 		return res.send(response);
 	}
 
-	var dob = new Date(req.body.q_dob);
-
 	const driverData = {
 		first_name: req.body.q_first_name,
 		last_name: req.body.q_last_name,
-        dob: dob.getDate(),
+        dob: new Date(dateUsToUk(req.body.q_dob)),
 		address: [{
-			line1: req.body.q_address_line1,
-			line2: req.body.q_address_line2,
-            suburb: req.body.q_suburb,
-            postcode: req.body.q_postcode
-		}],
+	        line1: req.body.q_address_line1 || '',
+	        line2: req.body.q_address_line2 || '',
+	        suburb: req.body.q_suburb || '',
+	        city: req.body.q_city || '',
+	        postcode: req.body.q_postcode || '',
+	        state: req.body.q_state || ''
+	    }],
         email: req.body.q_email,
         phone: req.body.q_phone,
         driver_code: req.body.q_driver_code,
@@ -131,12 +171,12 @@ drivers.post('/create-driver', function(req, res, next){
         driver_type: req.body.q_drivertype,
         driver_authorisation: {
             da_number: req.body.q_da_number,
-            da_expiry: new Date(req.body.q_da_expiry),
+            da_expiry: new Date(dateUsToUk(req.body.q_da_expiry)),
             da_scan: req.body.q_da_scan
         },
         driver_licence: {
             dl_number: req.body.q_dl_number,
-            dl_expiry: new Date(req.body.q_dl_expiry),
+            dl_expiry: new Date(dateUsToUk(req.body.q_dl_expiry)),
             dl_scan: req.body.q_dl_scan
         },
 		payment_details: [{
@@ -206,28 +246,32 @@ drivers.post('/update-driver', function(req, res, next){
 		return res.send(data);
 	}
 
+	console.log(req.body);
+
 	var driverObj = {
 		first_name: req.body.q_first_name,
 		last_name: req.body.q_last_name,
-        dob: new Date(req.body.q_dob),
+        dob: new Date(dateUsToUk(req.body.q_dob)),
 		address: [{
-			line1: req.body.q_address_line1,
-			line2: req.body.q_address_line2,
-            suburb: req.body.q_suburb,
-            postcode: req.body.q_postcode
-		}],
+	        line1: req.body.q_address_line1 || '',
+	        line2: req.body.q_address_line2 || '',
+	        suburb: req.body.q_suburb || '',
+	        city: req.body.q_city || '',
+	        postcode: req.body.q_postcode || '',
+	        state: req.body.q_state || ''
+	    }],
         email: req.body.q_email,
         phone: req.body.q_phone,
         driver_code: req.body.q_driver_code,
         driver_type: req.body.q_drivertype,
         driver_authorisation: {
             da_number: req.body.q_da_number,
-            da_expiry: new Date(req.body.q_da_expiry),
+            da_expiry: new Date(dateUsToUk(req.body.q_da_expiry)),
             da_scan: req.body.q_da_scan
         },
         driver_licence: {
             dl_number: req.body.q_dl_number,
-            dl_expiry: new Date(req.body.q_dl_expiry),
+            dl_expiry: new Date(dateUsToUk(req.body.q_dl_expiry)),
             dl_scan: req.body.q_dl_scan
         },
 		payment_details: [{
@@ -238,6 +282,8 @@ drivers.post('/update-driver', function(req, res, next){
         color: req.body.q_color,
         status: req.body.q_status
 	};
+
+	console.log(driverObj);
 
 	if(req.body.update_password == 'true'){
    
@@ -401,8 +447,8 @@ drivers.post('/add-absence', function(req, res, next){
 
 	var absenceData = {
 		driver: req.body.driverId,
-		startDate: req.body.startDate, 
-		endDate: req.body.endDate
+		startDate: dateUsToUk(req.body.startDate), 
+		endDate: dateUsToUk(req.body.endDate)
 	};
 
 	Absence.addAbsence(absenceData, function(error, absences){
