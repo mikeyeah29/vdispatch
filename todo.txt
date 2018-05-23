@@ -22,15 +22,10 @@ Overhaul:
 /***************************/
 
 USERS
-    DONE - search function (make reusable function)
-    - limit users to 30 (paginationm if it doesnt already)
-    DONE - user address 2 field should not be compulsory (add and edit)
-    DONE - need to save City of the user (add between suburb and postcode)
-    - sort order
+
 
 RATESHEETS
-    DONE - error goes to default error handler, needs to give a json repsonse
-    DONE - search
+
 
 FLIGHTS
     - set up routes
@@ -44,36 +39,14 @@ FLIGHTS
 /***************************/
 
 ACCOUNTS
-    
-    DONE - ratesheets not showing up (possible due to name overwrite theory)
-    DONE - need to be able to add city and state, city between suburb and post code, state after postcode (add and edit)
-    DONE - address and all phone/email fields are NOT compulsory
-    DONE - search
     - overview
         - populate overview table
 
 DRIVERS
-    
-    DONE - remove hex code from color column
-    DONE - DOB field display as dd/mm/yyyy
-    DONE - calander also need to display as dd/mm/yyyy
-    DONE - add city and state in address section
-    DONE - uploaded images not showing in image library
-    DONE - search
-    DONE - create driver problem
-    DONE - calander
 
-    DONE - absence needs to be dd/mm/yyyy as well as calander selection
 
 VEHICLES
-
     /overview
-    DONE - # numer should be vehicle number
-    DONE - Reg Expiries / COI Expiries (shows expieries within 45 days)
-    DONE - DOT Bookings only show if date is in that field
-    DONE - search
-    DONE - date formats
-    DONE - order of vehcles
 
 /***************************/
 
@@ -82,8 +55,7 @@ VEHICLES
 /***************************/
 
 CREWING
-    *- add new crewing customer find by lookup name
-    *- no need for name in popup as we would use the lookup name
+    - Search Page
 
 BOOKINGS
     - tests

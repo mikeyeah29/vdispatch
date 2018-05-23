@@ -41,11 +41,98 @@ bookings.get('/', mid.requiresLogin, function(req, res){
 
 				res.render('bookings/booking', {
 					title: 'Booking',
+					mode: 'add',
 					user: user,
 					customers: customers,
 					vehicleTypes: vTypes
 				});
 
+			});
+
+		});
+
+	});
+
+});
+
+bookings.get('/edit/:bookingid', mid.requiresLogin, function(req, res){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+
+	User.findById(req.session.userId).exec(function(err, user){
+
+		if(err){
+			return next(err);
+		}
+		
+		Account.find({status: true}).select({name: true}).exec(function(err, customers){
+
+			if(err){
+				return next(err);
+			}
+
+			VehicleType.find({status: true}, function(err, vTypes){
+
+				if(err){
+					return next(err);
+				}
+
+				Booking.findById(req.params.bookingid)
+					.populate('vehicle_type')
+					.populate('pick_up.locaton')
+					.populate('drop_off.locaton')
+					.exec((err, booking) => {
+
+					if(err){
+						return next(err);
+					}
+
+					console.log(booking);
+
+					res.render('bookings/edit', {
+						title: 'Booking',
+						edit: true,
+						user: user,
+						customers: customers,
+						vehicleTypes: vTypes,
+						booking: booking
+					});
+
+				});
+
+			});
+
+		});
+
+	});
+
+});
+
+bookings.get('/view/:bookingid', mid.requiresLogin, function(req, res){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+
+	User.findById(req.session.userId, (err, user) => {
+
+		if(err){
+			return next(err);
+		}
+
+		Booking.findById(req.params.bookingid, (err, booking) => {
+
+			if(err){
+				return next(err);
+			}
+
+			res.render('bookings/view', {
+				title: 'Booking',
+				edit: true,
+				user: user,
+				booking: booking
 			});
 
 		});

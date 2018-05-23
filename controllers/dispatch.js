@@ -20,7 +20,7 @@ dispatch.get('/', mid.requiresLogin, function(req, res, next){
 			return next(err);
 		}
 
-		Booking.find({}).limit(30).exec(function(err, bookings){
+		Booking.find({}).sort({booking_no: -1}).limit(30).exec(function(err, bookings){
 
 			if(err){
 				return next(err);

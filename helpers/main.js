@@ -32,6 +32,18 @@ function dateUsToUk(string){
 
 }
 
+function switchUsUKDate(string){
+
+	const parts = string.split('/');
+
+	if(parts.length < 3){
+		return '';
+	}
+
+	return parts[1] + '/' + parts[0] + '/' + parts[2];
+
+}
+
 function getYears(tense = future, amount, theYear = 0){
 	var currentYear = new Date().getFullYear();
 	var years = [];
@@ -57,5 +69,6 @@ function dollarStringToInt(dollarString) {
 
 module.exports.getDateForInput = getDateForInput;
 module.exports.dateUsToUk = dateUsToUk;
+module.exports.switchUsUKDate = switchUsUKDate;
 module.exports.getYears = getYears;
 module.exports.dollarStringToInt = dollarStringToInt;

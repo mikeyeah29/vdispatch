@@ -16,8 +16,14 @@ var BookingSchema = new Schema(
             type: String,
             default: 'Confirmed'
         },
-		customer: String,
-        sub_customer: String,
+		customer: {
+            type: Schema.Types.ObjectId,
+            ref: 'Account'
+        },
+        sub_customer: {
+            type: Schema.Types.ObjectId,
+            ref: 'Account'
+        },
         reference1: String,
         reference2: String,
         reference3: String,
@@ -52,8 +58,14 @@ var BookingSchema = new Schema(
         time: String,
         flight: String,
         allocation: {
-            driver: String,
-            vehicle: String
+            driver: {
+                type: Schema.Types.ObjectId,
+                ref: 'Driver'
+            },
+            vehicle: {
+                type: Schema.Types.ObjectId,
+                ref: 'Vehicle'
+            }
         },
         extras: {
             water: Number,
@@ -73,8 +85,37 @@ var BookingSchema = new Schema(
             required: true,
             default: false
         }
-	}
+	},
+    {
+        toObject: {
+            virtuals: true
+        },
+        toJSON: {
+            virtuals: true 
+        }
+    }
 );
+
+BookingSchema.virtual('date_nice').get(function(){
+
+    if(!this.date){
+        return '';
+    }
+
+    var dd = this.date.getDate();
+    var mm = this.date.getMonth()+1; //January is 0!
+    var yyyy = this.date.getFullYear();
+
+    if(dd<10){
+        dd='0'+dd;
+    } 
+    if(mm<10){
+        mm='0'+mm;
+    } 
+
+    return dd+'/'+mm+'/'+yyyy;
+
+});
 
 BookingSchema.plugin(autoIncrement.plugin, {
     model: 'Booking',

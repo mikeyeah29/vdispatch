@@ -216,6 +216,19 @@ ul {
     display: none;
 }
 
+/*.cover_spin {
+
+}*/
+
+.cover_spin:before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.79) url(../img/spin.gif) no-repeat 50%;
+    top: 0px;
+}
+
 .xSpin {
     width: 20px;
     height: 20px;
@@ -683,6 +696,19 @@ footer {
     background: url(/img/edit.png) no-repeat 50%, linear-gradient(#fb9300, #ffe3bc);
 }
 
+.view {
+    display: inline-block;
+    background: url(/img/view.png) no-repeat 50%, linear-gradient(#b3b3b3, #d4d4d4);
+    border-bottom: solid 2px #b5b5b5;
+    width: 50px;
+    height: 35px;
+}
+
+.view:hover {
+    background: url(/img/view.png) no-repeat 50%, linear-gradient(#b3b3b3, #d4d4d4);
+    border-bottom: solid 2px #b5b5b5;
+}
+
 .actions .edit {
 	margin-right: 20px;
 }
@@ -942,6 +968,10 @@ form input[name="term"] {
 }
 
 /* Crewing */
+
+#page-crewingdefaults .actions_bar {
+    margin-top: 15px;
+}
 
 .crew_box {
     padding: 25px 10px;

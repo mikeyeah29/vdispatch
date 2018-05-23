@@ -1,5 +1,9 @@
 (function(Form, easyAutocomplete, vDisp_autocomplete){
 
+	$('.datepicker').datepicker({
+	    format: 'dd/mm/yyyy'
+	});
+
 	function Model(obj){
 		
 	}
@@ -36,8 +40,9 @@
 		});
 
 		var submit_btn = $('#save-btn');
+		var update_btn = $('#update-btn');
 
-		this.bookingForm = new Form('/api/bookings/create-booking', [
+		var bookingFormData = [
 			{ id: 'q_customer', validation: '' },
 			{ id: 'q_subcustomer', validation: 'none' },
 			{ id: 'q_ref1', validation: 'none'},
@@ -64,20 +69,28 @@
 			{ id: 'q_office_note', validation: 'none'},
 			{ id: 'q_customer_note', validation: 'none'},
 			{ id: 'q_driver_note', validation: 'none'}
-		]);
+		];
+
+		this.bookingForm = new Form('/api/bookings/create-booking', bookingFormData);
+		this.updateForm = new Form('/api/bookings/update-booking', bookingFormData);
 
 		submit_btn.on('click', function(){
 			var subBtn = this;
-			thisBooking.saveBooking(subBtn, $(subBtn).next('.spin'));
+			thisBooking.saveBooking(subBtn, this.bookingForm, $(subBtn).next('.spin'));
+		});
+
+		update_btn.on('click', function(){
+			var subBtn = this;
+			thisBooking.saveBooking(subBtn, this.updateForm, $(subBtn).next('.spin'));
 		});
 
 	}
 
-	Booking.prototype.saveBooking = function(submit, spin) {
+	Booking.prototype.saveBooking = function(submit, bForm, spin) {
 
 		console.log(submit, spin);
 
-		var bForm = this.bookingForm;
+		//var bForm = this.bookingForm;
 
 		if(bForm.isValid()){
 
@@ -115,16 +128,18 @@
 	            notes_driver: $('#' + bForm.fields[25].id).val()
 			};
 
+			if($(submit).data('bookingid')){
+				data.bookingid = $(submit).data('bookingid');
+			}
+
 			bForm.send(data, function(data){
-				
-				// console.log(data);
 
 				$(submit).show();
 				$(spin).hide();
 
 				if(data.success){
 					var msg = new Message(
-								'Booking Created. <a href="/dispatch">View Dispatch</a>', 
+								data.success + ' <a href="/dispatch">View Dispatch</a>', 
 								false, 
 								$('#message_box')
 							);

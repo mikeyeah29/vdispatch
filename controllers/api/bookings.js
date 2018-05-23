@@ -15,9 +15,9 @@ const pricing = require('../../helpers/pricing.js');
 const routePermission = 'reservations';
 
 
-function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
+function calculatePrice(accountId, pickUp, dropOff, vehicleType, callback){
 
-	Account.findOne({name: accountName})
+	Account.findById(accountId)
 		.then((account) => {
 
 			if(!account){ 
@@ -30,23 +30,19 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 					Locaton.findById(dropOff).populate('suburb')
 						.then((dropOffLoc) => {
 
-							console.log('dropOffLoc ', dropOffLoc);
+							let puZone = pickUpLoc.suburb.zone;
+							let doZone = dropOffLoc.suburb.zone;
 
-							const puZone = pickUpLoc.suburb.zone;
-							const doZone = dropOffLoc.suburb.zone;
-
-							// console.log('pickUpLoc ', pickUpLoc);
-							// console.log('dropOffLoc ', dropOffLoc);
-							// console.log('puZone ', puZone);
-							// console.log('doZone ', doZone);
+							console.log('puZone ', puZone);
+							console.log('doZone ', doZone);
 
 							let priceFromRates = false;
 
-							if(puZone == 'C1' || puZone == 'N4' || puZone == 'N5'){
+							if(puZone == 'C1' || puZone == 'A1' || puZone == 'N4' || puZone == 'N5'){
 								priceFromRates = 'Pick Up Zone';
 							}
 
-							if(doZone == 'C1' || doZone == 'N4' || doZone == 'N5'){
+							if(doZone == 'C1' || doZone == 'A1' || doZone == 'N4' || doZone == 'N5'){
 								priceFromRates = 'Drop Off Zone';
 							}
 
@@ -62,7 +58,7 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 									// console.log('2 in rates ', rate);
 
 									if(!rate){
-										return callback(new Error('Account ' + accountName + ' has no rate sheet'), null);
+										return callback(new Error('Account ' + account.name + ' has no rate sheet'), null);
 									}
 
 									/*
@@ -83,6 +79,10 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 
 											if(priceFromRates == 'Pick Up Zone'){
 
+												if(puZone == 'A1'){
+													puZone = 'C1';
+												}
+
 												var vehicleList = rate[puZone].find(function(zone){
 													return zone.Zone === doZone;
 												});	
@@ -100,6 +100,10 @@ function calculatePrice(accountName, pickUp, dropOff, vehicleType, callback){
 											}
 
 											if(priceFromRates == 'Drop Off Zone'){
+
+												if(doZone == 'A1'){
+													doZone = 'C1';
+												}
 
 												var vehicleList = rate[doZone].find(function(zone){
 													return zone.Zone === puZone;
@@ -194,6 +198,8 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 			return res.json(body);
 		}
 
+		//console.log(req.body.date);
+
 		let bookingObj = {
 			price: price,
 			customer: req.body.customer,
@@ -218,7 +224,7 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 		    },
 		    transfer_type: req.body.transfer_type,
 		    flight: req.body.flight,
-		    date: new Date(req.body.date),
+		    date: new Date(helpful.dateUsToUk(req.body.date)),
 		    time: req.body.time,
 		    extras: {
 		        water: req.body.water || 0,
@@ -291,8 +297,6 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 				return res.json(body);
 			}
 
-			// console.log('International ', international);
-
 			Locaton.findOne({line1: 'Cairns Domestic Airport'}).exec(function(err, domestic){
 
 				if(err){
@@ -349,9 +353,10 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 					}
 
 					let bookingObj = new Booking({
+						isCrewing: true,
 						price: vehicleObj.price,
-						customer: thisObj.customer,
-					    reference1: thisObj.flight,
+						customer: crewingDef.account, // thisObj.customer, // account id
+					    flight: thisObj.flight,
 					    passengers: {
 					        name: name,
 					        adults: adults
@@ -360,7 +365,7 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 					    pick_up: pick_up,
 					    drop_off: drop_off,
 					    flight: thisObj.flight,
-					    date: new Date(thisObj.date),
+					    date: new Date(helpful.dateUsToUk(thisObj.date)),
 					    time: thisObj.time
 					});
 
@@ -384,6 +389,8 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 					})
 					.catch((err) => {
 
+						console.log(6);
+
 						if(err){
 							body.error = err.message || 'Some Internal Error';
 							res.status(err.status || 500);
@@ -395,6 +402,153 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 			});
 
 		});
+
+	});
+
+});
+
+bookingApi.post('/update-booking', mid.requiresLoginJSON, function(req, res){
+
+	let body = {};
+
+	if(req.session.permissions[0][routePermission] == false){
+		body.error = 'User does not have permissions to update a booking';
+		res.status(403);
+		return res.json(body);
+	}
+
+	let updateObj = {};
+
+	if(req.body.customer){ //acount id
+		updateObj.customer = req.body.customer;
+	}
+
+	if(req.body.sub_customer){ // account id
+		updateObj.customer = req.body.sub_customer;
+	}
+
+	if(req.body.ref1){
+		updateObj.reference1 = req.body.ref1;
+	}
+
+	if(req.body.ref2){
+		updateObj.reference2 = req.body.ref2;
+	}
+
+	if(req.body.ref3){
+		updateObj.reference3 = req.body.ref3;
+	}
+
+	if(req.body.flight){
+		updateObj.flight = req.body.flight;
+	}
+
+	if(req.body.name){
+		if(!updateObj.passengers){ updateObj.passengers = {}; }
+		updateObj.passengers.name = req.body.name;
+	}
+
+	if(req.body.adults){
+		if(!updateObj.passengers){ updateObj.passengers = {}; }
+		updateObj.passengers.adults = req.body.adults;
+	}
+
+	if(req.body.children){
+		if(!updateObj.passengers){ updateObj.passengers = {}; }
+		updateObj.passengers.children = req.body.children;
+	}
+
+	if(req.body.infants){
+		if(!updateObj.passengers){ updateObj.passengers = {}; }
+		updateObj.passengers.infants = req.body.infants;
+	}
+
+	if(req.body.email){
+		if(!updateObj.passengers){ updateObj.passengers = {}; }
+		updateObj.passengers.email = req.body.email;
+	}
+
+	if(req.body.phone){
+		if(!updateObj.passengers){
+			updateObj.passengers = {};
+		}
+		updateObj.passengers.phone = req.body.phone;
+	}
+
+	if(req.body.vehicletype_id){
+		updateObj.vehicle_type = req.body.vehicletype_id;
+	}
+
+	if(req.body.transfer_type){
+		updateObj.transfer_type = req.body.transfer_type;	
+	}
+
+	if(req.body.pu_line1){
+		updateObj.pick_up = {
+			locaton: req.body.pu_line1
+		}
+		if(req.body.pu_instructions){
+			updateObj.pick_up.instructions = req.body.pu_instructions;
+		}
+	}
+
+	if(req.body.do_line1){
+		updateObj.drop_off = {
+			locaton: req.body.do_line1
+		}
+		if(req.body.do_instructions){
+			updateObj.drop_off.instructions = req.body.do_instructions;
+		}
+	}
+
+	if(req.body.date){
+		updateObj.date = req.body.date
+	}
+
+	if(req.body.time){
+		updateObj.time = req.body.time
+	}
+
+	if(req.body.allocation){
+		updateObj.allocation = {
+			driver: req.body.allocation.driverid,
+            vehicle: req.body.allocation.vehicleid
+        };
+	}
+
+	updateObj.extras = {
+		water: Number,
+        face_towel: Number,
+        rear_seat: Number,
+        forward_seat: Number,
+        booster: Number
+	};
+
+	if(req.body.extras.rear_seat){ updateObj.extras.rear_seat = req.body.rear_seat }
+	if(req.body.extras.forward_seat){ updateObj.extras.forward_seat = req.body.forward_seat }
+	if(req.body.extras.booster){ updateObj.extras.booster = req.body.booster }
+	if(req.body.extras.water){ updateObj.extras.water = req.body.water }
+	if(req.body.extras.face_towel){ updateObj.extras.face_towel = req.body.face_towel }
+
+	updateObj.notes = {
+		office: String,
+        customer: String,
+        driver: String
+	};
+
+	if(req.body.notes_office){ updateObj.notes_office = req.body.notes_office }
+	if(req.body.notes_customer){ updateObj.notes_customer = req.body.notes_customer }
+	if(req.body.notes_driver){ updateObj.notes_driver = req.body.notes_driver }
+
+	Booking.update({_id: req.body.bookingid}, {
+		$set: updateObj
+	}, (err, res) => {
+
+		if(err){
+
+		}
+
+		console.log(res);
 
 	});
 

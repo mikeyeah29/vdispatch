@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+	include ../partials/_header
+
+	section
+		.container
+			h1 Booking for #{booking.passengers.name}
+			a(href=`/booking/edit/${booking._id}`) Edit Booking
+			.bookingForm.greyBox
+				.info_bit 
+					p Booking No:
+					span #{booking.booking_no}
+				if booking.isCrewing
+					.info_bit
+						p Crewing Booking
+				h2 General
+				.info_bit
+					p Customer
+					span #{booking.customer}
+				if booking.sub_customer
+					.info_bit
+						p Sub Customer
+						span #{booking.sub_customer}
+				.info_bit
+					p Reference 1
+					span #{booking.reference1}
+				.info_bit
+					p Reference 2
+					span #{booking.reference2}
+				.info_bit
+					p Reference 3
+					span #{booking.reference3}
+				h2 Passengers
+				.info_bit
+					p Name
+					span #{booking.reference3}
+				.info_bit
+					p Adults
+					span #{booking.reference3}
+				.info_bit
+					p Children
+					span #{booking.reference3}
+				.info_bit
+					p Infants
+					span #{booking.reference3}
+				.info_bit
+					p Email
+					span #{booking.reference3}
+				.info_bit
+					p Phone
+					span #{booking.reference3}

@@ -5,7 +5,7 @@ block content
 
 	section#page-accountsoverview
 		.container
-			h1 Booking
+			h1 Edit Booking
 			.bookingForm.greyBox
 				.row
 					.col-sm-6
@@ -18,40 +18,47 @@ block content
 										select#q_customer
 											option(value="") - select -
 											each customer in customers
-												option(value=`${customer._id}`) #{customer.name}		
+												if booking.customer.equals(customer._id)
+													option(value=`${customer._id}` selected) #{customer.name}
+												else
+													option(value=`${customer._id}`) #{customer.name}		
 
 									li
 										label Sub Customer
 										select#q_subcustomer
 											option(value="") - select -
 											each customer in customers
-												option(value=`${customer._id}`) #{customer.name}
+												if booking.sub_customer
+													if booking.sub_customer.equals(customer._id)
+														option(value=`${customer._id}` selected) #{customer.name}
+													else
+														option(value=`${customer._id}`) #{customer.name}
 									li
 										label Reference One
-										input(type="text")#q_ref1
+										input(type="text" value=booking.reference1 ? booking.reference1 : '')#q_ref1
 									li
 										label Reference Two
-										input(type="text")#q_ref2
+										input(type="text" value=booking.reference2 ? booking.reference2 : '')#q_ref2
 									li
 										label Reference Three
-										input(type="text")#q_ref3
+										input(type="text" value=booking.reference3 ? booking.reference3 : '')#q_ref3
 									li
 										label Flight
-										input(type="text")#q_flight
+										input(type="text" value=booking.flight ? booking.flight : '')#q_flight
 									li.aHalf
 										label.break Date
-										input(type="text", data-provide="datepicker").datepicker#q_date
+										input(type="text", data-provide="datepicker" value=booking.date_nice).datepicker#q_date
 									li.aHalf
 										label.break Time
-										input(type="time")#q_time
+										input(type="time" value=booking.time)#q_time
 							.col-sm-6
 								ul.list.form
 									li
 										label Passenger Name
-										input(type="text")#q_name
+										input(type="text" value=`${booking.passengers.name}`)#q_name
 									li.aThird
 										label.break Adults
-										input(type="number", min="1", max="10")#q_adults
+										input(type="number", min="1", max="10", value=`${booking.passengers.adults}`)#q_adults
 									li.aThird
 										label.break Children
 										input(type="number", min="0", max="10", value="0")#q_children
@@ -69,7 +76,10 @@ block content
 										select#q_vehicle_type
 											option(value="") - select -
 											each vt in vehicleTypes
-												option(value=`${vt._id}`) #{vt.name}
+												if booking.vehicle_type._id.equals(vt._id)
+													option(value=`${vt._id}` selected) #{vt.name}
+												else
+													option(value=`${vt._id}`) #{vt.name}
 									li
 										label Transfer Type
 										select#q_transfertype
@@ -85,14 +95,14 @@ block content
 								ul.list.form
 									li 
 										label Location
-										input(type="text")#q_pu_location
+										input(type="text" value=`${booking.pick_up.locaton.line1}` data-locationid=`${booking.pick_up.locaton._id}`)#q_pu_location
 										a(href="/booking/locations", target="_blank") Add Location
 							.col-sm-6
 								h3 Drop Off
 								ul.list.form
 									li 
 										label Location
-										input(type="text")#q_do_location
+										input(type="text" value=`${booking.drop_off.locaton.line1}` data-locationid=`${booking.drop_off.locaton._id}`)#q_do_location
 										a(href="/booking/locations", target="_blank") Add Location
 						hr
 						h3 Extras
@@ -123,8 +133,12 @@ block content
 							li.aThird
 								label Driver
 								textarea#q_driver_note
+						ul.list.form
+							li
+								label Price
+								p $#{booking.price}
 
-				.btn.btn-default.right#save-btn Save Booking
+				.btn.btn-default.right#update-btn(data-bookingid=`${booking._id}`) Save Booking
 				.spin.right
 
 	script(src="/js/bootstrap-datepicker.min.js")

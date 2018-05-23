@@ -15,3 +15,62 @@ block content
 					a(href="/crewing/transfers").nav-link Transfers
 				li.nav-item
 					a(href="/crewing/search").nav-link.active Search
+
+			form(action="" method="POST")
+				ul.actions_bar
+					li(style="width: 128px")
+						label.date Date
+						input(type="text" name="date" data-provide="datepicker" style="width: 100%" value=postObj.date != undefined ? postObj.date : '').date_picker.datepicker
+					li
+						label Airline Crew
+						select(name="airlinecrew")#airline_crew
+							option(value="") - select airline crew -
+							if postObj.customer
+								each crew in crewing
+									if crew._id.equals(postObj.customer)
+										option(value=`${crew._id}` selected) #{crew.name}
+									else
+										option(value=`${crew._id}`) #{crew.name}
+							else
+								each crew in crewing
+									option(value=`${crew._id}`) #{crew.name}
+
+					li
+						label Flight
+						input(type="text" name="flight" value=postObj.flight != undefined ? postObj.flight : '')#q_flight
+					li
+						label Name
+						input(type="text" name="name" value=postObj.name != undefined ? postObj.name : '')#q_name
+					li
+						button.btn.btn-default#search Search
+
+			if bookings
+
+				table.table-striped.table.table-condensed
+					tr
+						th Date
+						th Time
+						th Flight
+						th Pick-up
+						th Destination
+						th Crew
+						th
+					each booking in bookings
+						tr
+							td #{booking.date_nice}
+							td #{booking.time}
+							td #{booking.flight}
+							td #{booking.pick_up.locaton.line1}
+							td #{booking.drop_off.locaton.line1}
+							if booking.pick_up.instructions
+								td #{booking.pick_up.instructions}
+							else if booking.drop_off.instructions
+								td #{booking.drop_off.instructions}
+							td.actions
+								a(href=`/booking/edit/${booking._id}?edit=1` target="_blank").btn.btn-warning.edit
+								a(href=`/booking/view/${booking._id}` target="_blank").btn.btn-warning.view
+
+	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="/js/functions.js")
+	script(src="/js/form.js")
+	script(src="/js/crewing/search.js")

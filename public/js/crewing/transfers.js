@@ -1,5 +1,9 @@
 !function(){
 
+	$('.datepicker').datepicker({
+	    format: 'dd/mm/yyyy'
+	});
+
 	function BookingForm(obj) {
 		
 		this.inpTime = obj.inpTime;
@@ -194,7 +198,7 @@
 				noneUsed = false;
 
 				if(bookingData.state == 'valid'){
-					bookingData.values.customer = gData.customer;
+					bookingData.values.customer = gData.customer; // should be account id
 					bookingData.values.date = gData.date;
 					bookingData.values.arrival = ((gData.arrival == 'true') ? true : false);
 					bookings.push(bookingData.values);	
@@ -228,8 +232,6 @@
 	}
 
 	function showSuccesfulBookings(bookings) {
-
-		console.log('Bookings ', bookings);
 
 		var modal = $('.bookingModal');
 		var theBookings = $('.bookingModal .box');
