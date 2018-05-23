@@ -203,7 +203,6 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 		let bookingObj = {
 			price: price,
 			customer: req.body.customer,
-		    sub_customer: req.body.sub_customer,
 		    reference1: req.body.ref1,
 		    reference2: req.body.ref2,
 		    reference3: req.body.ref3,
@@ -239,6 +238,10 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 		        driver: req.body.notes_driver || ''
 		    }
 		};
+
+		if(req.body.sub_customer) {
+			bookingObj.sub_customer = req.body.sub_customer;
+		}
 
 		Booking.create(bookingObj, function(err, booking){
 

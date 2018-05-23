@@ -90,7 +90,7 @@
 
 		console.log(submit, spin);
 
-		//var bForm = this.bookingForm;
+		var bForm = this.bookingForm;
 
 		if(bForm.isValid()){
 
