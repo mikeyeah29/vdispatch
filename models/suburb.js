@@ -31,6 +31,7 @@ Suburb.find({}).exec(function(err, suburbs){
 
     }else{
        // console.log('pvars ', suburbs);
+       return next();
     }
 
 });

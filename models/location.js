@@ -37,6 +37,10 @@ Locaton.find({line1: 'Cairns International Airport'}).exec(function(err, locatio
                 return next(err);
             }
 
+            if(suburb == null){
+                return next('Suburb Cairns City not found');
+            }
+
             const international = new Locaton({ line1: 'Cairns International Airport', suburb: suburb });
             const domestic = new Locaton({ line1: 'Cairns Domestic Airport', suburb: suburb });
 
