@@ -15,23 +15,18 @@ var Suburb = mongoose.model('Suburb', SuburbSchema);
 
 Suburb.find({}).exec(function(err, suburbs){
 
-    if(err){
-        return next(err);
-    }
+    if(!err){
+        if(!suburbs || suburbs == ''){
 
-    if(!suburbs || suburbs == ''){
+            Suburb.insertMany(suburbData)
+                .then(function(suburbData) {
+                    console.log('Yeah!');
+                })
+                .catch(function(err) {
+                    console.log('Err ', err);
+                });
 
-        Suburb.insertMany(suburbData)
-            .then(function(suburbData) {
-                console.log('Yeah!');
-            })
-            .catch(function(err) {
-                console.log('Err ', err);
-            });
-
-    }else{
-       // console.log('pvars ', suburbs);
-       return next();
+        }
     }
 
 });
