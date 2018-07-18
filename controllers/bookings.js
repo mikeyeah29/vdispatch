@@ -162,6 +162,8 @@ bookings.get('/locations', function(req, res, next){
 
 			Locaton.count().exec((err, count) => {
 
+				console.log(locations);
+
 				res.render('locations', {
 					title: 'Locations',
 					locations: locations,
