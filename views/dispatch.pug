@@ -2,39 +2,112 @@ extends layout
 
 block content
 	include partials/_header
-	.container
+	.container-fluid#dispatch
 		h1 Dispatch
-
-		table
-			tr
-				th 
-				th Time
-				th Name
-				th x
-				th Pick-up
-				th Date
-				th
-				th Destination
-				th
-				th Veh
-				th #
-				th Driver
-				th Price
-				th Customer
-			each booking in bookings
+		ul.actions_bar
+			li
+				.search_group
+					form
+						input(type="text")
+						button.btn.btn-default.search
+			li.right
+				.date_large
+					img(src="img/left.png").arrow.left-arrow
+					p 11/04/2013
+					img(src="img/right.png").arrow.right-arrow
+					img(src="img/date.png").date_picker
+		ul.actions_bar
+			li
+				label Status
+				select#filter_status
+			li
+				label Vehicle Number 
+				select#filter_vehicle
+			li
+				label Driver
+				select#filter_driver
+			li
+				.btn.btn-default#applyfilter Apply
+			li.right
+				ul.actions_bar.action_margin
+					li
+						.btn.filter
+					li
+						.btns-switch
+							.btn.btn-refresh.on
+							.btn.btn-auto
+		.dispatch_wrap
+			table.dispatch
+				col(width="30")
 				tr
-					td
+					th 
+					th Job
+					th Time
+					th Name
+					th x
+					th Pick-up
+					th Destination
+					th Veh
+					th #
+					th Driver
+					th Price
+					th Customer
+				tr
+					td.cb_box
 						input(type="checkbox")
-					td #{booking.time}
-					td #{booking.passengers.name}
-					td 
-					td 
-					td #{booking.date}
-					td
-					td 
-					td
-					td 
-					td
-					td
-					td #{booking.price}
-					td
+					td.job(style="background: #f5e069;") T200000A CNF
+					td 00:00
+					td JOHNSTONE PARTY
+					td.cs.exclaim 4
+					td PORT DOUGLAS Mantra on the Inlet 
+					td AIRPORT International Airport
+					td.veh(style="background: #ffbe4d;") SIC
+					td 18
+					td CSNED
+					td $5555
+					td Equity Tra
+				tr
+					td.cb_box
+						input(type="checkbox")
+					td.job(style="background: #8fd982;") T200000A CNF
+					td 00:00
+					td JOHNSTONE PARTY
+					td.cs 4
+					td PORT DOUGLAS Mantra on the Inlet 
+					td AIRPORT International Airport
+					td.veh(style="background: #ff7578;") SIC
+					td 18
+					td CSNED
+					td $5555
+					td Equity Tra
+				tr
+					td.cb_box
+						input(type="checkbox")
+					td.job(style="background: #c7c7c7;") T200000A CNF
+					td 00:00
+					td JOHNSTONE PARTY
+					td.cs 4
+					td PORT DOUGLAS Mantra on the Inlet 
+					td AIRPORT International Airport
+					td.veh(style="background: #75ff83;") SIC
+					td 18
+					td CSNED
+					td $5555
+					td Equity Tra
+				tr
+					td.cb_box
+						input(type="checkbox")
+					td.job(style="background: #47b1e6;") T200000A CNF
+					td 00:00
+					td JOHNSTONE PARTY
+					td.cs 4
+					td PORT DOUGLAS Mantra on the Inlet 
+					td AIRPORT International Airport
+					td.veh(style="background: #67d4f0;") SIC
+					td 18
+					td CSNED
+					td $5555
+					td Equity Tra
+
+	script(src="/lib/vue-2.js")
+	script(src="/js/dispatch.js")

@@ -26,13 +26,13 @@ block content
 						select(name="airlinecrew")#airline_crew
 							option(value="") - select airline crew -
 							if postObj.customer
-								each crew in crewing
+								each crew in crewingAccounts
 									if crew._id.equals(postObj.customer)
 										option(value=`${crew._id}` selected) #{crew.name}
 									else
 										option(value=`${crew._id}`) #{crew.name}
 							else
-								each crew in crewing
+								each crew in crewingAccounts
 									option(value=`${crew._id}`) #{crew.name}
 
 					li
@@ -71,6 +71,7 @@ block content
 								a(href=`/booking/view/${booking._id}` target="_blank").btn.btn-warning.view
 
 	script(src="/js/bootstrap-datepicker.min.js")
+	script(src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js")
 	script(src="/js/functions.js")
 	script(src="/js/form.js")
 	script(src="/js/crewing/search.js")

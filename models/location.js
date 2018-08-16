@@ -26,7 +26,7 @@ var Locaton = mongoose.model('Location', LocationSchema);
 Locaton.find({line1: 'Cairns International Airport'}).exec(function(err, locations){
 
     if(err){
-        return next(err);
+        return console.log(err);
     }
 
     if(!locations || locations == ''){
@@ -34,11 +34,11 @@ Locaton.find({line1: 'Cairns International Airport'}).exec(function(err, locatio
         Suburb.findOne({ suburb: 'Cairns City' }).exec(function(err, suburb){
 
             if(err){
-                return next(err);
+                return console.log(err);
             }
 
             if(suburb == null){
-                return next('Suburb Cairns City not found');
+                return console.log('Suburb Cairns City not found');
             }
 
             const international = new Locaton({ line1: 'Cairns International Airport', suburb: suburb });

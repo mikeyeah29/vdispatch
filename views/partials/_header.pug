@@ -1,5 +1,5 @@
 header.color-2-bg.clearfix
-	.container
+	.container-fluid
 		a(href="/").brand vDispatch
 		ul.nav
 			if user.permissions[0].administrator
@@ -55,5 +55,5 @@ header.color-2-bg.clearfix
 				a(href="").white-txt Contacts
 			li 
 				a(href="/logout").white-txt Log Out
-.container
+.container-fluid
 	p Hello, #{user.first_name} #{user.last_name}

@@ -190,8 +190,6 @@ bookingApi.post('/create-booking', mid.requiresLoginJSON, function(req, res){
 
 	calculatePrice(req.body.customer, req.body.pu_line1, req.body.do_line1, req.body.vehicletype_id, function(err, price){
 
-		console.log(err);
-
 		if(err){
 			body.error = err.message || 'There was a problem calculating the price';
 			res.status(err.status || 500);
@@ -368,6 +366,7 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 					    pick_up: pick_up,
 					    drop_off: drop_off,
 					    flight: thisObj.flight,
+					    transfer_type: 'Private',
 					    date: new Date(helpful.dateUsToUk(thisObj.date)),
 					    time: thisObj.time
 					});
@@ -391,8 +390,6 @@ bookingApi.post('/crewing-booking', mid.requiresLoginJSON, function(req, res){
 
 					})
 					.catch((err) => {
-
-						console.log(6);
 
 						if(err){
 							body.error = err.message || 'Some Internal Error';
@@ -453,17 +450,17 @@ bookingApi.post('/update-booking', mid.requiresLoginJSON, function(req, res){
 
 	if(req.body.adults){
 		if(!updateObj.passengers){ updateObj.passengers = {}; }
-		updateObj.passengers.adults = req.body.adults;
+		updateObj.passengers.adults = parseInt(req.body.adults);
 	}
 
 	if(req.body.children){
 		if(!updateObj.passengers){ updateObj.passengers = {}; }
-		updateObj.passengers.children = req.body.children;
+		updateObj.passengers.children = parseInt(req.body.children);
 	}
 
 	if(req.body.infants){
 		if(!updateObj.passengers){ updateObj.passengers = {}; }
-		updateObj.passengers.infants = req.body.infants;
+		updateObj.passengers.infants = parseInt(req.body.infants);
 	}
 
 	if(req.body.email){
@@ -505,7 +502,7 @@ bookingApi.post('/update-booking', mid.requiresLoginJSON, function(req, res){
 	}
 
 	if(req.body.date){
-		updateObj.date = req.body.date
+		updateObj.date = new Date(helpful.dateUsToUk(req.body.date));
 	}
 
 	if(req.body.time){
@@ -520,38 +517,123 @@ bookingApi.post('/update-booking', mid.requiresLoginJSON, function(req, res){
 	}
 
 	updateObj.extras = {
-		water: Number,
-        face_towel: Number,
-        rear_seat: Number,
-        forward_seat: Number,
-        booster: Number
+		water: 0,
+        face_towel: 0,
+        rear_seat: 0,
+        forward_seat: 0,
+        booster: 0
 	};
 
-	if(req.body.extras.rear_seat){ updateObj.extras.rear_seat = req.body.rear_seat }
-	if(req.body.extras.forward_seat){ updateObj.extras.forward_seat = req.body.forward_seat }
-	if(req.body.extras.booster){ updateObj.extras.booster = req.body.booster }
-	if(req.body.extras.water){ updateObj.extras.water = req.body.water }
-	if(req.body.extras.face_towel){ updateObj.extras.face_towel = req.body.face_towel }
+	if(req.body.rear_seat){ updateObj.extras.rear_seat = req.body.rear_seat; }
+	if(req.body.forward_seat){ updateObj.extras.forward_seat = req.body.forward_seat }
+	if(req.body.booster){ updateObj.extras.booster = req.body.booster }
+	if(req.body.water){ updateObj.extras.water = req.body.water }
+	if(req.body.face_towel){ updateObj.extras.face_towel = req.body.face_towel }
 
 	updateObj.notes = {
-		office: String,
-        customer: String,
-        driver: String
+		office: '',
+        customer: '',
+        driver: ''
 	};
 
-	if(req.body.notes_office){ updateObj.notes_office = req.body.notes_office }
-	if(req.body.notes_customer){ updateObj.notes_customer = req.body.notes_customer }
-	if(req.body.notes_driver){ updateObj.notes_driver = req.body.notes_driver }
+	if(req.body.notes_office){ updateObj.notes.office = req.body.notes_office }
+	if(req.body.notes_customer){ updateObj.notes.customer = req.body.notes_customer }
+	if(req.body.notes_driver){ updateObj.notes.driver = req.body.notes_driver }
+
+	if(req.body.price){
+		updateObj.price = req.body.price;
+	}
+
+	// Booking.findById(req.body.bookingid, (err, booking) => {
+
+	// 	if(err){
+	// 		body.error = err.message || 'Some Internal Error';
+	// 		res.status(err.status || 500);
+	// 		return res.json(body);
+	// 	}
+
+	// 	if(booking.isCrewing){
+
+	// 		CrewingDefault.findById(req.body.crewingid).populate('hotel').exec(function(err, crewingDef){
+
+	// 			if(err){
+	// 				body.error = err.message || 'Some Internal Error';
+	// 				res.status(err.status || 500);
+	// 				return res.json(body);
+	// 			}
+
+	// 			if(!crewingDef.hotel){
+	// 				body.error = 'Hotel not set for ' + crewingDef.name + ' <a href="/crewing">Edit Crewing Defaults</a>';
+	// 				res.status(200);
+	// 				return res.json(body);
+	// 			}
+
+	// 			// crewingDefs
+	// 			let vehicleObj = calculateCrewingPrice(crewingDef.pricing, updateObj.passengers.adults);
+
+	// 			updateObj.price = price;
+
+	// 			booking.update(updateObj)
+	// 				.then((result) => {
+	// 					console.log('rresult ', result);
+	// 					body.success = 'Booking Updated';
+	// 					res.status(200);
+	// 					return res.json(body);
+	// 				})
+	// 				.catch((e) => {
+	// 					body.error = err.message || 'There was a problem calculating the price';
+	// 					res.status(err.status || 500);
+	// 					return res.json(body);
+	// 				});
+
+	// 		});
+
+	// 	}else{
+
+	// 		calculatePrice(req.body.customer, req.body.pu_line1, req.body.do_line1, req.body.vehicletype_id, function(err, price){
+
+	// 			if(err){
+	// 				body.error = err.message || 'There was a problem calculating the price';
+	// 				res.status(err.status || 500);
+	// 				return res.json(body);
+	// 			}
+
+	// 			// update
+
+	// 			updateObj.price = price;
+
+	// 			booking.update(updateObj)
+	// 				.then((result) => {
+	// 					console.log('rresult ', result);
+	// 					body.success = 'Booking Updated';
+	// 					res.status(200);
+	// 					return res.json(body);
+	// 				})
+	// 				.catch((e) => {
+	// 					body.error = err.message || 'There was a problem calculating the price';
+	// 					res.status(err.status || 500);
+	// 					return res.json(body);
+	// 				});
+
+	// 		});
+
+	// 	}
+
+	// });
 
 	Booking.update({_id: req.body.bookingid}, {
 		$set: updateObj
-	}, (err, res) => {
+	}, (err, booking) => {
 
 		if(err){
-
+			body.error = err.message || 'Some Internal Error';
+			res.status(err.status || 500);
+			return res.json(body);
 		}
 
-		console.log(res);
+		body.success = 'Booking Updated';
+		res.status(200);
+		return res.json(body);
 
 	});
 

@@ -5,48 +5,180 @@ block content
 
 	section
 		.container
-			h1 Booking for #{booking.passengers.name}
-			a(href=`/booking/edit/${booking._id}`) Edit Booking
-			.bookingForm.greyBox
-				.info_bit 
-					p Booking No:
-					span #{booking.booking_no}
-				if booking.isCrewing
-					.info_bit
-						p Crewing Booking
-				h2 General
-				.info_bit
-					p Customer
-					span #{booking.customer}
-				if booking.sub_customer
-					.info_bit
-						p Sub Customer
-						span #{booking.sub_customer}
-				.info_bit
-					p Reference 1
-					span #{booking.reference1}
-				.info_bit
-					p Reference 2
-					span #{booking.reference2}
-				.info_bit
-					p Reference 3
-					span #{booking.reference3}
-				h2 Passengers
-				.info_bit
-					p Name
-					span #{booking.reference3}
-				.info_bit
-					p Adults
-					span #{booking.reference3}
-				.info_bit
-					p Children
-					span #{booking.reference3}
-				.info_bit
-					p Infants
-					span #{booking.reference3}
-				.info_bit
-					p Email
-					span #{booking.reference3}
-				.info_bit
-					p Phone
-					span #{booking.reference3}
+			if booking.isCrewing
+				h1 Booking for #{booking.passengers.name}
+				ul.actions_bar.booking_actions
+					li
+						a(href=`/booking/edit/${booking._id}`).btn.btn-warning.edit Edit Booking
+					li
+						a(href=`/booking/return/${booking._id}`).btn.btn-default.return Return Booking
+				.bookingForm.greyBox
+					if booking.isCrewing
+						.info_bit
+							p Crewing Booking
+					.aHalf
+						h2 General
+						.aHalf
+							.info_bit
+								p Booking No:
+								span #{booking.booking_no}
+							.info_bit
+								p Status:
+								span #{booking.status}	
+							.info_bit
+								p Customer
+								span #{booking.customer.name}
+							if booking.sub_customer
+								.info_bit
+									p Sub Customer
+									span #{booking.sub_customer}
+							.info_bit
+								p Reference 1
+								span #{booking.reference1}
+							.info_bit
+								p Reference 2
+								span #{booking.reference2}
+							.info_bit
+								p Reference 3
+								span #{booking.reference3}
+							.info_bit
+								p Price
+								span #{booking.price}
+							.info_bit
+								p Invoiced
+								span #{booking.invoiced}
+						.aHalf
+							.info_bit
+								p Date
+								span #{booking.date}
+							.info_bit
+								p Time
+								span #{booking.time}
+					.aHalf
+						h2 Passengers
+						.info_bit
+							p Name
+							span #{booking.passengers.name}
+						.info_bit
+							p Adults
+							span #{booking.passengers.adults}
+						.info_bit
+							p Children
+							span #{booking.passengers.children}
+						.info_bit
+							p Infants
+							span #{booking.passengers.infants}
+						.info_bit
+							p Email
+							span #{booking.passengers.email}
+						.info_bit
+							p Phone
+							span #{booking.passengers.phone}
+
+					.aHalf
+						h2 Journey
+						.info_bit
+							p Vehicle Type
+							span #{booking.vehicle_type.name}
+						.info_bit
+							p Transfer Type
+							span #{booking.transfer_type}
+						.aHalf
+							h4 Pickup
+							label Address
+							.address
+								span #{booking.pick_up.locaton.line1}
+								span #{booking.pick_up.locaton.line2}
+								span #{booking.pick_up.locaton.suburb.suburb}
+								span #{booking.pick_up.locaton.suburb.postcode}
+							if booking.pick_up.instructions
+								label Instructions
+								p #{booking.pick_up.instructions}
+						.aHalf
+							h4 Dropoff
+							label Address
+							.address
+								span #{booking.drop_off.locaton.line1}
+								span #{booking.drop_off.locaton.line2}
+								span #{booking.drop_off.locaton.suburb.suburb}
+								span #{booking.drop_off.locaton.suburb.postcode}
+							if booking.drop_off.instructions
+								label Instructions
+								p #{booking.drop_off.instructions}
+					.aHalf
+						h2 Extras
+						.info_bit
+							p Water
+							span #{booking.extras.water}
+						.info_bit
+							p Face Towel
+							span #{booking.extras.face_towel}
+						.info_bit
+							p Rear Seat
+							span #{booking.extras.rear_seat}
+						.info_bit
+							p Forward Seat
+							span #{booking.extras.forward_seat}
+						.info_bit
+							p Booster
+							span #{booking.extras.booster}
+						h2 Notes
+						.info_bit
+							p Office
+							span #{booking.notes.office}
+						.info_bit
+							p Customer
+							span #{booking.notes.customer}
+						.info_bit
+							p Driver
+							span #{booking.notes.driver}
+			else
+				h1 I did not expect this situation
+				//- h1 Booking for #{booking.passengers.name}
+				//- a(href=`/booking/edit/${booking._id}`) Edit Booking
+				//- .bookingForm.greyBox
+					//- if booking.isCrewing
+						//- .info_bit
+							//- p Crewing Booking
+					//- h2 General
+					//- .info_bit
+						//- p Booking No:
+						//- span #{booking.booking_no}
+					//- .info_bit
+						//- p Status:
+						//- span #{booking.status}	
+					//- .info_bit
+						//- p Customer
+						//- span #{booking.customer}
+					//- if booking.sub_customer
+						//- .info_bit
+							//- p Sub Customer
+							//- span #{booking.sub_customer}
+					//- .info_bit
+						//- p Reference 1
+						//- span #{booking.reference1}
+					//- .info_bit
+						//- p Reference 2
+						//- span #{booking.reference2}
+					//- .info_bit
+						//- p Reference 3
+						//- span #{booking.reference3}
+					//- h2 Passengers
+					//- .info_bit
+						//- p Name
+						//- span #{booking.reference3}
+					//- .info_bit
+						//- p Adults
+						//- span #{booking.reference3}
+					//- .info_bit
+						//- p Children
+						//- span #{booking.reference3}
+					//- .info_bit
+						//- p Infants
+						//- span #{booking.reference3}
+					//- .info_bit
+						//- p Email
+						//- span #{booking.reference3}
+					//- .info_bit
+						//- p Phone
+						//- span #{booking.reference3}

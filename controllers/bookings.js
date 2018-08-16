@@ -8,6 +8,7 @@ const Booking = require('../models/booking.js').Booking;
 const Locaton = require('../models/location.js').Locaton;
 const VehicleType = require('../models/vehicle_type').VehicleType;
 const helper = require('../helpers/main.js');
+const moment = require('moment');
 const pagination = require('../helpers/pagination.js');
 const mid = require('../middlewares/index');
 
@@ -55,6 +56,55 @@ bookings.get('/', mid.requiresLogin, function(req, res){
 
 });
 
+bookings.get('/return/:bookingid', mid.requiresLogin, function(req, res){
+
+	if(req.session.permissions[0][routePermission] == false){
+		return res.redirect('/dashboard');
+	}
+	
+	User.findById(req.session.userId).exec(function(err, user){
+
+		if(err){
+			return next(err);
+		}
+		
+		Account.find({status: true}).select({name: true}).exec(function(err, customers){
+
+			if(err){
+				return next(err);
+			}
+
+			VehicleType.find({status: true}, function(err, vTypes){
+
+				if(err){
+					return next(err);
+				}
+
+				Booking.findById(req.params.bookingid, (err, booking) => {
+
+					if(err){
+						return next(err);
+					}
+
+					res.render('bookings/return', {
+						title: 'Booking',
+						mode: 'add',
+						user: user,
+						customers: customers,
+						booking: booking,
+						vehicleTypes: vTypes
+					});
+
+				});
+
+			});
+
+		});
+
+	});
+
+});
+
 bookings.get('/edit/:bookingid', mid.requiresLogin, function(req, res){
 
 	if(req.session.permissions[0][routePermission] == false){
@@ -89,7 +139,7 @@ bookings.get('/edit/:bookingid', mid.requiresLogin, function(req, res){
 						return next(err);
 					}
 
-					console.log(booking);
+					console.log(booking.pick_up.instructions);
 
 					res.render('bookings/edit', {
 						title: 'Booking',
@@ -122,11 +172,31 @@ bookings.get('/view/:bookingid', mid.requiresLogin, function(req, res){
 			return next(err);
 		}
 
-		Booking.findById(req.params.bookingid, (err, booking) => {
+		Booking.findById(req.params.bookingid)
+			.populate('customer')
+			.populate('vehicle_type')
+			.populate({ 
+				path: 'pick_up.locaton',
+				populate: {
+					path: 'suburb',
+					model: 'Suburb'
+				} 
+			})
+			.populate({ 
+				path: 'drop_off.locaton',
+				populate: {
+					path: 'suburb',
+					model: 'Suburb'
+				} 
+			})
+			.lean()
+			.exec((err, booking) => {
 
 			if(err){
 				return next(err);
 			}
+
+			booking.date = moment(booking.date).format("DD/MM/YYYY");              ;
 
 			res.render('bookings/view', {
 				title: 'Booking',

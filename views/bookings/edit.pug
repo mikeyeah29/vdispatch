@@ -6,6 +6,11 @@ block content
 	section#page-accountsoverview
 		.container
 			h1 Edit Booking
+			ul.actions_bar.booking_actions
+				li
+					a(href=`/booking/view/${booking._id}`).btn.btn-default.view View Booking
+				li
+					a(href=`/booking/return/${booking._id}`).btn.btn-default.return Return Booking
 			.bookingForm.greyBox
 				.row
 					.col-sm-6
@@ -59,18 +64,20 @@ block content
 									li.aThird
 										label.break Adults
 										input(type="number", min="1", max="10", value=`${booking.passengers.adults}`)#q_adults
-									li.aThird
-										label.break Children
-										input(type="number", min="0", max="10", value="0")#q_children
-									li.aThird
-										label.break Infants
-										input(type="number", min="0", max="10", value="0")#q_infants
+									if !booking.isCrewing
+										li.aThird
+											label.break Children
+											input(type="number", min="0", max="10", value=`${booking.passengers.children}`)#q_children
+									if !booking.isCrewing
+										li.aThird
+											label.break Infants
+											input(type="number", min="0", max="10", value=`${booking.passengers.infants}`)#q_infants
 									li
 										label Email
-										input(type="email")#q_email
+										input(type="email", value=`${booking.passengers.email}`)#q_email
 									li
 										label Phone
-										input(type="text")#q_phone
+										input(type="text", value=`${booking.passengers.phone}`)#q_phone
 									li
 										label Vehicle Type
 										select#q_vehicle_type
@@ -84,9 +91,9 @@ block content
 										label Transfer Type
 										select#q_transfertype
 											option(value='') -
-											option(value='Private') Private
-											option(value='Seat') Seat
-											option(value='Coach') Coach
+											option(value='Private', selected=booking.transfer_type == 'Private') Private
+											option(value='Seat', selected=booking.transfer_type == 'Seat') Seat
+											option(value='Coach', selected=booking.transfer_type == 'Coach') Coach
 
 					.col-sm-6
 						.row
@@ -97,6 +104,12 @@ block content
 										label Location
 										input(type="text" value=`${booking.pick_up.locaton.line1}` data-locationid=`${booking.pick_up.locaton._id}`)#q_pu_location
 										a(href="/booking/locations", target="_blank") Add Location
+										if booking.pick_up.instructions
+											label.break Instructions
+											textarea#q_pu_instructions #{booking.pick_up.instructions}
+										if booking.drop_off.instructions
+											label.break Instructions
+											textarea#q_do_instructions #{booking.drop_off.instructions}
 							.col-sm-6
 								h3 Drop Off
 								ul.list.form
@@ -107,36 +120,39 @@ block content
 						hr
 						h3 Extras
 						ul.list.form
-							li.aThird
-								label.break Rear Seats
-								input(type="number", min="0", max="10", value="0")#q_rearseats
-							li.aThird
-								label.break Forward Seats
-								input(type="number", min="0", max="10", value="0")#q_forward_seat
-							li.aThird
-								label.break Booster Seats
-								input(type="number", min="0", max="10", value="0")#q_booster
+							if !booking.isCrewing
+								li.aThird
+									label.break Rear Seats
+									input(type="number", min="0", max="10", value=`${booking.extras.rear_seat}`)#q_rearseats
+							if !booking.isCrewing
+								li.aThird
+									label.break Forward Seats
+									input(type="number", min="0", max="10", value=`${booking.extras.forward_seat}`)#q_forward_seat
+							if !booking.isCrewing
+								li.aThird
+									label.break Booster Seats
+									input(type="number", min="0", max="10", value=`${booking.extras.booster}`)#q_booster
 							li.aThird
 								label.break Water
-								input(type="number", min="0", max="10", value="0")#q_water
+								input(type="number", min="0", max="10", value=`${booking.extras.water}`)#q_water
 							li.aThird
 								label.break Face Towel
-								input(type="number", min="0", max="10", value="0")#q_face_towel
+								input(type="number", min="0", max="10", value=`${booking.extras.face_towel}`)#q_face_towel
 						h3 Notes
 						ul.list.form.notesList
 							li.aThird
 								label Office
-								textarea#q_office_note
+								textarea#q_office_note #{booking.notes.office}
 							li.aThird
 								label Customer
-								textarea#q_customer_note
+								textarea#q_customer_note #{booking.notes.customer}
 							li.aThird
 								label Driver
-								textarea#q_driver_note
+								textarea#q_driver_note #{booking.notes.driver}
 						ul.list.form
 							li
 								label Price
-								p $#{booking.price}
+								input(type="text", value=`${booking.price}`)#q_price
 
 				.btn.btn-default.right#update-btn(data-bookingid=`${booking._id}`) Save Booking
 				.spin.right

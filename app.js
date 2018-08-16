@@ -4,7 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 const bodyParser = require('body-parser');
-const logger = require('morgan');
+// const logger = require('morgan');
 let config = '';
 
 if(process.env.NODE_ENV == 'test'){

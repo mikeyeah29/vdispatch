@@ -20,6 +20,10 @@
 
 */
 
+.container-fluid {
+    max-width: 1200px;
+}
+
 hr {
     width: 100%;
 }
@@ -115,12 +119,14 @@ ul {
     border: none;
 }
 
+.btn,
 .btn-default,
 .yesBtn,
 .noBtn {
     background: linear-gradient(#0A8874, #0ea78f);
     border-bottom: solid 2px #0e6557;
     color: #fff;
+    height: 35px;
 }
 
 .btn-default:hover {
@@ -334,6 +340,14 @@ table {
     display: inline-block;
     margin-right: 15px;
     vertical-align: bottom;
+}
+
+.actions_bar select {
+    height: 36px !important;
+}
+
+.action_margin {
+    margin-top: 33px;
 }
 
 .search_group input {
@@ -690,6 +704,7 @@ footer {
     border-bottom: solid 2px #d08e32;
     width: 50px;
     height: 35px;
+    color: #fff;
 }
 
 .edit:hover {
@@ -725,6 +740,42 @@ footer {
 
 .add:hover {
     background: url(../img/plus.png) no-repeat 10px 50%, linear-gradient(#2958b7, #bfd4ff);
+}
+
+.btn.return {
+    display: inline-block;
+    background: url(/img/return.png) no-repeat 50%, linear-gradient(#2958b7, #93a8d2);
+    border-bottom: solid 2px #233a69;
+    width: 50px;
+    height: 35px;
+}
+
+.return:hover {
+    background: url(/img/return.png) no-repeat 50%, linear-gradient(#2958b7, #bfd4ff);
+}
+
+.btn.search {
+    display: inline-block;
+    background: url(/img/search.png) no-repeat 50%, linear-gradient(#0A8874, #0ea78f);
+    border-bottom: solid 2px #233a69;
+    width: 50px;
+    height: 35px;
+}
+
+.btn.search:hover {
+    background: url(/img/search.png) no-repeat 50%, linear-gradient(#0A8874, #20d8bb);
+}
+
+.btn.filter {
+    display: inline-block;
+    background: url(/img/filter.png) no-repeat 50%, linear-gradient(#0A8874, #0ea78f);
+    border-bottom: solid 2px #233a69;
+    width: 50px;
+    height: 35px;
+}
+
+.btn.filter:hover {
+    background: url(/img/filter.png) no-repeat 50%, linear-gradient(#0A8874, #20d8bb);
 }
 
 /*.add:before {
@@ -904,7 +955,8 @@ footer {
 
 /* Search */
 
-form input[name="term"] {
+form input[name="term"],
+.search_group input {
     width: 75%;
     margin-right: 10px;
     padding: 5px;
@@ -943,6 +995,38 @@ form input[name="term"] {
 .form.notesList li {
     padding-right: 10px;
 }
+
+.bookingForm {
+    margin-top: 20px;
+}
+
+.bookingForm li p,
+.bookingForm .info_bit p {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #6a89b6;
+}
+
+.bookingForm .aHalf {
+    vertical-align: text-top;
+}
+
+.bookingForm .address {
+    margin-bottom: 20px;
+}
+
+.bookingForm .address span {
+    display: block;
+}
+
+.booking_actions .return,
+.booking_actions .edit,
+.booking_actions .view {
+    padding-left: 43px;
+    width: auto;
+    background-position: 10px 50%;
+}   
 
 /* Accordian */
 
@@ -1065,6 +1149,87 @@ form input[name="term"] {
 #add_price_box input[type="number"],
 #edit_price_box input[type="number"] {
     margin-left: 20px;
+}
+
+.date_large p {
+    font-size: 28px;
+    color: #bf1313;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: sub;
+}
+
+.date_large .arrow {
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.btns-switch .btn {
+    background: #5fd3ff;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: none;
+    width: 50px;
+}
+
+.btns-switch .btn:first-child {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.btns-switch .btn:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.btns-switch .on {
+    background-color: #47a3c5;
+    box-shadow: inset 2px 2px 10px #0000004a;
+}
+
+.btn-refresh {
+    background-image: url('../img/refresh.png') !important;
+}
+
+.btn-auto {
+    background-image: url('../img/auto.png') !important;
+}
+
+.dispatch_wrap {
+    overflow: auto;
+}
+
+table.dispatch {
+    width: 100%;
+    min-width: 1100px;
+    overflow: auto;
+}
+
+table.dispatch th {
+    background: #e6e6e6;
+    color: #4a4a4af7;
+    padding: 5px 10px;
+}
+
+table.dispatch td {
+    font-size: 14px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+table.dispatch td:first-child {
+    text-align: center;
+}
+
+table.dispatch .cb_box {
+    background: #e6e6e6;
+    margin: 5px 5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: solid 1px #ccc;
+}
+
+.exclaim {
+    background: url(../img/exclamation.png) no-repeat 90% 48% / 10px;
 }
 
 /* Pop Up */

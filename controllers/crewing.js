@@ -10,6 +10,7 @@ const CrewingDefault = require('../models/crewing_default').CrewingDefault;
 const VehicleType = require('../models/vehicle_type').VehicleType;
 const helper = require('../helpers/main.js');
 const mid = require('../middlewares/index');
+const mongoose = require('mongoose');
 
 const routePermission = 'reservations';
 
@@ -93,7 +94,7 @@ crewing.get('/search', mid.requiresLogin, function(req, res){
 			return next(err);
 		}
 
-		CrewingDefault.find({}, function(err, crewing){
+		Account.find({account_category: 'Crewing', status: true}, function(err, crewingAccounts){
 
 			if(err){
 				return next(err);
@@ -101,7 +102,7 @@ crewing.get('/search', mid.requiresLogin, function(req, res){
 
 			res.render('crewing/search', {
 				title: 'Crewing',
-				crewing: crewing,
+				crewingAccounts: crewingAccounts,
 				user: user,
 				postObj: postObj
 			});
@@ -138,9 +139,9 @@ crewing.post('/search', mid.requiresLogin, function(req, res, next){
 		}
 
 		if(req.body.airlinecrew && !req.body.airlinecrew == ''){
-			q1.customer = req.body.airlinecrew;
-			q2.customer = req.body.airlinecrew;
-			postObj.customer = req.body.airlinecrew;
+			q1.customer = mongoose.Types.ObjectId(req.body.airlinecrew);
+			q2.customer = mongoose.Types.ObjectId(req.body.airlinecrew);
+			postObj.customer = mongoose.Types.ObjectId(req.body.airlinecrew);
 		}
 
 		if(req.body.flight && !req.body.flight == ''){
@@ -152,8 +153,8 @@ crewing.post('/search', mid.requiresLogin, function(req, res, next){
 		let query = q1;
 
 		if(req.body.name && !req.body.name == ''){
-			q1['pick_up.instructions'] = new RegExp('^' + req.body.name, 'i');
-			q2['drop_off.instructions'] = new RegExp('^' + req.body.name, 'i');
+			q1['pick_up.instructions'] = new RegExp(req.body.name, 'i');
+			q2['drop_off.instructions'] = new RegExp(req.body.name, 'i');
 			query = {$or: [q1, q2]};
 			postObj.name = req.body.name;
 		}
@@ -163,7 +164,7 @@ crewing.post('/search', mid.requiresLogin, function(req, res, next){
 		Booking.find(query)
 			.populate('pick_up.locaton')
 			.populate('drop_off.locaton')
-			.sort({booking_no: -1})
+			.sort({date: 1})
 			.limit(50)
 			.exec((err, bookings) => {
 
@@ -171,18 +172,18 @@ crewing.post('/search', mid.requiresLogin, function(req, res, next){
 				return next(err);
 			}
 
-			CrewingDefault.find({}, function(err, crewing){
+			Account.find({account_category: 'Crewing', status: true}, function(err, crewingAccounts){
 
 				if(err){
 					return next(err);
 				}
 
-				console.log(bookings);
+				console.log(crewingAccounts);
 
 				res.render('crewing/search', {
 					title: 'Crewing',
 					user: user,
-					crewing: crewing,
+					crewingAccounts: crewingAccounts,
 					bookings: bookings,
 					postObj: postObj
 				});

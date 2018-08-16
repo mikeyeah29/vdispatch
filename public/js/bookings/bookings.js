@@ -53,22 +53,23 @@
 			{ id: 'q_time', validation: '' },
 			{ id: 'q_name', validation: '' },
 			{ id: 'q_adults', validation: 'none' },
-			{ id: 'q_children', validation: 'none'},
-			{ id: 'q_infants', validation: 'none'},
-			{ id: 'q_email', validation: 'email'},
-			{ id: 'q_phone', validation: ''},
-			{ id: 'q_vehicle_type', validation: ''},
-			{ id: 'q_transfertype', validation: ''},
-			{ id: 'q_pu_location', validation: ''},
-			{ id: 'q_do_location', validation: ''},
-			{ id: 'q_rearseats', validation: ''},
-			{ id: 'q_forward_seat', validation: ''},
-			{ id: 'q_booster', validation: ''},
-			{ id: 'q_water', validation: ''},
-			{ id: 'q_face_towel', validation: ''},
-			{ id: 'q_office_note', validation: 'none'},
-			{ id: 'q_customer_note', validation: 'none'},
-			{ id: 'q_driver_note', validation: 'none'}
+			{ id: 'q_children', validation: 'none' },
+			{ id: 'q_infants', validation: 'none' },
+			{ id: 'q_email', validation: 'none' },
+			{ id: 'q_phone', validation: 'none' },
+			{ id: 'q_vehicle_type', validation: '' },
+			{ id: 'q_transfertype', validation: '' },
+			{ id: 'q_pu_location', validation: '' },
+			{ id: 'q_do_location', validation: '' },
+			{ id: 'q_rearseats', validation: '' },
+			{ id: 'q_forward_seat', validation: '' },
+			{ id: 'q_booster', validation: '' },
+			{ id: 'q_water', validation: '' },
+			{ id: 'q_face_towel', validation: '' },
+			{ id: 'q_office_note', validation: 'none' },
+			{ id: 'q_customer_note', validation: 'none' },
+			{ id: 'q_driver_note', validation: 'none' },
+			{ id: 'q_price', validation: '' }
 		];
 
 		this.bookingForm = new Form('/api/bookings/create-booking', bookingFormData);
@@ -76,21 +77,17 @@
 
 		submit_btn.on('click', function(){
 			var subBtn = this;
-			thisBooking.saveBooking(subBtn, this.bookingForm, $(subBtn).next('.spin'));
+			thisBooking.saveBooking(subBtn, thisBooking.bookingForm, $(subBtn).next('.spin'));
 		});
 
 		update_btn.on('click', function(){
 			var subBtn = this;
-			thisBooking.saveBooking(subBtn, this.updateForm, $(subBtn).next('.spin'));
+			thisBooking.saveBooking(subBtn, thisBooking.updateForm, $(subBtn).next('.spin'));
 		});
 
 	}
 
 	Booking.prototype.saveBooking = function(submit, bForm, spin) {
-
-		console.log(submit, spin);
-
-		var bForm = this.bookingForm;
 
 		if(bForm.isValid()){
 
@@ -125,28 +122,39 @@
 	            face_towel: $('#' + bForm.fields[22].id).val(),
 	            notes_office: $('#' + bForm.fields[23].id).val(),
 	            notes_customer: $('#' + bForm.fields[24].id).val(),
-	            notes_driver: $('#' + bForm.fields[25].id).val()
+	            notes_driver: $('#' + bForm.fields[25].id).val(),
+	            price: $('#' + bForm.fields[26].id).val()
 			};
+
+			if($('#q_pu_instructions').length){
+				data.pu_instructions = $('#q_pu_instructions').val();
+			}
+
+			if($('#q_do_instructions').length){
+				data.do_instructions = $('#q_do_instructions').val();
+			}
 
 			if($(submit).data('bookingid')){
 				data.bookingid = $(submit).data('bookingid');
 			}
 
-			bForm.send(data, function(data){
+			bForm.send(data, function(result){
 
 				$(submit).show();
 				$(spin).hide();
 
-				if(data.success){
+				console.log(result);
+
+				if(result.success){
 					var msg = new Message(
-								data.success + ' <a href="/dispatch">View Dispatch</a>', 
+								result.success + ' <a href="/dispatch">View Dispatch</a>', 
 								false, 
 								$('#message_box')
 							);
 					msg.display(true);
 				}else{
-					console.log('ERRPR: ', data.responseJSON);
-					var msg = new Message(data.responseJSON.error || 'Something went wrong', true, $('#message_box'));
+					console.log('ERRPR: ', result.responseJSON);
+					var msg = new Message(result.responseJSON.error || 'Something went wrong', true, $('#message_box'));
 					msg.display();
 				}
 
